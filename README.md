@@ -3,7 +3,7 @@ RainBowCreation by VocanicZ
 
 ## rainbowcreation.net
 
-!this plugin based-on multipaper 1.19.2 + velocity core server!
+!this plugin based-on magma 1.12.2 + proxy + magmacore server!
 Our goal is create all in one network of plug-in that you can plug and play with no additional plugin required!
 RainBowCreation Network building concept
 - no pay-to-win at any points!
