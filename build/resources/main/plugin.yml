@@ -1,0 +1,4 @@
+name: RBCCore
+version: '1.0-INDEV'
+main: net.rainbowcreation.rbccore.RBCCore
+api-version: '1.19'
