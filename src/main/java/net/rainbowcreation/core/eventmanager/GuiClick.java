@@ -1,9 +1,9 @@
-package net.rainbowcreation.rainbowcreationx.eventmanager;
+package net.rainbowcreation.core.eventmanager;
 
-import net.rainbowcreation.rainbowcreationx.RainBowCreationX;
-import net.rainbowcreation.rainbowcreationx.gui.Gui;
-import net.rainbowcreation.rainbowcreationx.utils.math.Lst;
-import net.rainbowcreation.rainbowcreationx.utils.math.Roman;
+import net.rainbowcreation.core.core;
+import net.rainbowcreation.core.gui.Gui;
+import net.rainbowcreation.core.utils.math.Lst;
+import net.rainbowcreation.core.utils.math.Roman;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GuiClick implements Listener {
-    private static final RainBowCreationX plugin = RainBowCreationX.getInstance();
+    private static final core plugin = core.getInstance();
     private static final FileConfiguration config = plugin.guiData.getConfig();
 
     @EventHandler
@@ -78,7 +78,7 @@ public class GuiClick implements Listener {
 
     private static void doOnClick(InventoryClickEvent event, int guiID) {
         try { //Handle click of any gui page redirect to specific classGui
-            Class<?> gui = Class.forName("net.rainbowcreation.rainbowcreationx.gui."+config.getString( Roman.serialize(recheckID(event, guiID))+".name")+"Gui");
+            Class<?> gui = Class.forName("net.rainbowcreation.core.gui."+config.getString( Roman.serialize(recheckID(event, guiID))+".name")+"Gui");
             gui.getDeclaredMethod("onClick", InventoryClickEvent.class).invoke(gui.newInstance(), event);
         } catch (Exception ignored) {}
     }

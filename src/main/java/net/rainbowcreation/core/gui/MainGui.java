@@ -1,8 +1,8 @@
-package net.rainbowcreation.rainbowcreationx.gui;
+package net.rainbowcreation.core.gui;
 
-import net.rainbowcreation.rainbowcreationx.RainBowCreationX;
-import net.rainbowcreation.rainbowcreationx.eventmanager.GuiClick;
-import net.rainbowcreation.rainbowcreationx.utils.item.Item;
+import net.rainbowcreation.core.core;
+import net.rainbowcreation.core.eventmanager.GuiClick;
+import net.rainbowcreation.core.utils.item.Item;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainGui {
-    private final RainBowCreationX plugin = RainBowCreationX.getInstance();
+    private final core plugin = core.getInstance();
     public Item runSelf(Gui gui, Item item) {
         //todo
         return item;

@@ -1,17 +1,17 @@
-package net.rainbowcreation.rainbowcreationx;
+package net.rainbowcreation.core;
 
 import com.earth2me.essentials.Essentials;
-import net.rainbowcreation.rainbowcreationx.chat.Console;
-import net.rainbowcreation.rainbowcreationx.datamanager.Config;
-import net.rainbowcreation.rainbowcreationx.eventmanager.*;
+import net.rainbowcreation.core.chat.Console;
+import net.rainbowcreation.core.datamanager.Config;
+import net.rainbowcreation.core.eventmanager.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class RainBowCreationX extends JavaPlugin {
+public final class core extends JavaPlugin {
 
-    private static RainBowCreationX instance;
-    public static RainBowCreationX getInstance(){
+    private static core instance;
+    public static core getInstance(){
         return instance;
     }
     public Config guiData;

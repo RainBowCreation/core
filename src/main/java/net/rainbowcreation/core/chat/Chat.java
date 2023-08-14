@@ -1,4 +1,4 @@
-package net.rainbowcreation.rainbowcreationx.chat;
+package net.rainbowcreation.core.chat;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;

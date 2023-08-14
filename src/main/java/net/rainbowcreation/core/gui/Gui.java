@@ -1,11 +1,11 @@
-package net.rainbowcreation.rainbowcreationx.gui;
+package net.rainbowcreation.core.gui;
 
 import net.kyori.adventure.text.Component;
-import net.rainbowcreation.rainbowcreationx.RainBowCreationX;
-import net.rainbowcreation.rainbowcreationx.chat.Chat;
-import net.rainbowcreation.rainbowcreationx.utils.item.Item;
-import net.rainbowcreation.rainbowcreationx.utils.math.Lst;
-import net.rainbowcreation.rainbowcreationx.utils.math.Roman;
+import net.rainbowcreation.core.core;
+import net.rainbowcreation.core.chat.Chat;
+import net.rainbowcreation.core.utils.item.Item;
+import net.rainbowcreation.core.utils.math.Lst;
+import net.rainbowcreation.core.utils.math.Roman;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -16,7 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.List;
 
 public class Gui {
-    private static final RainBowCreationX plugin = RainBowCreationX.getInstance();
+    private static final core plugin = core.getInstance();
     private static final FileConfiguration config = plugin.guiData.getConfig();
     private final String defaultName = "<white>";
     private Component name;
@@ -106,7 +106,7 @@ public class Gui {
         if (config.contains(id+".lore"))
             item.lore(Lst.minimessageColoredList((List<String>) config.getList(id + ".lore")));
         try {
-            Class<?> gui = Class.forName("net.rainbowcreation.rainbowcreationx.gui." + config.getString(id + ".name") + "Gui");
+            Class<?> gui = Class.forName("net.rainbowcreation.core.gui." + config.getString(id + ".name") + "Gui");
             Object[] obj = {instance, item};
             Class<?>[] params = new Class[obj.length];
             params[0] = Gui.class;
@@ -119,7 +119,7 @@ public class Gui {
         if (inv == null)
             gridReader();
         try {
-            Class<?> gui = Class.forName("net.rainbowcreation.rainbowcreationx.gui."+config.getString(Roman.serialize(guiId)+".name")+"Gui");
+            Class<?> gui = Class.forName("net.rainbowcreation.core.gui."+config.getString(Roman.serialize(guiId)+".name")+"Gui");
             inv = (Inventory) gui.getDeclaredMethod("run", Gui.class).invoke(gui.newInstance(), instance);
         } catch (Exception ignored) {}
         return inv;

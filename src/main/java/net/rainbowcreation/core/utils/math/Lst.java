@@ -1,6 +1,6 @@
-package net.rainbowcreation.rainbowcreationx.utils.math;
+package net.rainbowcreation.core.utils.math;
 
-import net.rainbowcreation.rainbowcreationx.chat.Chat;
+import net.rainbowcreation.core.chat.Chat;
 
 import java.util.ArrayList;
 import java.util.List;

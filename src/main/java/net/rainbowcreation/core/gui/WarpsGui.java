@@ -1,14 +1,14 @@
-package net.rainbowcreation.rainbowcreationx.gui;
+package net.rainbowcreation.core.gui;
 
 import com.earth2me.essentials.User;
 import com.earth2me.essentials.Warps;
-import net.rainbowcreation.rainbowcreationx.RainBowCreationX;
-import net.rainbowcreation.rainbowcreationx.chat.Chat;
-import net.rainbowcreation.rainbowcreationx.chat.Console;
-import net.rainbowcreation.rainbowcreationx.eventmanager.GuiClick;
-import net.rainbowcreation.rainbowcreationx.utils.item.Item;
-import net.rainbowcreation.rainbowcreationx.utils.permission.Permission;
-import net.rainbowcreation.rainbowcreationx.utils.player.Warp;
+import net.rainbowcreation.core.core;
+import net.rainbowcreation.core.chat.Chat;
+import net.rainbowcreation.core.chat.Console;
+import net.rainbowcreation.core.eventmanager.GuiClick;
+import net.rainbowcreation.core.utils.item.Item;
+import net.rainbowcreation.core.utils.permission.Permission;
+import net.rainbowcreation.core.utils.player.Warp;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WarpsGui {
-    private final RainBowCreationX plugin = RainBowCreationX.getInstance();
+    private final core plugin = core.getInstance();
     private final FileConfiguration config = plugin.playerData.getConfig();
     public Item runSelf(Gui gui, Item item) {
         Player player = gui.getPlayer();

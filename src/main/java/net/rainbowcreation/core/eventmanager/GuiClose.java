@@ -1,7 +1,7 @@
-package net.rainbowcreation.rainbowcreationx.eventmanager;
+package net.rainbowcreation.core.eventmanager;
 
-import net.rainbowcreation.rainbowcreationx.gui.Gui;
-import net.rainbowcreation.rainbowcreationx.utils.math.Lst;
+import net.rainbowcreation.core.gui.Gui;
+import net.rainbowcreation.core.utils.math.Lst;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;

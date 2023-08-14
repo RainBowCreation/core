@@ -1,7 +1,7 @@
-package net.rainbowcreation.rainbowcreationx.datamanager;
+package net.rainbowcreation.core.datamanager;
 
-import net.rainbowcreation.rainbowcreationx.RainBowCreationX;
-import net.rainbowcreation.rainbowcreationx.chat.Console;
+import net.rainbowcreation.core.core;
+import net.rainbowcreation.core.chat.Console;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -10,12 +10,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Config {
-    private final RainBowCreationX plugin;
+    private final core plugin;
     private FileConfiguration dataConfig = null;
     private File configFile = null;
     private final String file;
 
-    public Config(RainBowCreationX plugin, String file) {
+    public Config(core plugin, String file) {
         this.plugin = plugin;
         this.file = file;
         saveDefaultConfig();

@@ -1,7 +1,7 @@
-package net.rainbowcreation.rainbowcreationx.utils.item;
+package net.rainbowcreation.core.utils.item;
 
 import net.kyori.adventure.text.Component;
-import net.rainbowcreation.rainbowcreationx.chat.Chat;
+import net.rainbowcreation.core.chat.Chat;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;

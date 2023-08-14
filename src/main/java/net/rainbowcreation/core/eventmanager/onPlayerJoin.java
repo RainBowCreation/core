@@ -1,9 +1,9 @@
-package net.rainbowcreation.rainbowcreationx.eventmanager;
+package net.rainbowcreation.core.eventmanager;
 
-import net.rainbowcreation.rainbowcreationx.RainBowCreationX;
-import net.rainbowcreation.rainbowcreationx.chat.Chat;
-import net.rainbowcreation.rainbowcreationx.chat.Console;
-import net.rainbowcreation.rainbowcreationx.utils.permission.Permission;
+import net.rainbowcreation.core.core;
+import net.rainbowcreation.core.chat.Chat;
+import net.rainbowcreation.core.chat.Console;
+import net.rainbowcreation.core.utils.permission.Permission;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import java.util.UUID;
 
 public class onPlayerJoin implements Listener {
-    private static final RainBowCreationX plugin = RainBowCreationX.getInstance();
+    private static final core plugin = core.getInstance();
     private static final FileConfiguration config = plugin.playerData.getConfig();
     @EventHandler
     public static void onEvent(PlayerJoinEvent event) {

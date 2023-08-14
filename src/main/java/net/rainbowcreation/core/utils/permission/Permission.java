@@ -1,6 +1,6 @@
-package net.rainbowcreation.rainbowcreationx.utils.permission;
+package net.rainbowcreation.core.utils.permission;
 
-import net.rainbowcreation.rainbowcreationx.chat.Chat;
+import net.rainbowcreation.core.chat.Chat;
 import org.bukkit.entity.Player;
 
 public class Permission {

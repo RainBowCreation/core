@@ -1,8 +1,8 @@
-package net.rainbowcreation.rainbowcreationx.eventmanager;
+package net.rainbowcreation.core.eventmanager;
 
-import net.rainbowcreation.rainbowcreationx.RainBowCreationX;
-import net.rainbowcreation.rainbowcreationx.gui.Gui;
-import net.rainbowcreation.rainbowcreationx.utils.permission.Permission;
+import net.rainbowcreation.core.core;
+import net.rainbowcreation.core.gui.Gui;
+import net.rainbowcreation.core.utils.permission.Permission;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,7 +14,7 @@ public class onPlayerSwapHandItem implements Listener {
         Player player = event.getPlayer();
         if (!Permission.hasPermission(player, "rbc.verified"))
             return;
-        if (!RainBowCreationX.getInstance().playerData.getConfig().getBoolean("player." + player.getUniqueId() + ".f_gui") ^ player.isSneaking())
+        if (!core.getInstance().playerData.getConfig().getBoolean("player." + player.getUniqueId() + ".f_gui") ^ player.isSneaking())
             return;
         event.setCancelled(true);
         player.openInventory(new Gui(2).setPlayer(player).get());

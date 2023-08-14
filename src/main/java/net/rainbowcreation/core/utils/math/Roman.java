@@ -1,4 +1,4 @@
-package net.rainbowcreation.rainbowcreationx.utils.math;
+package net.rainbowcreation.core.utils.math;
 
 import java.util.Arrays;
 import java.util.List;
