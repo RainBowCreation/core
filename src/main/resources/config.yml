@@ -7,15 +7,25 @@ Header: [
 "# | | \ \ (_| | | | | | |_) | (_) \ V  V /| |____| | |  __/ (_| | |_| | (_) | | | | #",
 "# |_|  \_\__,_|_|_| |_|____/ \___/ \_/\_/  \_____|_|  \___|\__,_|\__|_|\___/|_| |_| #",
 "#####################################################################################"]
-#RainBowCreation.Stanalone by VocanicZ
+#RainBowCreation.core by NathanielSong
 #Official Website: rainbowcreation.net
-#resource pack: https://www.dropbox.com/s/q9sev4nihzbmfil/RainBowCreation.zip?dl=1
+
+#enable redis caching? the plugin will be lightning fast (default enable: false)
+redis:
+  enable: false
+  #redis-server url
+  host: "localhost"
+  #default port: 6379
+  port: 6379
+  requirepass: ""
 
 #support mySQL database? (default enable: false)
 mySQL:
   enable: false
   #databaseURL
-  url: "=jdbc:mysql://localhost:3306/myDatabase"
+  url: "localhost"
+  port: 3306
+  database: "mydatabase"
   username: "root"
   password: ""
 
