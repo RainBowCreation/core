@@ -3,6 +3,7 @@ package net.rainbowcreation.core;
 import com.earth2me.essentials.Essentials;
 import net.rainbowcreation.core.chat.Console;
 import net.rainbowcreation.core.datamanager.Config;
+import net.rainbowcreation.core.datamanager.Service;
 import net.rainbowcreation.core.eventmanager.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -31,6 +32,7 @@ public final class core extends JavaPlugin {
         if (ess == null) {
             Console.info("Please install Essentials");
         }
+        Service.initialize();
     }
 
     @Override

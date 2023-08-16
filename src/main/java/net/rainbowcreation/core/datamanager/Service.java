@@ -6,13 +6,13 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class Service {
-    private boolean mysql;
+    private static boolean mysql;
     private static boolean cur_mysql;
     private static Redis redisClass;
-    private boolean redis;
+    private static boolean redis;
     private static MySql mySqlClass;
     private static boolean cur_redis;
-    public Service() {
+    public static void initialize() {
         FileConfiguration config = core.getInstance().getConfig();
         if (redis = config.getBoolean("redis.enable"))
             redisClass = new Redis();
