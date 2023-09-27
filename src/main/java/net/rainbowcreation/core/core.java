@@ -30,7 +30,7 @@ public final class core extends JavaPlugin {
         }
         ess = (Essentials) instance.getServer().getPluginManager().getPlugin("Essentials");
         if (ess == null) {
-            Console.info("Please install Essentials");
+            Console.info("Please install Essentials"); //checker
         }
         Service.initialize();
     }
