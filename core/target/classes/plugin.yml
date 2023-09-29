@@ -1,4 +1,0 @@
-name: core
-version: '1.0-SNAPSHOT'
-main: net.rainbowcreation.core.Core
-api-version: '1.19'
