@@ -1,0 +1,4 @@
+name: core
+version: '${project.version}'
+main: net.rainbowcreation.core.Core
+api-version: '1.19'
