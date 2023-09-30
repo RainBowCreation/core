@@ -12,7 +12,11 @@ public class MySql {
 
     public MySql() {
         try {
-            connection = DriverManager.getConnection("jdbc://"+ config.getString("mySQL.url")+":"+ String.valueOf(config.getInt("mySQL.port"))+"/"+config.getString("mySQL.database") ,config.getString("mySQL.username"), config.getString("mySQL.password"));
+            String url = config.getString("mySQL.url");
+            if (!url.startsWith("jdbc:")) {
+                url = "jdbc:mysql://" + url;
+            }
+            connection = DriverManager.getConnection(url+":"+ String.valueOf(config.getInt("mySQL.port"))+"/"+config.getString("mySQL.database") ,config.getString("mySQL.username"), config.getString("mySQL.password"));
         } catch (Exception ignored) {};
         set("server", "ping", "pong", "id", 1);
     }
