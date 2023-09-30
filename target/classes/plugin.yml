@@ -1,4 +1,4 @@
-name: core
+name: RBCcore
 version: '1.0-SNAPSHOT'
-main: net.rainbowcreation.core.Core
+main: net.rainbowcreation.rbccore.core
 api-version: '1.19'
