@@ -1,4 +1,4 @@
-name: core
-version: '${project.version}'
-main: net.rainbowcreation.core.Core
+name: RBCcore
+version: '${version}'
+main: net.rainbowcreation.rbccore.core
 api-version: '1.19'
