@@ -32,13 +32,11 @@ public final class Core extends JavaPlugin {
                                             "# |_|  \\_\\__,_|_|_| |_|____/ \\___/ \\_/\\_/  \\_____|_|  \\___|\\__,_|\\__|_|\\___/|_|  |_| #",
                                             "#                                                                                   #",
                                             "###########################################################################core######");
+        for (String txt : header) {
+            Console.info(txt);
+        }
         setupConfig();
         Manager.register(Bukkit.getPluginManager(), instance);
-        if (instance.getConfig().contains("Header")) {
-            for (Object txt : instance.getConfig().getList("Header")) {
-                Console.info(txt.toString());
-            }
-        }
         ess = (Essentials) instance.getServer().getPluginManager().getPlugin("Essentials");
         if (ess == null) {
             Console.info("Please install Essentials"); //checker
