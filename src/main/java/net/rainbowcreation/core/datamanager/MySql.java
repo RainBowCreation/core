@@ -1,6 +1,7 @@
 package net.rainbowcreation.core.datamanager;
 
 import net.rainbowcreation.core.Core;
+import net.rainbowcreation.core.chat.Console;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.sql.*;
@@ -17,8 +18,9 @@ public class MySql {
                 url = "jdbc:mysql://" + url;
             }
             connection = DriverManager.getConnection(url+":"+ String.valueOf(config.getInt("mySQL.port"))+"/"+config.getString("mySQL.database") ,config.getString("mySQL.username"), config.getString("mySQL.password"));
-        } catch (Exception ignored) {};
-        set("server", "ping", "pong", "id", 1);
+        } catch (Exception e) {
+            Console.info(e.toString());
+        };
     }
 
     public Connection getConnection() {
@@ -34,7 +36,7 @@ public class MySql {
     }
 
     public void set(String table, String key, Object value, String wkey, Object wvalue) {
-        String query = "UPDATE " + table + " SET " + key + " = ? WHERE " + wkey + " = ?;";
+        String query = "UPDATE " + config.getString("mySQL.table_prefix")+table + " SET " + key + " = ? WHERE " + wkey + " = ?;";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setObject(1, value);
@@ -46,7 +48,7 @@ public class MySql {
     }
 
     public String get(String table, String key, String wkey, Object wvalue) {
-        String query = "SELECT * FROM " + table + " WHERE " + wkey + " = ?;";
+        String query = "SELECT * FROM " + config.getString("mySQL.table_prefix") + table + " WHERE " + wkey + " = ?;";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setObject(1, wvalue);
@@ -61,8 +63,6 @@ public class MySql {
     }
 
     public boolean ping() {
-        if (get("server", "ping", "id", 1).equals("pong"))
-            return true;
-        return false;
+        return get("heartbeat", "ping", "ping", "pong").equals("pong");
     }
 }
