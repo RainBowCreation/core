@@ -64,6 +64,12 @@ public class MySql {
         return null;
     }
 
+    public void setup() {
+        //do first time setup thing
+        //case1 fresh start setup will create table and store data init
+        //case2 not fresh start setup will create table and upload all data to the database
+    }
+
     public boolean ping() {
         String query = "SELECT * FROM heartbeat WHERE ping = 'pong';";
         try {
