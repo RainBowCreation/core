@@ -17,7 +17,8 @@ public class MySql {
             if (!url.startsWith("jdbc:")) {
                 url = "jdbc:mysql://" + url;
             }
-            connection = DriverManager.getConnection(url+":"+ String.valueOf(config.getInt("mySQL.port"))+"/"+config.getString("mySQL.database") ,config.getString("mySQL.username"), config.getString("mySQL.password"));
+            Console.info(url+":"+config.getInt("mySQL.port")+"/"+config.getString("mySQL.database")+";"+config.getString("mySQL.username")+";"+config.getString("mySQL.password"));
+            connection = DriverManager.getConnection(url+":"+ config.getInt("mySQL.port")+"/"+config.getString("mySQL.database"), config.getString("mySQL.username"), config.getString("mySQL.password"));
         } catch (Exception e) {
             Console.info(e.toString());
         };
