@@ -18,6 +18,7 @@ public class MySql {
                 url = "jdbc:mysql://" + url;
             }
             Console.info(url+":"+config.getInt("mySQL.port")+"/"+config.getString("mySQL.database")+";"+config.getString("mySQL.username")+";"+config.getString("mySQL.password"));
+            Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url+":"+ config.getInt("mySQL.port")+"/"+config.getString("mySQL.database"), config.getString("mySQL.username"), config.getString("mySQL.password"));
         } catch (Exception e) {
             Console.info(e.toString());
