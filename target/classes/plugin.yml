@@ -1,7 +1,0 @@
-name: RainBowCreation
-version: '1.0-SNAPSHOT'
-main: net.rainbowcreation.core.Core
-website: rainbowcreation.net
-api-version: '1.19'
-depend: [Essentials, Lands, LuckPerms]
-prefix: RBC
