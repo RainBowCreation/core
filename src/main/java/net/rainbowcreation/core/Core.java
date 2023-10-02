@@ -54,7 +54,6 @@ public final class Core extends JavaPlugin {
         saveDefaultConfig();
         guiData = new Config(instance, "gui.yml");
         guiData.saveConfig();
-        guiData.reloadConfig();
         playerData = new Config(instance, "userdata.yml");
         playerData.saveConfig();
         playerData.reloadConfig();
