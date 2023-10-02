@@ -29,6 +29,7 @@ mySQL:
   username: 'root'
   password: ''
   table_prefix: 'core_'
+  heartbeat_fix: true #do not touch this if you don't know what it does
 
 #is this server in bungeecord (default enable: false)
 #Make sure any of server name have the same name as your bungeecord config

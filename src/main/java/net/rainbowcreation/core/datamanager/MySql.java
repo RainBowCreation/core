@@ -38,7 +38,7 @@ public class MySql {
     }
 
     public void set(String table, String key, Object value, String wkey, Object wvalue) {
-        String query = "UPDATE " + config.getString("mySQL.table_prefix")+table + " SET " + key + " = ? WHERE " + wkey + " = ?;";
+        String query = "UPDATE " + config.getString("mySQL.table_prefix") + table + " SET " + key + " = ? WHERE " + wkey + " = ?;";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setObject(1, value);
@@ -65,6 +65,16 @@ public class MySql {
     }
 
     public boolean ping() {
-        return get("heartbeat", "ping", "ping", "pong").equals("pong");
+        String query = "SELECT * FROM heartbeat WHERE ping = 'pong';";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                return rs.getString("ping").equals("pong");
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 }
