@@ -118,9 +118,7 @@ public class MySql {
             while (rs.next()) {
                 return rs.getString("ping").equals("pong");
             }
-        } catch(SQLException e){
-            throw new RuntimeException(e);
-        }
+        } catch(SQLException ignored){}
         return false;
     }
 }
