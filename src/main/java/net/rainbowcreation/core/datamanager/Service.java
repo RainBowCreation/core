@@ -20,9 +20,7 @@ public class Service {
         if (mysql = config.getBoolean("mySQL.enable")) {
             mySqlClass = new MySql();
             if (config.getBoolean("mySQL.heartbeat_fix")) {
-                if (!mySqlClass.ping()) {
-                    //create table
-                }
+                mySqlClass.setup();
                 config.set("mySQL.heartbeat_fix", false);
             }
         }
