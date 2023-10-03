@@ -72,8 +72,7 @@ public class MySql {
     public boolean execute(String statement) {
         try {
             PreparedStatement stmt = connection.prepareStatement(statement);
-            stmt.executeQuery();
-            return true;
+            return stmt.execute();
         } catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -118,7 +117,9 @@ public class MySql {
             while (rs.next()) {
                 return rs.getString("ping").equals("pong");
             }
-        } catch(SQLException ignored){}
+        } catch(SQLException e){
+            throw new RuntimeException(e);
+        }
         return false;
     }
 }
