@@ -97,8 +97,8 @@ public class MySql {
     public void setup() {
         Console.info("initializing");
         if (!ping()) {
-            execute("CREATE TABLE heartbeat (ping TEXT)");
-            execute("INSERT INTO heartbeat(ping) VALUES (pong);");
+            execute("CREATE TABLE " + prefix + "heartbeat (ping TEXT)");
+            execute("INSERT INTO " + prefix + "heartbeat(ping) VALUES (pong);");
         }
         //do first time setup thing
         //case1 fresh start setup will create table and store data init
@@ -106,7 +106,7 @@ public class MySql {
     }
 
     public boolean ping() {
-        String query = "SELECT * FROM heartbeat WHERE ping = 'pong';";
+        String query = "SELECT * FROM " + prefix + "heartbeat WHERE ping = 'pong';";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
