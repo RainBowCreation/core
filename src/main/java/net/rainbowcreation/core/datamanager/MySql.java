@@ -95,6 +95,7 @@ public class MySql {
     }
 
     public void setup() {
+        Console.info("initializing");
         if (!ping()) {
             execute("CREATE TABLE heartbeat (ping TEXT)");
             execute("INSERT INTO heartbeat(ping) VALUES (pong);");

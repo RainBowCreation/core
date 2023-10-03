@@ -21,6 +21,7 @@ public class Service {
             mySqlClass = new MySql();
             if (config.getBoolean("mySQL.heartbeat_fix")) {
                 mySqlClass.setup();
+                Console.info("update config");
                 config.set("mySQL.heartbeat_fix", false);
             }
         }
