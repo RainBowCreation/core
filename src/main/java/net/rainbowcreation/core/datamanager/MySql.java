@@ -5,11 +5,14 @@ import net.rainbowcreation.core.chat.Console;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySql {
     private static final Core plugin = Core.getInstance();
     private Connection connection;
     FileConfiguration config = plugin.getConfig();
+    private String prefix = config.getString("mySQL.table_prefix");
 
     public MySql() {
         try {
@@ -21,7 +24,7 @@ public class MySql {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url+":"+ config.getInt("mySQL.port")+"/"+config.getString("mySQL.database"), config.getString("mySQL.username"), config.getString("mySQL.password"));
         } catch (Exception e) {
-            Console.info(e.toString());
+            throw new RuntimeException(e);
         };
     }
 
@@ -33,24 +36,25 @@ public class MySql {
         try {
             connection.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
-    public void set(String table, String key, Object value, String wkey, Object wvalue) {
-        String query = "UPDATE " + config.getString("mySQL.table_prefix") + table + " SET " + key + " = ? WHERE " + wkey + " = ?;";
+    public boolean set(String table, String key, Object value, String wkey, Object wvalue) {
+        String query = "UPDATE " +  prefix + table + " SET " + key + " = ? WHERE " + wkey + " = ?;";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setObject(1, value);
             stmt.setObject(2, wvalue);
             stmt.executeUpdate();
+            return true;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public String get(String table, String key, String wkey, Object wvalue) {
-        String query = "SELECT * FROM " + config.getString("mySQL.table_prefix") + table + " WHERE " + wkey + " = ?;";
+        String query = "SELECT * FROM " + prefix + table + " WHERE " + wkey + " = ?;";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setObject(1, wvalue);
@@ -59,12 +63,42 @@ public class MySql {
                 return rs.getString(key);
             }
         } catch(SQLException e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return null;
     }
 
+    public boolean execute(String statement) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement(statement);
+            ResultSet rs = stmt.executeQuery();
+            return true;
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean add(String table, String key, String value) {
+        return execute("INSERT INTO " + prefix + table + "(" + key + ") VALUES (" + value + ");");
+    }
+
+    public boolean add(String table, List<String> keys, List<String> values) {
+        if (keys.size() != values.size()) {
+            Console.info("size of keys and values not match");
+            return false;
+        }
+        boolean result = true;
+        for (int i=0; i<keys.size(); i++) {
+            result = result && add(table, keys.get(i), values.get(i));
+        }
+        return result;
+    }
+
     public void setup() {
+        if (!ping()) {
+            execute("CREATE TABLE heartbeat (ping TEXT)");
+            execute("INSERT INTO heartbeat(ping) VALUES (pong);");
+        }
         //do first time setup thing
         //case1 fresh start setup will create table and store data init
         //case2 not fresh start setup will create table and upload all data to the database
