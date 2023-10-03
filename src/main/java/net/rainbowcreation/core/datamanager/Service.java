@@ -23,6 +23,7 @@ public class Service {
                 mySqlClass.setup();
                 Console.info("update config");
                 config.set("mySQL.heartbeat_fix", false);
+                plugin.saveConfig();
             }
         }
         Console.info("mySQL :"+mysql);
