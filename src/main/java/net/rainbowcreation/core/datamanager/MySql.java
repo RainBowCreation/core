@@ -71,7 +71,7 @@ public class MySql {
     public boolean execute(String statement) {
         try {
             PreparedStatement stmt = connection.prepareStatement(statement);
-            ResultSet rs = stmt.executeQuery();
+            stmt.executeQuery();
             return true;
         } catch (SQLException e){
             throw new RuntimeException(e);
@@ -114,7 +114,7 @@ public class MySql {
                 return rs.getString("ping").equals("pong");
             }
         } catch(SQLException e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return false;
     }
