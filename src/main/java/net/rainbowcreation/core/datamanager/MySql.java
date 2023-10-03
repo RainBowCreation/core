@@ -78,6 +78,16 @@ public class MySql {
         }
     }
 
+    public boolean execute(String statement, Object param) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement(statement);
+            stmt.setObject(1, param);
+            return stmt.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public boolean add(String table, String key, String value) {
         return execute("INSERT INTO " + prefix + table + "(" + key + ") VALUES (" + value + ");");
     }
@@ -101,8 +111,8 @@ public class MySql {
     public void setup() {
         Console.info("initializing");
         if (!ping()) {
-            Console.info("create table -> " + String.valueOf(createTable("heartbeat", "ping", "text")));
-            execute("INSERT INTO " + prefix + "heartbeat(ping) VALUES (\"pong\");");
+            Console.info("create table -> " + createTable("heartbeat", "ping", "text"));
+            Console.info("insert -> " + execute("INSERT INTO " + prefix + "heartbeat(ping) VALUES (?);", "pong"));
         }
         //do first time setup thing
         //case1 fresh start setup will create table and store data init
