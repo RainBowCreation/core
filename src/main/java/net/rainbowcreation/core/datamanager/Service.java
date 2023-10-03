@@ -17,8 +17,15 @@ public class Service {
         FileConfiguration config = plugin.getConfig();
         if (redis = config.getBoolean("redis.enable"))
             redisClass = new Redis();
-        if (mysql = config.getBoolean("mySQL.enable"))
+        if (mysql = config.getBoolean("mySQL.enable")) {
             mySqlClass = new MySql();
+            if (config.getBoolean("mySQL.heartbeat_fix")) {
+                if (!mySqlClass.ping()) {
+                    //create table
+                }
+                config.set("mySQL.heartbeat_fix", false);
+            }
+        }
         Console.info("mySQL :"+mysql);
         new BukkitRunnable() {
             @Override
