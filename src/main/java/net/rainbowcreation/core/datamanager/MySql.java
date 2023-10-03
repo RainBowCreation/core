@@ -95,13 +95,13 @@ public class MySql {
     }
 
     public boolean createTable(String table, String colum, String type) {
-        return execute("CREATE TABLE " + prefix + table + " ("+ colum + " " + type.toUpperCase());
+        return execute("CREATE TABLE " + prefix + table + " ("+ colum + " " + type.toUpperCase() + ");");
     }
 
     public void setup() {
         Console.info("initializing");
         if (!ping()) {
-            Console.info("create table -> " + String.valueOf(createTable("heatbeat", "ping", "text")));
+            Console.info("create table -> " + String.valueOf(createTable("heartbeat", "ping", "text")));
             execute("INSERT INTO " + prefix + "heartbeat(ping) VALUES (pong);");
         }
         //do first time setup thing
