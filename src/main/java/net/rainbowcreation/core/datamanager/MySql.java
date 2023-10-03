@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MySql {
     private static final Core plugin = Core.getInstance();
@@ -94,10 +95,14 @@ public class MySql {
         return result;
     }
 
+    public boolean createTable(String table, String colum, String type) {
+        return execute("CREATE TABLE " + prefix + table + " ("+ colum + " " + type.toUpperCase());
+    }
+
     public void setup() {
         Console.info("initializing");
         if (!ping()) {
-            execute("CREATE TABLE " + prefix + "heartbeat (ping TEXT)");
+            Console.info("create table -> " + String.valueOf(createTable("heatbeat", "ping", "text")));
             execute("INSERT INTO " + prefix + "heartbeat(ping) VALUES (pong);");
         }
         //do first time setup thing
