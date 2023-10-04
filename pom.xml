@@ -6,7 +6,7 @@
 
     <groupId>net.rainbowcreation</groupId>
     <artifactId>Core</artifactId>
-    <version>NoMulti-v1.0</version>
+    <version>NoMulti-0.6</version>
     <packaging>jar</packaging>
 
     <name>core</name>
