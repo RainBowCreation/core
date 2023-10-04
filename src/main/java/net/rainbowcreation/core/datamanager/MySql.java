@@ -89,7 +89,7 @@ public class MySql {
     }
 
     public boolean add(String table, String key, String value) {
-        return execute("INSERT INTO " + prefix + table + "(" + key + ") VALUES (" + value + ");");
+        return execute("INSERT INTO " + prefix + table + "(" + key + ") VALUES (?);", value);
     }
 
     public boolean add(String table, List<String> keys, List<String> values) {
