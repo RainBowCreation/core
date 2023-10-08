@@ -112,7 +112,7 @@ public class MySql {
         Console.info("initializing");
         if (!ping()) {
             Console.info("create table -> " + createTable("heartbeat", "ping", "text"));
-            Console.info("insert -> " + execute("INSERT INTO " + prefix + "heartbeat(ping) VALUES (?);", "pong"));
+            Console.info("insert -> " + add("heartbeat", "ping", "pong"));
         }
         //do first time setup thing
         //case1 fresh start setup will create table and store data init
