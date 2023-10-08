@@ -14,6 +14,9 @@ RainBowCreation Network building concept
 - 1 world map to all server network, everything syncronized!
 - automatic node growth (the citys develop it self depend on player activity)
 - realistic market price system
+- custom questline
+- unique class that user need to unlock each class and mixed together and result new class
+
 
 additional projects from this network
 - RainBowX (new version of RainBowCreationLight)
