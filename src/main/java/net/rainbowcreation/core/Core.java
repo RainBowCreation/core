@@ -19,11 +19,17 @@ public final class Core extends JavaPlugin {
     public Config guiData;
     public Config playerData;
     public Essentials ess;
+    public String version;
 
     @Override
     public void onEnable() {
         instance = this;
-        List<String> header = Arrays.asList("######################################################################################",
+        if (!setupManager()) {
+            Console.info("Fail to setup plugin! Running on incompatible server versions");
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
+        }
+        List<String> header = Arrays.asList("##############################################################################",
                                             "#  _____       _       ____                 _____                _   _               #",
                                             "# |  __ \\     (_)     |  _ \\               / ____|              | | (_)              #",
                                             "# | |__) |__ _ _ _ __ | |_) | _____      _| |     _ __ ___  __ _| |_ _  ___  _  __   #",
@@ -57,5 +63,17 @@ public final class Core extends JavaPlugin {
         playerData = new Config(instance, "userdata.yml");
         playerData.saveConfig();
         playerData.reloadConfig();
+    }
+
+    private boolean setupManager() {
+        version = "N/A";
+
+        try {
+            version = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return false;
+        }
+        Console.info("Version ->" + version);
+        return true;
     }
 }
