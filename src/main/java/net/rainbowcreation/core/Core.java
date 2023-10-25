@@ -80,6 +80,7 @@ public final class Core extends JavaPlugin {
             //fill case of any version
             case ("v1_18_") -> //docase;
             case ("v1_19_") -> //dacase;
+            case ("v1_20_") -> //docase
         };
         return true;
     }
