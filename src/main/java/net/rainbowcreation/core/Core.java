@@ -5,6 +5,7 @@ import net.rainbowcreation.core.chat.Console;
 import net.rainbowcreation.core.datamanager.Config;
 import net.rainbowcreation.core.datamanager.Service;
 import net.rainbowcreation.core.eventmanager.*;
+import org.apache.commons.lang.ObjectUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -29,7 +30,7 @@ public final class Core extends JavaPlugin {
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
-        List<String> header = Arrays.asList("##############################################################################",
+        List<String> header = Arrays.asList(version+ "##############################################################################",
                                             "#  _____       _       ____                 _____                _   _               #",
                                             "# |  __ \\     (_)     |  _ \\               / ____|              | | (_)              #",
                                             "# | |__) |__ _ _ _ __ | |_) | _____      _| |     _ __ ___  __ _| |_ _  ___  _  __   #",
@@ -54,6 +55,7 @@ public final class Core extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
         Bukkit.getServer().getScheduler().cancelTasks(instance);
+        // save and disable data
     }
 
     private void setupConfig() {
@@ -74,6 +76,11 @@ public final class Core extends JavaPlugin {
             return false;
         }
         Console.info("Version ->" + version);
+        switch (version.substring(0,version.indexOf("R"))) {
+            //fill case of any version
+            case ("v1_18_") -> //docase;
+            case ("v1_19_") -> //dacase;
+        };
         return true;
     }
 }
