@@ -1,10 +1,11 @@
-package net.rainbowcreation.core.gui;
+package net.rainbowcreation.core.gui.mail;
 
 import com.earth2me.essentials.User;
 import net.essentialsx.api.v2.services.mail.MailMessage;
 import net.rainbowcreation.core.Core;
-import net.rainbowcreation.core.chat.Console;
-import net.rainbowcreation.core.eventmanager.GuiClick;
+import net.rainbowcreation.core.chat.console.Console;
+import net.rainbowcreation.core.eventmanager.inventoryclick.GuiClick;
+import net.rainbowcreation.core.gui.Gui;
 import net.rainbowcreation.core.utils.item.Item;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -13,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
-public class MailGui {
+public class Mail {
     private final Core plugin = Core.getInstance();
     public Item runSelf(Gui gui, Item item) {
         User usr = plugin.ess.getUser(gui.getPlayer());

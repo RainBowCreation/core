@@ -1,7 +1,8 @@
-package net.rainbowcreation.core.gui;
+package net.rainbowcreation.core.gui.setting;
 
 import net.rainbowcreation.core.Core;
-import net.rainbowcreation.core.eventmanager.GuiClick;
+import net.rainbowcreation.core.eventmanager.inventoryclick.GuiClick;
+import net.rainbowcreation.core.gui.Gui;
 import net.rainbowcreation.core.utils.item.Item;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.inventory.ClickType;
@@ -9,7 +10,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class SettingGui {
+public class Setting {
     private static final Core plugin = Core.getInstance();
     private final FileConfiguration config = plugin.playerData.getConfig();
     public Item runSelf(Gui gui, Item item) {

@@ -1,7 +1,7 @@
-package net.rainbowcreation.core.eventmanager;
+package net.rainbowcreation.core.eventmanager.inventorydrag;
 
 import net.rainbowcreation.core.gui.Gui;
-import net.rainbowcreation.core.utils.math.Lst;
+import net.rainbowcreation.core.utils.math.lst.Lst;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.DragType;

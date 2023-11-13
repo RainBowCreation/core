@@ -1,4 +1,4 @@
-package net.rainbowcreation.core.utils.math;
+package net.rainbowcreation.core.utils.math.lst;
 
 import net.rainbowcreation.core.chat.Chat;
 

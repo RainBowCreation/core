@@ -1,8 +1,8 @@
-package net.rainbowcreation.core.eventmanager;
+package net.rainbowcreation.core.eventmanager.playerjoin;
 
 import net.rainbowcreation.core.Core;
 import net.rainbowcreation.core.chat.Chat;
-import net.rainbowcreation.core.chat.Console;
+import net.rainbowcreation.core.chat.console.Console;
 import net.rainbowcreation.core.utils.permission.Permission;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;

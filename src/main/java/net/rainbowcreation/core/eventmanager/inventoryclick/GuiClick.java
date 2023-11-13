@@ -1,9 +1,9 @@
-package net.rainbowcreation.core.eventmanager;
+package net.rainbowcreation.core.eventmanager.inventoryclick;
 
 import net.rainbowcreation.core.Core;
 import net.rainbowcreation.core.gui.Gui;
-import net.rainbowcreation.core.utils.math.Lst;
-import net.rainbowcreation.core.utils.math.Roman;
+import net.rainbowcreation.core.utils.math.lst.Lst;
+import net.rainbowcreation.core.utils.math.roman.Roman;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;

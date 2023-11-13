@@ -1,13 +1,11 @@
-package net.rainbowcreation.core.datamanager;
+package net.rainbowcreation.core.datamanager.mysql;
 
 import net.rainbowcreation.core.Core;
-import net.rainbowcreation.core.chat.Console;
+import net.rainbowcreation.core.chat.console.Console;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class MySql {
     private static final Core plugin = Core.getInstance();
@@ -26,7 +24,7 @@ public class MySql {
             connection = DriverManager.getConnection(url+":"+ config.getInt("mySQL.port")+"/"+config.getString("mySQL.database"), config.getString("mySQL.username"), config.getString("mySQL.password"));
         } catch (Exception e) {
             throw new RuntimeException(e);
-        };
+        }
     }
 
     public Connection getConnection() {

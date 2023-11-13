@@ -1,6 +1,6 @@
-package net.rainbowcreation.core.chat;
+package net.rainbowcreation.core.chat.console;
 
-import net.rainbowcreation.core.Core;;
+import net.rainbowcreation.core.Core;
 
 public class Console {
     public static void info(String string) {

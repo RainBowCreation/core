@@ -1,11 +1,10 @@
 package net.rainbowcreation.core;
 
 import com.earth2me.essentials.Essentials;
-import net.rainbowcreation.core.chat.Console;
-import net.rainbowcreation.core.datamanager.Config;
-import net.rainbowcreation.core.datamanager.Service;
+import net.rainbowcreation.core.chat.console.Console;
+import net.rainbowcreation.core.datamanager.config.Config;
+import net.rainbowcreation.core.datamanager.service.Service;
 import net.rainbowcreation.core.eventmanager.*;
-import org.apache.commons.lang.ObjectUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,7 +19,7 @@ public final class Core extends JavaPlugin {
     public Config guiData;
     public Config playerData;
     public Essentials ess;
-    public String version;
+    public String version = "N/A";
 
     @Override
     public void onEnable() {
@@ -43,7 +42,7 @@ public final class Core extends JavaPlugin {
             Console.info(txt);
         }
         setupConfig();
-        Manager.register(Bukkit.getPluginManager(), instance);
+        EventManager.register(Bukkit.getPluginManager(), instance);
         ess = (Essentials) instance.getServer().getPluginManager().getPlugin("Essentials");
         if (ess == null) {
             Console.info("Please install Essentials"); //checker
@@ -68,8 +67,6 @@ public final class Core extends JavaPlugin {
     }
 
     private boolean setupManager() {
-        version = "N/A";
-
         try {
             version = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
         } catch (ArrayIndexOutOfBoundsException e) {
@@ -78,9 +75,10 @@ public final class Core extends JavaPlugin {
         Console.info("Version ->" + version);
         switch (version.substring(0,version.indexOf("R"))) {
             //fill case of any version
-            case ("v1_18_") -> //docase;
-            case ("v1_19_") -> //dacase;
-            case ("v1_20_") -> //docase
+            case ("v1_12_"):
+                break;
+            case ("v1_19_"):
+                break;
         };
         return true;
     }

@@ -1,7 +1,7 @@
-package net.rainbowcreation.core.datamanager;
+package net.rainbowcreation.core.datamanager.config;
 
 import net.rainbowcreation.core.Core;
-import net.rainbowcreation.core.chat.Console;
+import net.rainbowcreation.core.chat.console.Console;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 

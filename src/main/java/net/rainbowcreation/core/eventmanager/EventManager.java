@@ -1,9 +1,15 @@
 package net.rainbowcreation.core.eventmanager;
 
+import net.rainbowcreation.core.eventmanager.asyncplayerchat.onChat;
+import net.rainbowcreation.core.eventmanager.inventoryclick.GuiClick;
+import net.rainbowcreation.core.eventmanager.inventoryclose.GuiClose;
+import net.rainbowcreation.core.eventmanager.inventorydrag.GuiDrag;
+import net.rainbowcreation.core.eventmanager.playerjoin.onPlayerJoin;
+import net.rainbowcreation.core.eventmanager.playerswaphanditems.onPlayerSwapHandItem;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
-public class Manager {
+public class EventManager {
     public static void register(PluginManager manager, Plugin instance) {
         manager.registerEvents(new onPlayerSwapHandItem(), instance);
         manager.registerEvents(new GuiClick(), instance);

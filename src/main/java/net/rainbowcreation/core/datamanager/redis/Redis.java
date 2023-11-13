@@ -1,4 +1,4 @@
-package net.rainbowcreation.core.datamanager;
+package net.rainbowcreation.core.datamanager.redis;
 
 import net.rainbowcreation.core.Core;
 import redis.clients.jedis.Jedis;

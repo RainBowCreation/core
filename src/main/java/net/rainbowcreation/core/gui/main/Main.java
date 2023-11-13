@@ -1,7 +1,8 @@
-package net.rainbowcreation.core.gui;
+package net.rainbowcreation.core.gui.main;
 
 import net.rainbowcreation.core.Core;
-import net.rainbowcreation.core.eventmanager.GuiClick;
+import net.rainbowcreation.core.eventmanager.inventoryclick.GuiClick;
+import net.rainbowcreation.core.gui.Gui;
 import net.rainbowcreation.core.utils.item.Item;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -11,7 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainGui {
+public class Main {
     private static final Core plugin = Core.getInstance();
     public Item runSelf(Gui gui, Item item) {
         //todo

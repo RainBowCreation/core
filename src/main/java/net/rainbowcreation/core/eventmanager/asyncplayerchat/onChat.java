@@ -1,4 +1,4 @@
-package net.rainbowcreation.core.eventmanager;
+package net.rainbowcreation.core.eventmanager.asyncplayerchat;
 
 import net.rainbowcreation.core.Core;
 import org.bukkit.configuration.file.FileConfiguration;

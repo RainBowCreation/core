@@ -1,7 +1,9 @@
-package net.rainbowcreation.core.datamanager;
+package net.rainbowcreation.core.datamanager.service;
 
-import net.rainbowcreation.core.chat.Console;
+import net.rainbowcreation.core.chat.console.Console;
 import net.rainbowcreation.core.Core;
+import net.rainbowcreation.core.datamanager.mysql.MySql;
+import net.rainbowcreation.core.datamanager.redis.Redis;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.scheduler.BukkitRunnable;
 

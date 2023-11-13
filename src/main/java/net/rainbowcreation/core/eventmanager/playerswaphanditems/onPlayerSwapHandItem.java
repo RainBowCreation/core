@@ -1,4 +1,4 @@
-package net.rainbowcreation.core.eventmanager;
+package net.rainbowcreation.core.eventmanager.playerswaphanditems;
 
 import net.rainbowcreation.core.Core;
 import net.rainbowcreation.core.gui.Gui;

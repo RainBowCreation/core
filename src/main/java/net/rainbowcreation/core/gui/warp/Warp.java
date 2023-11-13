@@ -1,14 +1,14 @@
-package net.rainbowcreation.core.gui;
+package net.rainbowcreation.core.gui.warp;
 
 import com.earth2me.essentials.User;
 import com.earth2me.essentials.Warps;
 import net.rainbowcreation.core.Core;
 import net.rainbowcreation.core.chat.Chat;
-import net.rainbowcreation.core.chat.Console;
-import net.rainbowcreation.core.eventmanager.GuiClick;
+import net.rainbowcreation.core.chat.console.Console;
+import net.rainbowcreation.core.eventmanager.inventoryclick.GuiClick;
+import net.rainbowcreation.core.gui.Gui;
 import net.rainbowcreation.core.utils.item.Item;
 import net.rainbowcreation.core.utils.permission.Permission;
-import net.rainbowcreation.core.utils.player.Warp;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -23,7 +23,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WarpsGui {
+public class Warp {
     private static final Core plugin = Core.getInstance();
     private final FileConfiguration config = plugin.playerData.getConfig();
     public Item runSelf(Gui gui, Item item) {
@@ -102,7 +102,7 @@ public class WarpsGui {
             try {
                 if (slot / 9 < 2) { //warps
                     switch (clickType) {
-                        case LEFT -> Warp.warp(usr, warps.getWarp(name),0);
+                        case LEFT -> net.rainbowcreation.core.utils.player.warp.Warp.warp(usr, warps.getWarp(name),0);
                         case RIGHT -> {
                             if (!Permission.permission(player, "essentials.setwarp"))
                                 return;
@@ -115,12 +115,12 @@ public class WarpsGui {
                     if (clickType == ClickType.LEFT) {
                         if (!Permission.permission(player, "essentials.home.bed"))
                             return;
-                        Warp.warp(usr, player.getBedSpawnLocation(), 0);
+                        net.rainbowcreation.core.utils.player.warp.Warp.warp(usr, player.getBedSpawnLocation(), 0);
                     }
                 } else if (slot / 9 < 3) { //home
                     switch (clickType) {
                         case LEFT -> {
-                            Warp.warp(usr, usr.getHome(name), 0);
+                            net.rainbowcreation.core.utils.player.warp.Warp.warp(usr, usr.getHome(name), 0);
                         }
                         case RIGHT -> {
                             if (!Permission.permission(player, "essentials.delhome"))
@@ -184,7 +184,7 @@ public class WarpsGui {
                 else if (clickType == ClickType.SHIFT_RIGHT)
                     loc = player.getBedSpawnLocation();
                 if (loc != null)
-                    Warp.warp(usr, loc, 0);
+                    net.rainbowcreation.core.utils.player.warp.Warp.warp(usr, loc, 0);
             }
             return;
         }

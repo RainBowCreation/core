@@ -1,8 +1,9 @@
 package net.rainbowcreation.core.datamanager;
 
 import net.rainbowcreation.core.Core;
+import net.rainbowcreation.core.datamanager.service.Service;
 
-public class Manager {
+public class DataManager {
     private static final Core plugin = Core.getInstance();
 
     public static String get(String table, String key, String wkey, String wvalue) {

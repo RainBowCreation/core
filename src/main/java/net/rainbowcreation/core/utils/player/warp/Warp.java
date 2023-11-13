@@ -1,4 +1,4 @@
-package net.rainbowcreation.core.utils.player;
+package net.rainbowcreation.core.utils.player.warp;
 
 import com.earth2me.essentials.AsyncTeleport;
 import com.earth2me.essentials.Trade;
