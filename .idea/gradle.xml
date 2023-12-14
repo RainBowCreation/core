@@ -3,10 +3,30 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/build-logic" name="build-logic">
+                <projects>
+                  <project path="$PROJECT_DIR$/build-logic" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/RainBowCreation" />
+            <option value="$PROJECT_DIR$/RainBowCreationCore" />
+            <option value="$PROJECT_DIR$/build-logic" />
+            <option value="$PROJECT_DIR$/providers" />
+            <option value="$PROJECT_DIR$/providers/1_12Provider" />
+            <option value="$PROJECT_DIR$/providers/1_8Provider" />
+            <option value="$PROJECT_DIR$/providers/BaseProviders" />
+            <option value="$PROJECT_DIR$/providers/NMSReflectionProvider" />
+            <option value="$PROJECT_DIR$/providers/PaperProvider" />
           </set>
         </option>
       </GradleProjectSettings>

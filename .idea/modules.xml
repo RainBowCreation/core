@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RainBowCreationCore/RainBowCreation.RainBowCreationCore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RainBowCreationCore/RainBowCreation.RainBowCreationCore.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RainBowCreationCore/RainBowCreation.RainBowCreationCore.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RainBowCreationCore/RainBowCreation.RainBowCreationCore.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/1_12Provider/RainBowCreation.providers.1_12Provider.main.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/1_12Provider/RainBowCreation.providers.1_12Provider.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/1_12Provider/RainBowCreation.providers.1_12Provider.test.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/1_12Provider/RainBowCreation.providers.1_12Provider.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/1_8Provider/RainBowCreation.providers.1_8Provider.main.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/1_8Provider/RainBowCreation.providers.1_8Provider.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/1_8Provider/RainBowCreation.providers.1_8Provider.test.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/1_8Provider/RainBowCreation.providers.1_8Provider.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/BaseProviders/RainBowCreation.providers.BaseProviders.main.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/BaseProviders/RainBowCreation.providers.BaseProviders.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/BaseProviders/RainBowCreation.providers.BaseProviders.test.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/BaseProviders/RainBowCreation.providers.BaseProviders.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/NMSReflectionProvider/RainBowCreation.providers.NMSReflectionProvider.main.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/NMSReflectionProvider/RainBowCreation.providers.NMSReflectionProvider.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/NMSReflectionProvider/RainBowCreation.providers.NMSReflectionProvider.test.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/NMSReflectionProvider/RainBowCreation.providers.NMSReflectionProvider.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/PaperProvider/RainBowCreation.providers.PaperProvider.main.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/PaperProvider/RainBowCreation.providers.PaperProvider.main.iml" />
     </modules>
   </component>
 </project>

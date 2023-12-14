@@ -1,47 +1,14 @@
 plugins {
-    id 'java'
+    id("essentials.parent-build-logic")
 }
 
-group = 'net.rainbowcreation'
-version = '1.0-INDEV'
+group = "net.rainbowcreation"
+version = "6.1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
-    maven {
-        name = "papermc-repo"
-        url = "https://repo.papermc.io/repository/maven-public/"
-    }
-    maven {
-        name = "sonatype"
-        url = "https://oss.sonatype.org/content/groups/public/"
-    }
-}
+project.ext {
+    GIT_COMMIT = !indraGit.isPresent() ? "unknown" : indraGit.commit().abbreviate(7).name()
+    GIT_DEPTH = GitUtil.commitsSinceLastTag(project)
+    GIT_BRANCH = GitUtil.headBranchName(project)
 
-dependencies {
-    compileOnly "com.destroystokyo.paper:paper-api:1.12-R0.1-SNAPSHOT"
-}
-
-def targetJavaVersion = 8
-java {
-    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-    if (JavaVersion.current() < javaVersion) {
-        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
-    }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
-        options.release = targetJavaVersion
-    }
-}
-
-processResources {
-    def props = [version: version]
-    inputs.properties props
-    filteringCharset 'UTF-8'
-    filesMatching('plugin.yml') {
-        expand props
-    }
+    FULL_VERSION = "${version}".replace("-SNAPSHOT", "-dev+${GIT_DEPTH}-${GIT_COMMIT}")
 }

@@ -1,3 +1,0 @@
-name: core
-version: '${version}'
-main: net.rainbowcreation.core.Core
