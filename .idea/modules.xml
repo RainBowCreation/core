@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RainBowCreationAPI/RainBowCreation.RainBowCreationAPI.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RainBowCreationAPI/RainBowCreation.RainBowCreationAPI.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RainBowCreationAPI/RainBowCreation.RainBowCreationAPI.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RainBowCreationAPI/RainBowCreation.RainBowCreationAPI.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RainBowCreationCore/RainBowCreation.RainBowCreationCore.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RainBowCreationCore/RainBowCreation.RainBowCreationCore.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RainBowCreationCore/RainBowCreation.RainBowCreationCore.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RainBowCreationCore/RainBowCreation.RainBowCreationCore.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/providers/1_12Provider/RainBowCreation.providers.1_12Provider.main.iml" filepath="$PROJECT_DIR$/.idea/modules/providers/1_12Provider/RainBowCreation.providers.1_12Provider.main.iml" />
