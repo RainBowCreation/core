@@ -1,5 +1,6 @@
 package net.rainbowcreation.api;
 
+import com.earth2me.essentials.Essentials;
 import net.rainbowcreation.api.utils.Logger;
 import net.rainbowcreation.api.utils.RString;
 
@@ -11,6 +12,7 @@ public class API {
     public static Logger logger;
     public Map<String, Object> centralMap;
     public static RString rString;
+    public static Class<Essentials> ess = Essentials.class;
 
     public static API getInstance() {
         if (instance == null) {
@@ -18,7 +20,6 @@ public class API {
         }
         return instance;
     }
-
     public Object getValue(String key) {
         return centralMap.get(key);
     }

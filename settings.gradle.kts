@@ -34,8 +34,8 @@ rootProject.name = "RainBowCreation"
 // Modules
 sequenceOf(
     "",
-    "Core",
-    "API"
+    //"API",
+    "Core"
 ).forEach {
     include(":RainBowCreation$it")
     project(":RainBowCreation$it").projectDir = file("RainBowCreation$it")

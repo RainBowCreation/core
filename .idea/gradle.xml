@@ -19,7 +19,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/RainBowCreation" />
-            <option value="$PROJECT_DIR$/RainBowCreationAPI" />
             <option value="$PROJECT_DIR$/RainBowCreationCore" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/providers" />

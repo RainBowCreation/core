@@ -28,8 +28,6 @@ dependencies {
     api(project(':providers:1_12Provider')) {
         exclude group: "org.bukkit", module: "bukkit"
     }
-
-    compileOnly(':RainBowCreationAPI')
 }
 
 test {

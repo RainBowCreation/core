@@ -4,9 +4,9 @@ main: net.rainbowcreation.core.Core
 # Note to developers: This next line cannot change, or the automatic versioning system will break.
 version: ${full.version}
 website: https://rainbowcreation.net/
-description: RainBowCreationCore.
+description: RainBowCreationCore
 authors: [RainBowCreation, NathanielSong, VocanicZ]
-depend: [Essentials]
+depend: [RainBowCreationAPI]
 api-version: 1.13
 permissions:
   rainbowcreation.verified:

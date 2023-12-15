@@ -1,6 +1,13 @@
 package net.rainbowcreation.core.utils;
 
-public class Reference {
+/**
+ * ref
+ */
+public final class Reference {
+    private Reference() {
+        // void
+    }
+
     public static String NAME = "Core";
-    public static String VERSION = "2.0.1-INDEV";
+    public static String VERSION = "0.1.0-DEV";
 }
