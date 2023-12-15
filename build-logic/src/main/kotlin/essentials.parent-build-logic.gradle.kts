@@ -20,8 +20,8 @@ tasks {
         minecraftVersion(RUN_PAPER_MINECRAFT_VERSION)
     }
     register<RunServer>("runAll") {
-        group = "essentials"
-        description = "Run a test server with all EssentialsX modules."
+        group = "rainbowcreation"
+        description = "Run a test server with all RainBowCreation modules."
         minecraftVersion(RUN_PAPER_MINECRAFT_VERSION)
     }
     named<Delete>("clean") {
@@ -35,7 +35,7 @@ subprojects {
         rootProject.tasks.named<RunServer>("runAll").configure {
             pluginJars.from(moduleExt.archiveFile)
         }
-        if (name == "EssentialsX") {
+        if (name == "RainBowCreation") {
             rootProject.tasks.runServer.configure {
                 pluginJars.from(moduleExt.archiveFile)
             }
