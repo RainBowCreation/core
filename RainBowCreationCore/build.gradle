@@ -1,10 +1,8 @@
 plugins {
     id("essentials.shadow-module")
-    //id("essentials.module-conventions")
 }
 
 dependencies {
-
     compileOnly 'net.essentialsx:EssentialsX:2.19.0'
     compileOnly('com.github.milkbowl:VaultAPI:1.7') {
         exclude group: "org.bukkit", module: "bukkit"
@@ -35,9 +33,6 @@ dependencies {
     api(project(':providers:1_12Provider')) {
         exclude group: "org.bukkit", module: "bukkit"
     }
-
-
-    //compileOnly project(':RainBowCreationAPI')
 }
 
 test {

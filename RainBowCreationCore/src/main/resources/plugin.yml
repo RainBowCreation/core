@@ -6,7 +6,7 @@ version: ${full.version}
 website: https://rainbowcreation.net/
 description: RainBowCreationCore
 authors: [RainBowCreation, NathanielSong, VocanicZ]
-depend: [RainBowCreationAPI]
+depend: [Essentials]
 api-version: 1.13
 permissions:
   rainbowcreation.verified:

@@ -8,8 +8,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.logging.Logger;
-
 /**
  * core
  */
@@ -25,12 +23,13 @@ public class Core extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        console = new RConsole(Logger.getLogger(Reference.NAME));
+        console = new RConsole(Bukkit.getConsoleSender());
         final PluginManager manager = Bukkit.getPluginManager();
-        RString.genHeader(Reference.NAME + ":" + Reference.VERSION);
+        RString.header(Reference.NAME + ":" + Reference.VERSION, console);
         ess = (Essentials) manager.getPlugin("Essentials");
         if (ess == null) {
             console.info("Essentials not Installed please Install and try again");
+            Bukkit.getServer().shutdown();
         }
     }
 }

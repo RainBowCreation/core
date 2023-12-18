@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95aace44-2893-4792-84ce-167058ae54ab" name="Changes" comment="update to universal main" />
+    <list default="true" id="95aace44-2893-4792-84ce-167058ae54ab" name="Changes" comment="fix RConsole">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RainBowCreationCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RChat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RString.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/core/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/core/Core.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +60,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
@@ -56,11 +73,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2ZXxVgzuq0vOLruaRfR4dEGqgaE" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -72,12 +89,14 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "android.gradle.sync.needed": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/ampna/IdeaProjects/core/RainBowCreationCore/src/main/java/net/rainbowcreation/api",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -90,7 +109,29 @@
       <recent name="net.rainbowcreation.api" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.core [build]">
+  <component name="RunManager" selected="Gradle.core:RainBowCreationCore [build]">
+    <configuration name="core [:build-logic:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":build-logic:build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="core [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -172,8 +213,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.core [build]" />
         <item itemvalue="Gradle.core:RainBowCreationCore [build]" />
+        <item itemvalue="Gradle.core [:build-logic:build]" />
+        <item itemvalue="Gradle.core [build]" />
         <item itemvalue="Gradle.core [dependencies]" />
       </list>
     </recent_temporary>
@@ -214,10 +256,22 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="update" />
     <MESSAGE value="update to universal main" />
-    <option name="LAST_COMMIT_MESSAGE" value="update to universal main" />
+    <MESSAGE value="fix RConsole" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix RConsole" />
   </component>
 </project>

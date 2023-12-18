@@ -38,7 +38,19 @@ public final class RString {
      * @param args
      * @param logger
      */
-    public void header(String args, Logger logger) {
+    public static void header(String args, Logger logger) {
+        for (String string: Reference.HEADER) {
+            logger.info(string);
+        }
+        logger.info(genHeader(args));
+    }
+
+    /**
+     *
+     * @param args
+     * @param logger
+     */
+    public static void header(String args, RConsole logger) {
         for (String string: Reference.HEADER) {
             logger.info(string);
         }

@@ -34,7 +34,6 @@ rootProject.name = "RainBowCreation"
 // Modules
 sequenceOf(
     "",
-    //"API",
     "Core"
 ).forEach {
     include(":RainBowCreation$it")
