@@ -132,6 +132,8 @@ public final class RChat {
      */
     @Contract("_ -> new")
     public static @NotNull String legacyColored(String legacy) {
+        if (legacy.contains("§"))
+            return ChatColor.translateAlternateColorCodes('§', legacy);
         return ChatColor.translateAlternateColorCodes('&', legacy);
     }
 
