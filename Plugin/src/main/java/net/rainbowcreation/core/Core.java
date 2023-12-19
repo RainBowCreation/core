@@ -29,7 +29,7 @@ public class Core extends JavaPlugin {
         P_version = F_package_name.substring(F_package_name.lastIndexOf('.') + 1);
         // Get the last element of the package
 
-        P_nms_handler = (INms) Remap.cast(INms.class, P_version, "NMSHandler"); // Set our handler
+        P_nms_handler = (INms) Remap.castInterface(INms.class, P_version, "NmsHandler"); // Set our handler
         if (P_nms_handler == null)
             return;
         ps_instance.getLogger().info("Loading support for " + P_version);
@@ -40,6 +40,7 @@ public class Core extends JavaPlugin {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
+            ps_instance.getLogger().info("command");
             final Player F_player = (Player) sender;
             P_nms_handler.sendMessage(F_player, ps_instance.combineSplit(args));
         }

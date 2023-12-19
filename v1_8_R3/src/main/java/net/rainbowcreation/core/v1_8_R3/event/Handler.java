@@ -1,4 +1,4 @@
-package net.rainbowcreation.core.nms.v1_8_R3.event;
+package net.rainbowcreation.core.v1_8_R3.event;
 
 import net.rainbowcreation.core.api.event.IEventHandler;
 import org.bukkit.plugin.Plugin;
