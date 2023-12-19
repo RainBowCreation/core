@@ -4,17 +4,194 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95aace44-2893-4792-84ce-167058ae54ab" name="Changes" comment="fix RConsole">
+    <list default="true" id="95aace44-2893-4792-84ce-167058ae54ab" name="Changes" comment="change logger to bukkit console">
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/Adventure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/audience/Audience.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/audience/Audiences.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/audience/EmptyAudience.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/audience/ForwardingAudience.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/audience/ForwardingAudienceOverrideNotRequired.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/audience/MessageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/audience/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/bossbar/BossBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/bossbar/BossBarImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/bossbar/BossBarImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/bossbar/BossBarViewer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/bossbar/HackyBossBarPlatformBridge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/bossbar/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/builder/AbstractBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/builder/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/chat/ChatType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/chat/ChatTypeImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/chat/SignedMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/chat/SignedMessageImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/chat/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/identity/Identified.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/identity/Identity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/identity/IdentityImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/identity/NilIdentity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/identity/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/internal/Internals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/internal/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/internal/properties/AdventureProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/internal/properties/AdventurePropertiesImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/internal/properties/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/inventory/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/inventory/BookImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/inventory/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/nbt/api/BinaryTagHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/nbt/api/BinaryTagHolderImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/nbt/api/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/permission/PermissionChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/permission/PermissionCheckers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/permission/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/pointer/Pointer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/pointer/PointerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/pointer/Pointered.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/pointer/Pointers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/pointer/PointersImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/pointer/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/ResourcePackCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/ResourcePackCallbacks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/ResourcePackInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/ResourcePackInfoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/ResourcePackInfoLike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/ResourcePackRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/ResourcePackRequestImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/ResourcePackRequestLike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/ResourcePackStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/resource/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/sound/Sound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/sound/SoundImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/sound/SoundStop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/sound/SoundStopImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/sound/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/AbstractComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/AbstractComponentBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/AbstractNBTComponentBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/BlockNBTComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/BlockNBTComponentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/BuildableComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/Component.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ComponentApplicable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ComponentBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ComponentBuilderApplicable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ComponentCompaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ComponentInternals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ComponentIterator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ComponentIteratorFlag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ComponentIteratorType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ComponentLike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/EntityNBTComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/EntityNBTComponentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/JoinConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/JoinConfigurationImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/KeybindComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/KeybindComponentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/LegacyFormattingDetected.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/LinearComponents.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/NBTComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/NBTComponentBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/NBTComponentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/PatternReplacementResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ScopedComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ScoreComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/ScoreComponentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/SelectorComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/SelectorComponentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/StorageNBTComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/StorageNBTComponentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TextComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TextComponentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TextReplacementConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TextReplacementConfigImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TextReplacementRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TranslatableComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TranslatableComponentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TranslationArgument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TranslationArgumentImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/TranslationArgumentLike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/event/ClickCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/event/ClickCallbackInternals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/event/ClickCallbackOptionsImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/event/ClickEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/event/HoverEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/event/HoverEventSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/event/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/flattener/ComponentFlattener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/flattener/ComponentFlattenerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/flattener/FlattenerListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/flattener/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/DecorationMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/MutableStyleSetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/NamedTextColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/Style.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/StyleBuilderApplicable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/StyleGetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/StyleImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/StyleSetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/TextColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/TextColorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/TextDecoration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/TextDecorationAndState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/TextDecorationAndStateImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/TextFormat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/format/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/renderer/AbstractComponentRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/renderer/ComponentRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/renderer/TranslatableComponentRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/renderer/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/serializer/ComponentEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/serializer/ComponentSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/text/serializer/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/title/Title.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/title/TitleImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/title/TitlePart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/title/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/translation/GlobalTranslator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/translation/GlobalTranslatorImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/translation/Translatable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/translation/TranslationLocales.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/translation/TranslationRegistry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/translation/TranslationRegistryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/translation/Translator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/translation/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/Buildable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/Codec.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/ComponentMessageThrowable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/ForwardingIterator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/HSVLike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/HSVLikeImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/Index.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/IntFunction2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/Listenable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/MonkeyBars.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/Nag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/PlatformAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/RGBLike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/Services.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/Services0.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/ShadyPines.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/Ticks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/TriState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/UTF8ResourceBundleControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/kyori/adventure/util/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RGui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/core/event/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/core/event/inventory/click/Gui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/core/event/inventory/close/Gui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/core/event/inventory/drag/Gui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/core/gui/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/resources/config.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/resources/gui.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/resources/userdata.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.checkstyle/suppressions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.checkstyle/suppressions.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RainBowCreationCore/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RString.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/api/utils/RString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/core/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/java/net/rainbowcreation/core/Core.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RainBowCreationCore/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/RainBowCreationCore/src/main/resources/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
@@ -89,7 +266,6 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "android.gradle.sync.needed": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/ampna/IdeaProjects/core/RainBowCreationCore/src/main/java/net/rainbowcreation/api",
@@ -109,7 +285,7 @@
       <recent name="net.rainbowcreation.api" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.core:RainBowCreationCore [build]">
+  <component name="RunManager" selected="Gradle.core [build]">
     <configuration name="core [:build-logic:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -122,6 +298,28 @@
         <option name="taskNames">
           <list>
             <option value=":build-logic:build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="core [:build-logic:clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":build-logic:clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -154,7 +352,7 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="core [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="core [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -165,7 +363,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -213,10 +411,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.core [build]" />
+        <item itemvalue="Gradle.core [clean]" />
+        <item itemvalue="Gradle.core [:build-logic:clean]" />
         <item itemvalue="Gradle.core:RainBowCreationCore [build]" />
         <item itemvalue="Gradle.core [:build-logic:build]" />
-        <item itemvalue="Gradle.core [build]" />
-        <item itemvalue="Gradle.core [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -253,7 +452,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702643186052</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix RConsole">
+      <option name="closed" value="true" />
+      <created>1702941435913</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702941435913</updated>
+    </task>
+    <task id="LOCAL-00005" summary="change logger to bukkit console">
+      <option name="closed" value="true" />
+      <created>1702941529142</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702941529142</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,6 +487,7 @@
     <MESSAGE value="update" />
     <MESSAGE value="update to universal main" />
     <MESSAGE value="fix RConsole" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix RConsole" />
+    <MESSAGE value="change logger to bukkit console" />
+    <option name="LAST_COMMIT_MESSAGE" value="change logger to bukkit console" />
   </component>
 </project>

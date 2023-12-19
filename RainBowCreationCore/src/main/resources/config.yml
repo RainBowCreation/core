@@ -1,0 +1,52 @@
+#####################################################################################
+#  _____       _       ____                 _____                _   _              #
+# |  __ \     (_)     |  _ \               / ____|              | | (_)             #
+# | |__) |__ _ _ _ __ | |_) | _____      _| |     _ __ ___  __ _| |_ _  ___  _ __   #
+# |  _  // _` | | '_ \|  _ < / _ \ \ /\ / / |    | '__/ _ \/ _` | __| |/ _ \| '_ \  #
+# | | \ \ (_| | | | | | |_) | (_) \ V  V /| |____| | |  __/ (_| | |_| | (_) | | | | #
+# |_|  \_\__,_|_|_| |_|____/ \___/ \_/\_/  \_____|_|  \___|\__,_|\__|_|\___/|_| |_| #
+#                                                                                   #
+############################################################################Core#####
+#RainBowCreation.core by NathanielSong
+#Official Website: rainbowcreation.net
+
+#enable redis caching? the plugin will be lightning fast (default enable: false)
+redis:
+  enable: false
+  #redis-server url
+  host: 'localhost'
+  #default port: 6379
+  port: 6379
+  requirepass: ''
+
+#support mySQL database? (default enable: false)
+mySQL:
+  enable: false
+  #databaseURL
+  url: 'localhost'
+  port: 3306
+  database: 'database'
+  username: 'root'
+  password: ''
+  table_prefix: 'core_'
+  heartbeat_fix: true #do not touch this if you don't know what it does
+
+#is this server in bungeecord (default enable: false)
+#Make sure any of server name have the same name as your bungeecord config
+bungeecord:
+  enable: false
+  #this server ex. this: "server0"
+  this: 'server0'
+
+  #other server in bungeecord config except 'this' server implemented in YAML list form (max 4 servers)
+  #ex other:
+  #       - 'server1'
+  #       - 'server2'
+  #       - 'server3'
+  #       - 'server4'
+  other:
+    - 'server1'
+
+  #anabling shared player data (inventory, game progress.. etc.)
+  # ***MUST ENABLE mySQL support*** (default shared_data: false)
+  shared_data: false

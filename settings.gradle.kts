@@ -21,6 +21,8 @@ dependencyResolutionManagement {
             content { includeGroup("net.kyori") }
             content { includeGroup("org.apache.logging.log4j") }
         }
+        maven("https://repo.dmulloy2.net/repository/public/")
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     }
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 }
