@@ -48,4 +48,16 @@
     </repository>
   </repositories>
 
+  <!--
+  <dependencies>
+    <dependency>
+      <groupId>local.spigot.nms</groupId>
+      <artifactId>AllSpigotNMS</artifactId>
+      <version>LATEST</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/all-spigot-nms.jar</systemPath>
+    </dependency>
+  </dependencies>
+  -->
+
 </project>

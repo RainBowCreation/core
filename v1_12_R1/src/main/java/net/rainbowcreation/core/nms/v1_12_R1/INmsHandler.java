@@ -1,12 +1,12 @@
 package net.rainbowcreation.core.nms.v1_12_R1;
 
 import net.minecraft.server.v1_12_R1.IChatBaseComponent;
-import net.rainbowcreation.core.api.NMS;
+import net.rainbowcreation.core.api.INms;
 import org.bukkit.craftbukkit.v1_12_R1.util.CraftChatMessage;
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
-public class NMSHandler implements NMS {
+public class INmsHandler implements INms {
 
     @Override
     public void sendMessage(Player player, String message) {

@@ -5,7 +5,11 @@
   <artifactId>core</artifactId>
   <packaging>jar</packaging>
   <name>RainBowCreationCore</name>
-  <version>1.8-R0.1-SNAPSHOT</version> <!-- This is where I track the version -->
+  <version>0.8-DEV</version> <!-- This is where I track the version -->
+  <properties>
+    <v>1.8-R0.1-SNAPSHOT</v>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
   <repositories>
     <repository>
@@ -18,7 +22,7 @@
     <dependency>
       <groupId>org.bukkit</groupId>
       <artifactId>bukkit</artifactId>
-      <version>${project.version}</version>
+      <version>${v}</version>
       <type>jar</type>
     </dependency>
     <dependency>

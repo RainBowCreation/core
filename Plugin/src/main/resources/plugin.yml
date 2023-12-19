@@ -1,5 +1,7 @@
-name: RainBowCreationCore
-main: net.rainbowcreation.core.MyPlugin
-author: RainBowCreation
-description: RainBowCreation Plugin
-version: '${project.version}'
+name: RainBowCreation
+version: '${version}'
+main: net.rainbowcreation.core.Core
+website: rainbowcreation.net
+api-version: '1.19'
+depend: [Essentials, Lands, LuckPerms]
+prefix: RBC
