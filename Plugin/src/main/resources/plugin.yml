@@ -1,0 +1,5 @@
+name: RainBowCreationCore
+main: net.rainbowcreation.core.MyPlugin
+author: RainBowCreation
+description: RainBowCreation Plugin
+version: '${project.version}'
