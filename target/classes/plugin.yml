@@ -1,0 +1,5 @@
+name: RainBowCreationCore
+main: net.rainbowcreation.core.MyPlugin
+author: RainBowCreation
+description: RainBowCreation Plugin
+version: '1.8-R0.1-SNAPSHOT'

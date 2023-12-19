@@ -19,7 +19,7 @@ public class MyPlugin extends JavaPlugin {
         // Get the last element of the package
 
         try {
-            final Class<?> clazz = Class.forName("org.kitteh.example.plugin.nms." + version + ".NMSHandler");
+            final Class<?> clazz = Class.forName("net.rainbowcreation.core.nms." + version + ".NMSHandler");
             // Check if we have a NMSHandler class at that location.
             if (NMS.class.isAssignableFrom(clazz)) { // Make sure it actually implements NMS
                 this.nmsHandler = (NMS) clazz.getConstructor().newInstance(); // Set our handler

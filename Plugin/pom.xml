@@ -53,6 +53,7 @@
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
+    <!--
     <dependency>
       <groupId>local.spigot.nms</groupId>
       <artifactId>AllSpigotNMS</artifactId>
@@ -60,11 +61,12 @@
       <scope>system</scope>
       <systemPath>${project.basedir}/../lib/all-spigot-nms.jar</systemPath>
     </dependency>
+    -->
   </dependencies>
 
   <build>
     <directory>../target</directory> <!-- Build it one level up, because it is the one we care about -->
-    <finalName>AbstractionExamplePlugin</finalName>
+    <finalName>RBCCore</finalName>
     <!-- Define filtering for the inclusion of plugin.yml, so we can utilize the pom.xml version in it -->
     <resources>
       <resource>
@@ -89,6 +91,15 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
       </plugin>
     </plugins>
   </build>
