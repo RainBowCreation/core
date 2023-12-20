@@ -20,6 +20,6 @@ public class Console {
         final String F_calling_class = F_stack_trace_elements[2].getClassName();
         final String F_class_name = F_calling_class.substring(F_calling_class.lastIndexOf(".") + 1);
         final String F_calling_method = F_stack_trace_elements[2].getMethodName();
-        p_logger.info(Chat.S_legacyColored("(" + F_calling_method + ") " + "[" + F_calling_method + "] " + ChatColor.LIGHT_PURPLE + string));
+        p_logger.info("(" + F_calling_method + ") " + "[" + F_calling_method + "] " + ChatColor.LIGHT_PURPLE + string);
     }
 }

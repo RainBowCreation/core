@@ -18,6 +18,9 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 public class Core extends JavaPlugin {
     private static Core ps_instance;
@@ -30,6 +33,7 @@ public class Core extends JavaPlugin {
     public String P_version;
 
     public Console P_console;
+    private final String[] pF_autocomplete = {"/login", "/register"};
 
     @Override
     public void onEnable() {
@@ -51,9 +55,7 @@ public class Core extends JavaPlugin {
         ProtocolLibrary.getProtocolManager().addPacketListener(new PacketAdapter(this, PacketType.Play.Server.TAB_COMPLETE) {
             @Override
             public void onPacketSending(PacketEvent event) {
-                // Cancel the tab completion packet
-                P_console.info("got");
-                event.setCancelled(true);
+                event.getPacket().getStringArrays().write(0, pF_autocomplete);
             }
         });
     }

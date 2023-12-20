@@ -8,16 +8,28 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 public class Command implements Listener {
     @EventHandler
     public void onPlayerCommand(PlayerCommandPreprocessEvent event) {
-        String command = event.getMessage();
+        String[] command = event.getMessage().split(" ");
         Player player = event.getPlayer();
 
         // Check if the command starts with "/"
-        if (command.startsWith("/")) { // && !player.isOp()) {
+        if (!(command[0].equals("/login") || command[0].equals("/register")) && !player.isOp()) {
             // Cancel the command event
             event.setCancelled(true);
-
             // Optionally, notify the player
-            player.sendMessage("Commands are hidden.");
+            player.sendMessage("RainBowCreation are zero command.");
+            return;
+        }
+        switch (command[0]) {
+            case ("/login") : {
+                // do login stuff
+                player.sendMessage("/login <password>");
+                break;
+            }
+            case ("/register") : {
+                // do register stuff
+                player.sendMessage("/register <password> <confirmpassword>");
+                break;
+            }
         }
     }
 }
