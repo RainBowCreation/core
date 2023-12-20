@@ -5,6 +5,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
+import java.util.Objects;
+
 public class Command implements Listener {
     @EventHandler
     public void onPlayerCommand(PlayerCommandPreprocessEvent event) {
@@ -30,7 +32,7 @@ public class Command implements Listener {
                 // do register stuff
                 if (command.length != 3)
                     player.sendMessage("/register <password> <confirmpassword>");
-                if (command[1] != command[2])
+                else if (!Objects.equals(command[1], command[2]))
                     player.sendMessage("password does not matched");
                 break;
             }
