@@ -21,13 +21,17 @@ public class Command implements Listener {
         }
         switch (command[0]) {
             case ("/login") : {
-                // do login stuff
-                player.sendMessage("/login <password>");
+                // do login stuffif
+                if (command.length != 2)
+                    player.sendMessage("/login <password>");
                 break;
             }
             case ("/register") : {
                 // do register stuff
-                player.sendMessage("/register <password> <confirmpassword>");
+                if (command.length != 3)
+                    player.sendMessage("/register <password> <confirmpassword>");
+                if (command[1] != command[2])
+                    player.sendMessage("password does not matched");
                 break;
             }
         }
