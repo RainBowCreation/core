@@ -3,6 +3,7 @@ package net.rainbowcreation.core.api.utils;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+@SuppressWarnings("unused")
 public class Remap {
     public static <T> Object cast(Class<?> dstclass, String version, String srcname) {
         try {
@@ -24,7 +25,6 @@ public class Remap {
         try {
             final Class<?> F_clazz = Class.forName("net.rainbowcreation.core." + version + "." + srcname);
             if (dstinterface.isAssignableFrom(F_clazz)) {
-                @SuppressWarnings("unchecked")
                 final Constructor<T> F_constructor = (Constructor<T>) F_clazz.getDeclaredConstructor();
                 F_constructor.setAccessible(true);
                 return F_constructor.newInstance();

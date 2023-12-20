@@ -47,8 +47,12 @@
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
     <repository>
-      <id>codeMC</id>
-      <url>https://repo.codemc.io/repository/maven-public/</url>
+      <id>sonatype</id>
+      <url>https://oss.sonatype.org/content/groups/public/</url>
+    </repository>
+    <repository>
+      <id>essentialsx-releases</id>
+      <url>https://repo.essentialsx.net/releases/</url>
     </repository>
   </repositories>
 

@@ -16,5 +16,5 @@ Prefix : abcdef
 - Private : p_*
 - Static : (P?)S_*
 - Final : (P?)F_*
-- Const : (P?)C_(*.default) | line9
-- Enum : E_(*default)   | line10"
+- Const : (P?)C_(*.default) | line11
+- Enum : E_(*default)   | line12"

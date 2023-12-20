@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/core.iml" filepath="$PROJECT_DIR$/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/API/core-api.iml" filepath="$PROJECT_DIR$/API/core-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v1_12_R1/core-v1_12_R1.iml" filepath="$PROJECT_DIR$/v1_12_R1/core-v1_12_R1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v1_16_R3/core-v1_16_R3.iml" filepath="$PROJECT_DIR$/v1_16_R3/core-v1_16_R3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v1_8_R3/core-v1_8_R3.iml" filepath="$PROJECT_DIR$/v1_8_R3/core-v1_8_R3.iml" />
+    </modules>
+  </component>
+</project>

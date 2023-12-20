@@ -4,6 +4,7 @@ import net.rainbowcreation.core.api.event.IEventHandler;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
+@SuppressWarnings("unused")
 public class Handler implements IEventHandler {
     @Override
     public void register(PluginManager manager, Plugin instance) {

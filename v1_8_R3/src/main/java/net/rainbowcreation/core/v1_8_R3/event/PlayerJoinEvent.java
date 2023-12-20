@@ -1,15 +1,15 @@
 package net.rainbowcreation.core.v1_8_R3.event;
 
-import net.rainbowcreation.core.api.event.IPlayerJoinEvent;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 
-public class PlayerJoinEvent implements IPlayerJoinEvent {
-    @Override
+public class PlayerJoinEvent implements Listener {
+    @EventHandler
     public void onJoin(org.bukkit.event.player.PlayerJoinEvent event) {
         event.getPlayer().sendMessage("Hi");
     }
 
-    @Override
-    public IPlayerJoinEvent newInstance() {
+    public PlayerJoinEvent newInstance() {
         return this;
     }
 }
