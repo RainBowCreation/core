@@ -2,19 +2,20 @@ package net.rainbowcreation.core.event;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import java.util.Objects;
 
 public class Command implements Listener {
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerCommand(PlayerCommandPreprocessEvent event) {
         String[] command = event.getMessage().split(" ");
         Player player = event.getPlayer();
 
         // Check if the command starts with "/"
-        if (!(command[0].equals("/login") || command[0].equals("/register")) && !player.isOp()) {
+        if (!(command[0].equals("/login") || command[0].equals("/register") || command[0].equals("/warps")) && !player.isOp()) {
             // Cancel the command event
             event.setCancelled(true);
             // Optionally, notify the player

@@ -14,6 +14,7 @@ public class Handler implements IEventHandler {
         p_instance = instance;
         p_core = (Core) instance;
         manager.registerEvents(new Command(), p_instance);
+        manager.registerEvents(new Interact(), p_instance);
         final IEventHandler F_handler = (IEventHandler) Remap.castInterface(IEventHandler.class, p_core.P_version, "event.Handler");
         if (F_handler == null)
             return;

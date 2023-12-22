@@ -18,5 +18,9 @@
         <module name="core" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="core-velocity (1) (net.rainbowcreation)" target="1.8" />
+      <module name="core-velocity (2)" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
