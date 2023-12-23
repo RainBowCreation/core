@@ -149,7 +149,7 @@ public class Gui {
         if (pS_config.contains(F_id+".lore"))
             item.lore(Lst.S_minimessageColoredList((List<String>) pS_config.getList(F_id + ".lore")));
         try {
-            final Class<?> F_gui = Class.forName("net.rainbowcreation.core.gui." + pS_config.getString(F_id + ".name") + "Gui");
+            final Class<?> F_gui = Class.forName("net.rainbowcreation.core.gui." + pS_config.getString(F_id + ".name"));
             Object[] obj = {guiInstance, item};
             Class<?>[] params = new Class[obj.length];
             params[0] = Gui.class;

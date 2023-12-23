@@ -75,7 +75,7 @@
 
   <build>
     <directory>../target</directory> <!-- Build it one level up, because it is the one we care about -->
-    <finalName>RBCCore</finalName>
+    <finalName>RBCcore</finalName>
     <!-- Define filtering for the inclusion of plugin.yml, so we can utilize the pom.xml version in it -->
     <resources>
       <resource>
@@ -84,6 +84,8 @@
         <directory>src/main/resources</directory>
         <includes>
           <include>plugin.yml</include>
+          <include>config.yml</include>
+          <include>gui.yml</include>
         </includes>
       </resource>
     </resources>

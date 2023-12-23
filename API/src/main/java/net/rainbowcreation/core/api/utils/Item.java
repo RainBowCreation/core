@@ -75,8 +75,11 @@ public class Item {
             p_itemMeta.setDisplayName(Chat.S_componentColored(p_displayName));
         if (p_lore != null)
             p_itemMeta.setLore(p_lore);
+        /*
         if (p_i != 0)
             p_itemMeta.setCustomModelData(p_i);
+
+         */
         p_itemStack.setItemMeta(p_itemMeta);
         return p_itemStack;
     }
