@@ -13,9 +13,11 @@ public class Handler implements IEventHandler {
     public void register(PluginManager manager, Plugin instance) {
         p_instance = instance;
         p_core = (Core) instance;
-        manager.registerEvents(new Command(), p_instance);
-        manager.registerEvents(new Interact(), p_instance);
+        // manager.registerEvents(new Command(), p_instance);
+        // manager.registerEvents(new Interact(), p_instance);
         manager.registerEvents(new InvClick(), p_instance);
+        // manager.registerEvents(new Craft(), p_instance);
+        manager.registerEvents(new PlayerMove(), p_instance);
         final IEventHandler F_handler = (IEventHandler) Remap.castInterface(IEventHandler.class, p_core.P_version, "event.Handler");
         if (F_handler == null)
             return;

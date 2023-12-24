@@ -3,5 +3,5 @@ version: '${version}'
 main: net.rainbowcreation.core.Core
 website: rainbowcreation.net
 api-version: '1.20'
-depend: [ProtocolLib] #[Essentials, Lands, LuckPerms]
+depend: [Essentials ,ProtocolLib] #[Essentials, Lands, LuckPerms]
 prefix: RBC

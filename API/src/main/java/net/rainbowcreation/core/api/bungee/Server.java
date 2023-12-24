@@ -8,7 +8,12 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 public class Server {
-    public static void sendBungeeCordMessage(Plugin plugin, Player player, String serverName) {
+    private static Plugin pS_plugin;
+    public Server(Plugin plugin, org.bukkit.Server server) {
+        pS_plugin = plugin;
+        server.getMessenger().registerOutgoingPluginChannel(pS_plugin, "BungeeCord");
+    }
+    public static void sendBungeeCordMessage(Player player, String serverName) {
         ByteArrayOutputStream byteArrayOutput = new ByteArrayOutputStream();
         DataOutputStream dataOutput = new DataOutputStream(byteArrayOutput);
 
@@ -21,11 +26,12 @@ public class Server {
 
             // Write the server name you want to connect to
             dataOutput.writeUTF(serverName);
+            pS_plugin.getLogger().info("done");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         // Send the plugin message to the player
-        player.sendPluginMessage(plugin, "BungeeCord", byteArrayOutput.toByteArray());
+        player.sendPluginMessage(pS_plugin, "BungeeCord", byteArrayOutput.toByteArray());
     }
 }
