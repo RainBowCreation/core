@@ -18,6 +18,7 @@ public class Handler implements IEventHandler {
         manager.registerEvents(new InvClick(), p_instance);
         // manager.registerEvents(new Craft(), p_instance);
         manager.registerEvents(new PlayerMove(), p_instance);
+        manager.registerEvents(new PlayerJoin(), p_instance);
         final IEventHandler F_handler = (IEventHandler) Remap.castInterface(IEventHandler.class, p_core.P_version, "event.Handler");
         if (F_handler == null)
             return;

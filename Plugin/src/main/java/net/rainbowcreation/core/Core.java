@@ -21,6 +21,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.security.PublicKey;
+import java.util.Map;
 
 public class Core extends JavaPlugin {
     private static Core ps_instance;
@@ -36,6 +37,8 @@ public class Core extends JavaPlugin {
     public GuiHolder P_guiHolder;
     public Warp P_warp;
     public Server P_bungee;
+
+    public Map<Player, Boolean> P_playerlog;
 
     @Override
     public void onEnable() {

@@ -1,5 +1,6 @@
 package net.rainbowcreation.core.api.bungee;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -14,24 +15,17 @@ public class Server {
         server.getMessenger().registerOutgoingPluginChannel(pS_plugin, "BungeeCord");
     }
     public static void sendBungeeCordMessage(Player player, String serverName) {
-        ByteArrayOutputStream byteArrayOutput = new ByteArrayOutputStream();
-        DataOutputStream dataOutput = new DataOutputStream(byteArrayOutput);
-
         try {
-            // Write the name of the subchannel
-            dataOutput.writeUTF("BungeeCord");
-
-            // Write the name of the action you want to perform (in this case, "Connect")
-            dataOutput.writeUTF("Connect");
-
-            // Write the server name you want to connect to
-            dataOutput.writeUTF(serverName);
-            pS_plugin.getLogger().info("done");
-        } catch (IOException e) {
-            e.printStackTrace();
+            ByteArrayOutputStream b = new ByteArrayOutputStream();
+            DataOutputStream out = new DataOutputStream(b);
+            out.writeUTF("Connect");
+            out.writeUTF(serverName);
+            player.sendPluginMessage(pS_plugin, "BungeeCord", b.toByteArray());
+            b.close();
+            out.close();
         }
-
-        // Send the plugin message to the player
-        player.sendPluginMessage(pS_plugin, "BungeeCord", byteArrayOutput.toByteArray());
+        catch (Exception e) {
+            player.sendMessage(ChatColor.RED+"Error when trying to connect to "+serverName);
+        }
     }
 }
