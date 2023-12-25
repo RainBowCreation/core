@@ -21,6 +21,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.security.PublicKey;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Core extends JavaPlugin {
@@ -38,7 +39,7 @@ public class Core extends JavaPlugin {
     public Warp P_warp;
     public Server P_bungee;
 
-    public Map<Player, Boolean> P_playerlog;
+    public Map<Player, Boolean> P_playerlog = new HashMap<>();
 
     @Override
     public void onEnable() {
@@ -64,8 +65,7 @@ public class Core extends JavaPlugin {
         P_guiHolder = new GuiHolder();
         final Gui F_gui = new Gui(ps_instance, P_config_gui.getConfig());
         P_warp = new Warp(ps_instance, P_ess);
-        final Handler F_handler = new Handler();
-        F_handler.register(F_manager, ps_instance);
+        Handler.register(F_manager, ps_instance);
         /*
         p_protocolManager.addPacketListener(new PacketAdapter(ps_instance) {
             @Override

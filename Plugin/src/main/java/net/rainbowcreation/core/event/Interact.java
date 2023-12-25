@@ -9,10 +9,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class Interact implements Listener {
+    private static Core pS_core;
+    public Interact(Core plugin) {
+        pS_core = plugin;
+    }
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-        Core.PS_getInstance().P_console.info(event.getAction().name());
+        pS_core.P_console.info(event.getAction().name());
         // Check if the player pressed the swap hands key (default is F)
         if (event.getAction().name().contains("SWAP_HELD_ITEMS")) {
             // Custom logic for hand swap

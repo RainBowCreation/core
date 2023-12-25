@@ -10,6 +10,11 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class Craft implements Listener {
+    private static Core pS_core;
+
+    public Craft(Core plugin) {
+        pS_core = plugin;
+    }
     @EventHandler
     public void onCraft(PrepareItemCraftEvent event) {
         /*
@@ -20,6 +25,6 @@ public class Craft implements Listener {
                 j++;
         }
         */
-        Core.PS_getInstance().P_console.info(event.getInventory().getMatrix().toString());
+        pS_core.P_console.info(event.getInventory().getMatrix().toString());
     }
 }

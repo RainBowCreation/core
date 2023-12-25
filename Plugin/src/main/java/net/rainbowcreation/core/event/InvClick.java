@@ -3,7 +3,6 @@ package net.rainbowcreation.core.event;
 import net.rainbowcreation.core.Core;
 import net.rainbowcreation.core.api.utils.GuiHolder;
 import net.rainbowcreation.core.gui.Warp;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,6 +13,11 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class InvClick implements Listener {
+    private static Core pS_core;
+    public InvClick(Core plugin) {
+        pS_core = plugin;
+    }
+
     @EventHandler
     public void onCLick(InventoryClickEvent event) {
         if (!(event.getWhoClicked() instanceof Player))
@@ -34,11 +38,9 @@ public class InvClick implements Listener {
                     public void run() {
                         player.closeInventory();
                     }
-                }.runTaskLater(Core.PS_getInstance(), 1L);
+                }.runTaskLater(pS_core, 1L);
             }
             else {
-                Inventory customInventory = Bukkit.createInventory(Core.PS_getInstance().P_guiHolder, 54, "Main");
-                player.openInventory(customInventory);
                 player.openInventory(Warp.S_get());
             }
             return;

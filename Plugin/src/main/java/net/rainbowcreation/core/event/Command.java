@@ -1,5 +1,6 @@
 package net.rainbowcreation.core.event;
 
+import net.rainbowcreation.core.Core;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -9,6 +10,11 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import java.util.Objects;
 
 public class Command implements Listener {
+    private static Core pS_core;
+
+    public Command(Core plugin) {
+        pS_core = plugin;
+    }
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerCommand(PlayerCommandPreprocessEvent event) {
         String[] command = event.getMessage().split(" ");
