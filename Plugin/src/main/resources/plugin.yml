@@ -5,3 +5,7 @@ website: rainbowcreation.net
 api-version: '1.20'
 depend: [Essentials ,ProtocolLib] #[Essentials, Lands, LuckPerms]
 prefix: RBC
+commands:
+  rbc:
+    description: Open Menu
+    usage: /<command>

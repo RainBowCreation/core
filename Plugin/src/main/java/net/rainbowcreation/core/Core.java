@@ -6,6 +6,7 @@ import com.earth2me.essentials.Essentials;
 import net.rainbowcreation.core.api.bungee.Server;
 import net.rainbowcreation.core.api.config.Config;
 import net.rainbowcreation.core.api.utils.*;
+import net.rainbowcreation.core.command.Rbc;
 import net.rainbowcreation.core.event.Handler;
 import net.rainbowcreation.core.utils.Reference;
 import org.bukkit.Bukkit;
@@ -21,6 +22,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.security.PublicKey;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,6 +69,7 @@ public class Core extends JavaPlugin {
         final Gui F_gui = new Gui(ps_instance, P_config_gui.getConfig());
         P_warp = new Warp(ps_instance, P_ess);
         Handler.register(F_manager, ps_instance);
+        regiscommand();
         /*
         p_protocolManager.addPacketListener(new PacketAdapter(ps_instance) {
             @Override
@@ -84,6 +88,10 @@ public class Core extends JavaPlugin {
         });
 
          */
+    }
+
+    private void regiscommand() {
+        ps_instance.getCommand("rbc").setExecutor(new Rbc());
     }
 
     private void addRecipe() {
