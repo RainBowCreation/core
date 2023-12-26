@@ -10,6 +10,5 @@ public class Join implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         Core.getInstance().playerlog.put(event.getPlayer(), true);
-        Core.getInstance().console.info(Core.getInstance().playerlog.get(event.getPlayer()).toString());
     }
 }

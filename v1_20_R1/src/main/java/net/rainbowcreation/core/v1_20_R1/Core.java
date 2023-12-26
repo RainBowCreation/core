@@ -9,6 +9,7 @@ import net.rainbowcreation.core.api.utils.Console;
 import net.rainbowcreation.core.api.utils.GuiHolder;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import java.util.Map;
 
@@ -66,5 +67,10 @@ public class Core implements ICore {
     @Override
     public Map<Player, Boolean> getPlayerLog() {
         return instance.getPlayerLog();
+    }
+
+    @Override
+    public PluginMessageListener getMessageListener() {
+        return instance.getMessageListener();
     }
 }

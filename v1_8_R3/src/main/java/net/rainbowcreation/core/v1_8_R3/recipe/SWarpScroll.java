@@ -46,10 +46,14 @@ public class SWarpScroll {
         player.getWorld().playSound(player.getLocation(), Sound.ENDERMAN_STARE, 1.0f, 1.0f);
         PAFPlayer pafPlayer = PAFPlayerManager.getInstance().getPlayer(player.getUniqueId());
         player.sendMessage(Chat.minimessageColored("<white>[<yellow>Warp Scroll<white>] your online friends."));
+        if (pafPlayer.getFriends().isEmpty()) {
+            player.sendMessage(Chat.minimessageColored("Oh! im sorry, you have no friends"));
+            player.sendMessage(Chat.minimessageColored("use <green>/friend add (playername) to add new friend"));
+            return;
+        }
         try {
             if (pafPlayer.getOnlineFriendsCount() == 0) {
-                player.sendMessage(Chat.minimessageColored("Oh! im sorry, you have no friends"));
-                player.sendMessage(Chat.minimessageColored("use <green>/friend add (playername) to add new friend"));
+                player.sendMessage(Chat.minimessageColored("You have no online friends"));
                 return;
             }
         } catch (FriendsAPIBridgeNotInstalledException e) {

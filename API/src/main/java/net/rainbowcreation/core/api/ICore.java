@@ -7,6 +7,7 @@ import net.rainbowcreation.core.api.utils.Console;
 import net.rainbowcreation.core.api.utils.GuiHolder;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.messaging.PluginMessageListener;
 
 import java.util.Map;
 
@@ -21,4 +22,5 @@ public interface ICore {
     boolean isEssEnabled();
     GuiHolder getGuiHolder();
     Map<Player, Boolean> getPlayerLog();
+    PluginMessageListener getMessageListener();
 }

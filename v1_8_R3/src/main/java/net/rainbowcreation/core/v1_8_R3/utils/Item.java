@@ -21,6 +21,7 @@ public class Item implements IItem {
     private Component displayName;
     private List<String> lore;
     private ItemMeta itemMeta;
+    private int color = 0;
     private int i = 0;
     private static final Color[] COLOR_LIST = {
             Color.red, Color.black, Color.blue, Color.cyan, Color.darkGray, Color.gray, Color.green, Color.lightGray, Color.magenta, Color.orange, Color.pink,
@@ -30,6 +31,11 @@ public class Item implements IItem {
     @Override
     public Item material(Material material) {
         this.material = material;
+        return this;
+    }
+
+    public Item color(int color) {
+        this.color = color;
         return this;
     }
 
@@ -92,7 +98,7 @@ public class Item implements IItem {
 
     @Override
     public ItemStack get() {
-        itemStack = new ItemStack(material, n);
+        itemStack = new ItemStack(material, n, (short) color);
         itemMeta = itemStack.getItemMeta();
         if (itemMeta == null)
             return itemStack;

@@ -65,7 +65,7 @@ public class Main implements IGui {
         else if (slot == 31)
             server = "morph";
         if (server != null)
-            core.getBungee().sendBungeeCordMessage(player, server);
+            core.getBungee().sendPlayerToServer(player, server);
     }
 
     @Override
