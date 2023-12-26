@@ -8,8 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core-api" />
         <module name="core-v1_8_R3" />
-        <module name="core-v1_16_R3" />
-        <module name="core-v1_14_R1" />
+        <module name="core-v1_20_R1" />
+        <module name="core-v1_15_R1" />
       </profile>
       <profile name="Annotation profile for RainBowCreationCore Parent" enabled="true">
         <sourceOutputDir name="../target/generated-sources/annotations" />

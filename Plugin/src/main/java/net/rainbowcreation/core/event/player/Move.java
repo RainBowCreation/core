@@ -1,5 +1,6 @@
 package net.rainbowcreation.core.event.player;
 
+import com.github.puregero.multilib.MultiLib;
 import net.rainbowcreation.core.Core;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -19,6 +20,8 @@ public class Move implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         final Player player = event.getPlayer();
+        if (!MultiLib.isLocalPlayer(player))
+            return;
         final Location player_location = player.getLocation();
 
         if (isPlayerNearPortal(player_location)) {

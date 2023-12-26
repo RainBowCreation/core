@@ -24,16 +24,16 @@
     </dependency>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
-      <artifactId>core-v1_14_R1</artifactId>
-      <version>v1_14_R1</version>
+      <artifactId>core-v1_15_R1</artifactId>
+      <version>v1_15_R1</version>
       <type>jar</type>
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
-      <artifactId>core-v1_16_R3</artifactId>
-      <version>v1_16_R3</version>
+      <artifactId>core-v1_20_R1</artifactId>
+      <version>v1_20_R1</version>
       <type>jar</type>
       <scope>compile</scope>
       <optional>true</optional>

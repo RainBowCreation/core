@@ -1,10 +1,8 @@
-package net.rainbowcreation.core.event.inventory;
+package net.rainbowcreation.core.v1_20_R1.event.inventory;
 
-import com.github.puregero.multilib.MultiLib;
-import net.rainbowcreation.core.Core;
-import net.rainbowcreation.core.api.IGui;
 import net.rainbowcreation.core.api.utils.GuiHolder;
-import net.rainbowcreation.core.gui.Gui;
+import net.rainbowcreation.core.v1_20_R1.Core;
+import net.rainbowcreation.core.v1_20_R1.gui.Gui;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,8 +18,6 @@ public class Click implements Listener {
         if (!(event.getWhoClicked() instanceof Player))
             return;
         Player player = (Player) event.getWhoClicked();
-        if (!MultiLib.isLocalPlayer(player))
-            return;
         final ClickType F_clicktype = event.getClick();
         if (F_clicktype != ClickType.LEFT)
             return;
@@ -37,10 +33,10 @@ public class Click implements Listener {
                     public void run() {
                         player.closeInventory();
                     }
-                }.runTaskLater(Core.getInstance(), 1L);
+                }.runTaskLater(Core.plugin, 1L);
             }
             else {
-                player.openInventory(((IGui) Gui.instance.get("gui_main")).getDynamic(player));
+                player.openInventory(Gui.MAIN.getDynamic(player));
             }
             return;
         }
@@ -48,7 +44,7 @@ public class Click implements Listener {
             // Click happened in the top inventory
             // Additional logic based on the clicked inventory and slot
             if (F_clickedInventory.getHolder() instanceof GuiHolder) {
-                ((IGui) Gui.instance.get("gui_main")).onClick(event);
+                Gui.MAIN.onClick(event);
                 return;
             }
         } else {
