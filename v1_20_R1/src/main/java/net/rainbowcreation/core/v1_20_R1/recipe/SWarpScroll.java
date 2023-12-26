@@ -37,6 +37,8 @@ public class SWarpScroll {
     public static void onUse(PlayerInteractEvent event) {
         event.setCancelled(true);
         final Player player = event.getPlayer();
+        player.sendMessage("<red>Sorry this item is under development TT");
+        /*
         ItemStack item = event.getItem();
         if (item.getAmount() > 1) {
             item.setAmount(item.getAmount() - 1);
@@ -64,7 +66,7 @@ public class SWarpScroll {
                 event.getPlayer().sendMessage("| " + friend.getName());
         }
         player.sendMessage("Please type target friend");
-
+         */
         // todo make checker runnable for teleport
     }
 }
