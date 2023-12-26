@@ -25,7 +25,7 @@ public class SWarpScroll {
     public SWarpScroll() {
         core = Core.instance;
         namespace = "warp_scroll";
-        result = new Item().material(Material.MAP).displayName("<yellow>Warp Scroll").lore("<white>Teleport to selected friend").lore("<white>target player <red>MUST <white>online in the same server").lore("<white>You can use /friend add <playername> to add player").lore("<gray>wiki.rainbowcreation.net/item/warp_scroll").customModelData(1).amount(3).get();
+        result = new Item().material(Material.MAP).displayName("<yellow>Warp Scroll").lore("<white>Teleport to selected friend").lore("<white>target player <red>MUST <white>online in the same server").lore("<white>You can use /friend add <playername>").lore("<gray>wiki.rainbowcreation.net/item/warp_scroll").customModelData(1).amount(3).get();
         recipe = new ShapedRecipe(new NamespacedKey(core.getPlugin(), namespace), result);
         recipe.shape("010", "222", "313");
         recipe.setIngredient('0', Material.ENDER_PEARL);

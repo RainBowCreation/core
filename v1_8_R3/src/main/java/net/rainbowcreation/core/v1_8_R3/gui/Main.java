@@ -76,11 +76,13 @@ public class Main implements IGui {
             new BukkitRunnable() {
                 @Override
                 public void run() {
+                    if (count[0] == 0)
+                        player.closeInventory();
                     if (count[0] < 5) {
                         player.sendTitle(Chat.minimessageColored("<white>Preparing teleport <red>" + (5 - count[0])), Chat.minimessageColored("<red>Do not move"));
                         count[0]++;
                         if (is_move.get(player)) {
-                            player.sendMessage("<red>Warp Cancelled");
+                            player.sendMessage(Chat.minimessageColored("<red>Warp Cancelled"));
                             is_move.remove(player);
                             cancel();
                         }
