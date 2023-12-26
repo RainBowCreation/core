@@ -9,13 +9,14 @@ import net.rainbowcreation.core.api.utils.*;
 import net.rainbowcreation.core.command.Command;
 import net.rainbowcreation.core.event.Event;
 import net.rainbowcreation.core.gui.Gui;
+import net.rainbowcreation.core.recipe.Shaped;
+import net.rainbowcreation.core.recipe.Unshaped;
 import net.rainbowcreation.core.utils.Reference;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.ApiStatus;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -70,6 +71,8 @@ public class Core extends JavaPlugin implements ICore {
         new Event().register();
         new Gui().register();
         new Command().register();
+        new Shaped().register();
+        new Unshaped().register();
     }
 
     @Override

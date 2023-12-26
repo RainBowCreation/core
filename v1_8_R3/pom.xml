@@ -7,7 +7,7 @@
   <version>v1_8_R3</version>
 
   <properties>
-    <v>1.8-R0.1-SNAPSHOT</v>
+    <v>1.8.8-R0.1-SNAPSHOT</v>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -26,10 +26,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
       <version>${v}</version>
-      <type>jar</type>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>

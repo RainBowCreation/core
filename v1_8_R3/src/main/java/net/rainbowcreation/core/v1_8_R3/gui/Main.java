@@ -2,8 +2,8 @@ package net.rainbowcreation.core.v1_8_R3.gui;
 
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.IGui;
-import net.rainbowcreation.core.api.utils.Item;
 import net.rainbowcreation.core.v1_8_R3.Core;
+import net.rainbowcreation.core.v1_8_R3.utils.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

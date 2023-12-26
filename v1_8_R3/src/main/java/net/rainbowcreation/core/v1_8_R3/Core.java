@@ -6,6 +6,7 @@ import net.rainbowcreation.core.api.utils.Bungee;
 import net.rainbowcreation.core.api.utils.Config;
 import net.rainbowcreation.core.api.utils.Console;
 import net.rainbowcreation.core.api.utils.GuiHolder;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
