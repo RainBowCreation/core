@@ -6,6 +6,11 @@
   <name>RainBowCreationCore v1_8_R3</name>
   <version>v1_8_R3</version>
 
+  <properties>
+    <v>1.8-R0.1-SNAPSHOT</v>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <parent>
     <groupId>net.rainbowcreation</groupId>
     <artifactId>core-parent</artifactId>
@@ -17,6 +22,13 @@
       <groupId>net.rainbowcreation</groupId>
       <artifactId>core-api</artifactId> <!-- Depend on the API! -->
       <version>API</version>
+      <type>jar</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>bukkit</artifactId>
+      <version>${v}</version>
       <type>jar</type>
     </dependency>
   </dependencies>

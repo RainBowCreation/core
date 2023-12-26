@@ -15,9 +15,10 @@
   <dependencies>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
-      <artifactId>core-api</artifactId> <!-- Depend on the API! -->
+      <artifactId>core-api</artifactId>
       <version>API</version>
       <type>jar</type>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>

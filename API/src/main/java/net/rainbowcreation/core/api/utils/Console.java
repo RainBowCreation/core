@@ -8,20 +8,20 @@ import java.util.logging.Logger;
 
 @SuppressWarnings("unused")
 public class Console {
-    private final Plugin pF_plugin;
-    private Logger p_logger;
+    private Plugin plugin;
+    private Logger logger;
 
     public Console(Plugin plugin) {
-        pF_plugin = plugin;
-        p_logger = plugin.getLogger();
+        this.plugin = plugin;
+        logger = plugin.getLogger();
     }
 
     public void info(String string) {
-        final StackTraceElement[] F_stack_trace_elements = Thread.currentThread().getStackTrace();
-        final String F_calling_class = F_stack_trace_elements[2].getClassName();
-        final String F_class_name = F_calling_class.substring(F_calling_class.lastIndexOf(".") + 1);
-        final String F_calling_method = F_stack_trace_elements[2].getMethodName();
+        final StackTraceElement[] stack_trace_elements = Thread.currentThread().getStackTrace();
+        final String calling_class = stack_trace_elements[2].getClassName();
+        final String class_name = calling_class.substring(calling_class.lastIndexOf(".") + 1);
+        final String calling_method = stack_trace_elements[2].getMethodName();
         //p_logger.info("(" + F_calling_method + ") " + "[" + F_calling_method + "] " + ChatColor.LIGHT_PURPLE + string);
-        Bukkit.getConsoleSender().sendMessage("(" + F_calling_method + ") " + "[" + F_calling_method + "] " + ChatColor.LIGHT_PURPLE + string);
+        Bukkit.getConsoleSender().sendMessage("(" + calling_method + ") " + "[" + calling_method + "] " + ChatColor.LIGHT_PURPLE + string);
     }
 }

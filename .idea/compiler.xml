@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="core-api" />
-        <module name="core-v1_12_R1" />
         <module name="core-v1_8_R3" />
         <module name="core-v1_16_R3" />
+        <module name="core-v1_14_R1" />
       </profile>
       <profile name="Annotation profile for RainBowCreationCore Parent" enabled="true">
         <sourceOutputDir name="../target/generated-sources/annotations" />
@@ -19,9 +19,5 @@
         <module name="core-velocity" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="core-velocity (1) (net.rainbowcreation)" target="1.8" />
-      <module name="core-velocity (2)" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

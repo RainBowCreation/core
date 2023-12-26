@@ -6,8 +6,6 @@
         <autoDetectTypes>
           <platformType>VELOCITY</platformType>
           <platformType>ADVENTURE</platformType>
-          <platformType>MCP</platformType>
-          <platformType>BUKKIT</platformType>
         </autoDetectTypes>
         <projectReimportVersion>1</projectReimportVersion>
       </configuration>

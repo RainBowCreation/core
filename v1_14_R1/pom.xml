@@ -1,24 +1,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>core-api</artifactId>
+  <artifactId>core-v1_14_R1</artifactId>
   <packaging>jar</packaging>
-  <name>RainBowCreationCore API</name>
-  <version>API</version>
-
-  <dependencies>
-    <dependency>
-      <groupId>local.spigot.nms</groupId>
-      <artifactId>AllSpigotNMS</artifactId>
-      <version>LATEST</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/../lib/all-spigot-nms.jar</systemPath>
-    </dependency>
-  </dependencies>
+  <name>RainBowCreationCore v1_14_R1</name>
+  <version>v1_14_R1</version>
 
   <parent>
     <groupId>net.rainbowcreation</groupId>
     <artifactId>core-parent</artifactId>
     <version>parent</version>
   </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.rainbowcreation</groupId>
+      <artifactId>core-api</artifactId> <!-- Depend on the API! -->
+      <version>API</version>
+      <type>jar</type>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 </project>

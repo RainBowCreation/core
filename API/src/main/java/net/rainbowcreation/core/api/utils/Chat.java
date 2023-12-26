@@ -10,53 +10,53 @@ import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("unused")
 public class Chat {
-    public static Component S_minimessageComponent(String minimessage) {
+    public static Component minimessageComponent(String minimessage) {
         return MiniMessage.miniMessage().deserialize(minimessage);
     }
-    public static String S_minimessageLegacy(String minimessage) {
-        return S_componentLegacy(S_minimessageComponent(minimessage));
+    public static String minimessageLegacy(String minimessage) {
+        return componentLegacy(minimessageComponent(minimessage));
     }
-    public static String S_minimessagePlain(String minimessage) {
-        return S_componentPlain(S_minimessageComponent(minimessage));
+    public static String minimessagePlain(String minimessage) {
+        return componentPlain(minimessageComponent(minimessage));
     }
-    public static Component S_legacyComponent(String legacy) {
+    public static Component legacyComponent(String legacy) {
         return LegacyComponentSerializer.legacyAmpersand().deserialize(legacy);
     }
-    public static String S_legacyMinimessage(String legacy) {
-        return S_componentMinimessage(S_legacyComponent(legacy));
+    public static String legacyMinimessage(String legacy) {
+        return componentMinimessage(legacyComponent(legacy));
     }
-    public static String S_legacyPlain(String legacy) {
-        return S_componentPlain(S_legacyComponent(legacy));
+    public static String legacyPlain(String legacy) {
+        return componentPlain(legacyComponent(legacy));
     }
 
-    public static String S_componentPlain(Component component) {
+    public static String componentPlain(Component component) {
         return PlainTextComponentSerializer.plainText().serialize(component);
     }
-    public static @NotNull String S_componentMinimessage(Component component) {
+    public static @NotNull String componentMinimessage(Component component) {
         return MiniMessage.miniMessage().serialize(component);
     }
-    public static String S_componentLegacy(Component component) {
+    public static String componentLegacy(Component component) {
         return LegacyComponentSerializer.legacySection().serialize(component);
     }
-    public static Component S_plainComponent(String plain) {
+    public static Component plainComponent(String plain) {
         return PlainTextComponentSerializer.plainText().deserialize(plain);
     }
-    public static String S_plainLegacy(String plain) {
-        return S_componentLegacy(S_plainComponent(plain));
+    public static String plainLegacy(String plain) {
+        return componentLegacy(plainComponent(plain));
     }
-    public static String S_plainMinimessage(String plain) {
-        return S_componentMinimessage(S_plainComponent(plain));
+    public static String plainMinimessage(String plain) {
+        return componentMinimessage(plainComponent(plain));
     }
-    public static String S_legacyColored(String legacy) {
+    public static String legacyColored(String legacy) {
         return ChatColor.translateAlternateColorCodes('&', legacy);
     }
-    public static String S_componentColored(Component component) {
-        return S_legacyColored(S_componentLegacy(component));
+    public static String componentColored(Component component) {
+        return legacyColored(componentLegacy(component));
     }
-    public static String S_minimessageColored(String minimessage) {
-        return S_legacyColored(S_minimessageLegacy(minimessage));
+    public static String minimessageColored(String minimessage) {
+        return legacyColored(minimessageLegacy(minimessage));
     }
-    public static void S_sendPlayerMessage(Player player, String minimessage) {
-        player.sendMessage(S_legacyColored(S_legacyMinimessage(minimessage)));
+    public static void sendPlayerMessage(Player player, String minimessage) {
+        player.sendMessage(legacyColored(legacyMinimessage(minimessage)));
     }
 }

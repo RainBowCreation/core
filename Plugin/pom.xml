@@ -11,60 +11,39 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <repositories>
+  <!--repositories>
     <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public</url>
+      <id>papermc</id>
+      <url>https://repo.papermc.io/repository/maven-public/</url>
     </repository>
-    <repository>
-      <id>codeMC</id>
-      <url>https://repo.codemc.io/repository/maven-public/</url>
-    </repository>
-    <repository>
-      <id>dmulloy2-repo</id>
-      <url>https://repo.dmulloy2.net/repository/public/</url>
-    </repository>
-    <repository>
-      <id>essentials-releases</id>
-      <url>https://repo.essentialsx.net/releases/</url>
-    </repository>
-  </repositories>
+  </repositories-->
+
+  <parent>
+    <groupId>net.rainbowcreation</groupId>
+    <artifactId>core-parent</artifactId>
+    <version>parent</version>
+  </parent>
 
   <dependencies>
-    <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>${v}</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>net.essentialsx</groupId>
-      <artifactId>EssentialsX</artifactId>
-      <version>2.19.0</version>
-      <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.bstats</groupId>
-          <artifactId>bstats-bukkit</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>io.papermc</groupId>
-          <artifactId>paperlib</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+    <!--dependency>
+      <groupId>local.spigot.nms</groupId>
+      <artifactId>AllSpigotNMS</artifactId>
+      <version>LATEST</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/../lib/all-spigot-nms.jar</systemPath>
+    </dependency-->
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>core-v1_8_R3</artifactId>
       <version>v1_8_R3</version>
       <type>jar</type>
-      <scope>compile</scope> <!-- The 'compile' scope will get shaded in -->
-      <optional>true</optional> <!-- Set all of these to optional, to ensure plugins building against yours don't look for them -->
+      <scope>compile</scope>
+      <optional>true</optional>
     </dependency>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
-      <artifactId>core-v1_12_R1</artifactId>
-      <version>v1_12_R1</version>
+      <artifactId>core-v1_14_R1</artifactId>
+      <version>v1_14_R1</version>
       <type>jar</type>
       <scope>compile</scope>
       <optional>true</optional>
@@ -83,20 +62,11 @@
       <version>API</version>
       <type>jar</type>
       <scope>compile</scope>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>com.comphenix.protocol</groupId>
-      <artifactId>ProtocolLib</artifactId>
-      <version>5.1.0</version>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
-
   <build>
     <directory>../target</directory> <!-- Build it one level up, because it is the one we care about -->
     <finalName>RBCcore</finalName>
-    <!-- Define filtering for the inclusion of plugin.yml, so we can utilize the pom.xml version in it -->
     <resources>
       <resource>
         <targetPath>.</targetPath>

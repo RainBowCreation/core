@@ -1,5 +1,7 @@
 package net.rainbowcreation.core.api.utils;
 
+import org.bukkit.plugin.Plugin;
+
 import java.util.logging.Logger;
 
 public class Str {
@@ -48,5 +50,10 @@ public class Str {
             logger.info(string);
         }
         logger.info(genHeader(args));
+    }
+
+    public static String getVersion(Plugin plugin) {
+        final String package_name = plugin.getServer().getClass().getPackage().getName();
+        return package_name.substring(package_name.lastIndexOf('.') + 1);
     }
 }

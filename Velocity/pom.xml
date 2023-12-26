@@ -7,13 +7,6 @@
   <name>RainBowCreationCore Velocity</name>
   <version>VELOCITY</version>
 
-  <repositories>
-    <repository>
-      <id>papermc</id>
-      <url>https://repo.papermc.io/repository/maven-public/</url>
-    </repository>
-  </repositories>
-
   <dependencies>
     <dependency>
       <groupId>com.velocitypowered</groupId>
@@ -26,6 +19,7 @@
       <artifactId>core-api</artifactId> <!-- Depend on the API! -->
       <version>API</version>
       <type>jar</type>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 
