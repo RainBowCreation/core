@@ -29,16 +29,16 @@ public class Click implements Listener {
             if (!MultiLib.isLocalPlayer(player))
                 return;
         }
-        final ClickType F_clicktype = event.getClick();
-        if (F_clicktype != ClickType.LEFT)
+        final ClickType clicktype = event.getClick();
+        if (clicktype != ClickType.LEFT)
             return;
         if (event.getCursor().getType() != Material.AIR)
             return;
-        final Inventory F_clickedInventory = event.getInventory();
-        final int F_clickedSlot = event.getRawSlot();
-        if (F_clickedSlot == -999) {
+        final Inventory clickedInventory = event.getInventory();
+        final int clickedSlot = event.getRawSlot();
+        if (clickedSlot == -999) {
             event.setCancelled(true);
-            if (F_clickedInventory.getHolder() instanceof GuiHolder) {
+            if (clickedInventory.getHolder() instanceof GuiHolder) {
                 new BukkitRunnable() {
                     @Override
                     public void run() {
@@ -51,14 +51,20 @@ public class Click implements Listener {
             }
             return;
         }
-        if (F_clickedSlot < F_clickedInventory.getSize()) {
+        if (clickedSlot < clickedInventory.getSize()) {
             // Click happened in the top inventory
             // Additional logic based on the clicked inventory and slot
-            if (F_clickedInventory.getHolder() instanceof GuiHolder) {
+            if (clickedInventory.getHolder() instanceof GuiHolder) {
                 Gui.MAIN.onClick(event);
                 return;
             }
         } else {
+            if (clickedSlot == 45) {
+                if (player.getInventory().getItemInOffHand().isEmpty() && player.getItemOnCursor().isEmpty()) {
+                    player.openInventory(Gui.MAIN.getDynamic(player));
+                    return;
+                }
+            }
             // Click happened in the player's inventory or a bottom inventory
         }
     }
