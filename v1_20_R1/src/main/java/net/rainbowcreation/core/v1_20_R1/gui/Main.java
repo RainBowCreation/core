@@ -29,7 +29,7 @@ public class Main implements IGui {
         if (gui != null)
             return gui;
         gui = Bukkit.createInventory(core.getGuiHolder(), 54, "Main");
-        gui.setItem(44, new Item().material(Material.BARRIER).customModelData(1).displayName("<white>").get());
+        gui.setItem(44, new Item().material(Material.BARRIER).customModelData(1).displayName("<white> ").get());
         gui.setItem(27, new Item().material(Material.LIME_STAINED_GLASS_PANE).displayName("Warps").lore("Left-Click <white>to warp to <green>Lobby").get());
         gui.setItem(28, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("Mainnet (survival)").lore("Left-Click <white>to warp").lore("<white>recommend version <green>1.20.1+").get());
         gui.setItem(29, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("RLCraft").lore("Left-Click <white>to warp").lore("<white>need RLCraft version <green>2.9.3").get());
