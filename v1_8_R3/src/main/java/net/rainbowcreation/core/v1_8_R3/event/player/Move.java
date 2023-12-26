@@ -1,45 +1,49 @@
-package net.rainbowcreation.core.event.player;
+package net.rainbowcreation.core.v1_8_R3.event.player;
 
-import com.github.puregero.multilib.MultiLib;
-import net.rainbowcreation.core.Core;
+import net.rainbowcreation.core.api.ICore;
+import net.rainbowcreation.core.v1_8_R3.Core;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.PufferFish;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class Move implements Listener {
-    private static Core core = Core.getInstance();
-    private World world = core.getServer().getWorld("world");; // Set this to the world where your portal is located
+    private static ICore core;
+    private World world; // Set this to the world where your portal is located
     private double portal_min_x = 3.5, portal_max_x = 5.5; // Set these to the X-axis bounds of your portal
     private double portal_min_z = -1.5, portal_max_z = 2.5; // Set these to the Z-axis bounds of your portal
     private double portal_min_y = 42.5, portal_max_y = 53.5;
 
+    public Move() {
+        core = Core.instance;
+        world = core.getPlugin().getServer().getWorld("world");
+    }
+
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         final Player player = event.getPlayer();
-        if (!MultiLib.isLocalPlayer(player))
-            return;
         final Location player_location = player.getLocation();
 
         if (isPlayerNearPortal(player_location)) {
             // Player is near the portal
-            core.console.info(core.playerlog.get(event.getPlayer()).toString());
-            if (core.playerlog.get(player)) {
+            core.getConsole().info(core.getPlayerLog().get(event.getPlayer()).toString());
+            if (core.getPlayerLog().get(player)) {
                 player.sendMessage("You are near the portal!");
                 // do the warp thing
 
 
-                core.playerlog.put(player, false);
+                core.getPlayerLog().put(player, false);
                 // F_player.openInventory(Warp.S_get());
                 new BukkitRunnable() {
                     @Override
                     public void run() {
-                        core.playerlog.put(player, true);
+                        core.getPlayerLog().put(player, true);
                     }
-                }.runTaskLater(core, 100L);
+                }.runTaskLater(core.getPlugin(), 100L);
             }
         }
     }

@@ -1,5 +1,6 @@
 package net.rainbowcreation.core.v1_8_R3.event.inventory;
 
+import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.GuiHolder;
 import net.rainbowcreation.core.v1_8_R3.Core;
 import net.rainbowcreation.core.v1_8_R3.gui.Gui;
@@ -13,6 +14,11 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class Click implements Listener {
+    private ICore core;
+
+    public Click() {
+        core = Core.instance;
+    }
     @EventHandler
     public void onCLick(InventoryClickEvent event) {
         if (!(event.getWhoClicked() instanceof Player))
@@ -33,7 +39,7 @@ public class Click implements Listener {
                     public void run() {
                         player.closeInventory();
                     }
-                }.runTaskLater(Core.plugin, 1L);
+                }.runTaskLater(core.getPlugin(), 1L);
             }
             else {
                 player.openInventory(Gui.MAIN.getDynamic(player));

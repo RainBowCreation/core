@@ -5,8 +5,13 @@ import net.rainbowcreation.core.api.utils.Bungee;
 import net.rainbowcreation.core.api.utils.Config;
 import net.rainbowcreation.core.api.utils.Console;
 import net.rainbowcreation.core.api.utils.GuiHolder;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+
+import java.util.Map;
 
 public interface ICore {
+    Plugin getPlugin();
     void register(ICore core);
     String getVersion();
     Console getConsole();
@@ -15,4 +20,5 @@ public interface ICore {
     Essentials getEss();
     boolean isEssEnabled();
     GuiHolder getGuiHolder();
+    Map<Player, Boolean> getPlayerLog();
 }

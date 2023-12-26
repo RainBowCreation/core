@@ -120,6 +120,7 @@
       <artifactId>multilib</artifactId>
       <version>1.1.12</version>
       <scope>compile</scope>
+      <optional>true</optional>
     </dependency>
     <!--dependency>
       <groupId>de.simonsator</groupId>

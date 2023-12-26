@@ -1,5 +1,6 @@
 package net.rainbowcreation.core.v1_8_R3.gui;
 
+import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.IGui;
 import net.rainbowcreation.core.api.utils.Item;
 import net.rainbowcreation.core.v1_8_R3.Core;
@@ -11,12 +12,17 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class Main implements IGui {
+    private ICore core;
     private static Inventory gui = null;
+
+    public Main() {
+        core = Core.instance;
+    }
     @Override
     public Inventory get() {
         if (gui != null)
             return gui;
-        gui = Bukkit.createInventory(Core.instance.getGuiHolder(), 54, "Main");
+        gui = Bukkit.createInventory(core.getGuiHolder(), 54, "Main");
         gui.setItem(44, new Item().material(Material.BARRIER).displayName("<white>").get());
         gui.setItem(27, new Item().material(Material.STAINED_GLASS_PANE).displayName("Warps").lore("Left-Click <white>to warp to <green>Lobby").get());
         gui.setItem(28, new Item().material(Material.STAINED_GLASS_PANE).displayName("Mainnet (survival)").lore("Left-Click <white>to warp").lore("<white>recommend version <green>1.20.1+").get());
@@ -44,7 +50,7 @@ public class Main implements IGui {
                 public void run() {
                     player.closeInventory();
                 }
-            }.runTaskLater(Core.plugin, 1L);
+            }.runTaskLater(core.getPlugin(), 1L);
             return;
         }
         String server = null;
@@ -59,7 +65,7 @@ public class Main implements IGui {
         else if (slot == 31)
             server = "morph";
         if (server != null)
-            Core.instance.getBungee().sendBungeeCordMessage(player, server);
+            core.getBungee().sendBungeeCordMessage(player, server);
     }
 
     @Override

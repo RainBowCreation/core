@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -64,11 +65,11 @@ public class Core extends JavaPlugin implements ICore {
 
         bungee = new Bungee(instance);
 
+        register(instance);
+
         new Event().register();
         new Gui().register();
         new Command().register();
-
-        register(instance);
     }
 
     @Override
@@ -112,5 +113,15 @@ public class Core extends JavaPlugin implements ICore {
     @Override
     public GuiHolder getGuiHolder() {
         return Gui.gui_holder;
+    }
+
+    @Override
+    public Map<Player, Boolean> getPlayerLog() {
+        return playerlog;
+    }
+
+    @Override
+    public Plugin getPlugin() {
+        return (Plugin) instance;
     }
 }

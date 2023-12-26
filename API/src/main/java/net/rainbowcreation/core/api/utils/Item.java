@@ -104,7 +104,6 @@ public class Item implements IItem {
                 itemMeta.setCustomModelData(i);
             } catch (Exception ignored) {}
         }
-        System.out.println("AAA");
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }
