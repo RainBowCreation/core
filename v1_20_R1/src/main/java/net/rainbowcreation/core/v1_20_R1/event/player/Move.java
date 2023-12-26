@@ -3,6 +3,7 @@ package net.rainbowcreation.core.v1_20_R1.event.player;
 import com.github.puregero.multilib.MultiLib;
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.v1_20_R1.Core;
+import net.rainbowcreation.core.v1_20_R1.gui.Main;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -30,6 +31,10 @@ public class Move implements Listener {
             if (!MultiLib.isLocalPlayer(player))
                 return;
         }
+
+        if (Main.is_move.containsKey(player)) // handle warp tp
+            Main.is_move.put(player, true);
+
         final Location player_location = player.getLocation();
 
         if (isPlayerNearPortal(player_location)) {

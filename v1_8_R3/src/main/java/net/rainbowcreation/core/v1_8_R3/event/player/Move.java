@@ -2,6 +2,8 @@ package net.rainbowcreation.core.v1_8_R3.event.player;
 
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.v1_8_R3.Core;
+import net.rainbowcreation.core.v1_8_R3.gui.Main;
+import net.rainbowcreation.core.v1_8_R3.recipe.SWarpScroll;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -25,6 +27,10 @@ public class Move implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         final Player player = event.getPlayer();
+
+        if (Main.is_move.containsKey(player)) // handle warp tp
+            Main.is_move.put(player, true);
+
         final Location player_location = player.getLocation();
 
         if (isPlayerNearPortal(player_location)) {

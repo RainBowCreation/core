@@ -37,7 +37,7 @@ public class SWarpScroll {
     public static void onUse(PlayerInteractEvent event) {
         event.setCancelled(true);
         final Player player = event.getPlayer();
-        player.sendMessage("<red>Sorry this item is under development TT");
+        player.sendMessage(Chat.minimessageColored("<red>Sorry this item is under development TT"));
         /*
         ItemStack item = event.getItem();
         if (item.getAmount() > 1) {
