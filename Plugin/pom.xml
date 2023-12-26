@@ -5,18 +5,7 @@
   <artifactId>core</artifactId>
   <packaging>jar</packaging>
   <name>RainBowCreationCore</name>
-  <version>0.8-DEV</version> <!-- This is where I track the version -->
-  <properties>
-    <v>1.8-R0.1-SNAPSHOT</v>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-  <!--repositories>
-    <repository>
-      <id>papermc</id>
-      <url>https://repo.papermc.io/repository/maven-public/</url>
-    </repository>
-  </repositories-->
+  <version>7.0-DEV</version> <!-- This is where I track the version -->
 
   <parent>
     <groupId>net.rainbowcreation</groupId>
@@ -25,13 +14,6 @@
   </parent>
 
   <dependencies>
-    <!--dependency>
-      <groupId>local.spigot.nms</groupId>
-      <artifactId>AllSpigotNMS</artifactId>
-      <version>LATEST</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/../lib/all-spigot-nms.jar</systemPath>
-    </dependency-->
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>core-v1_8_R3</artifactId>
