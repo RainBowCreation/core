@@ -73,7 +73,7 @@ public class Main implements IGui {
                 }
                 case (1) : {
                     player.sendMessage(Chat.minimessageColored("Check and download your resourcepack here"));
-                    player.spigot().sendMessage(new TextComponent("<https://github.com/RainBowCreation/resourcepack/releases/latest"));
+                    player.spigot().sendMessage(new TextComponent("https://github.com/RainBowCreation/resourcepack/releases/latest"));
                     break;
                 }
                 case (2) : {
