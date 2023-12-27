@@ -80,10 +80,12 @@ public class Main implements IGui {
                         player.closeInventory();
                         Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport.."), Chat.minimessageComponent("<red>Do not move"));
                         player.showTitle(title);
+                        count[0]++;
                     } else if (count[0] == 1) {
                         is_move.put(player, false);
                         Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport..."), Chat.minimessageComponent("<red>Do not move"));
                         player.showTitle(title);
+                        count[0]++;
                     }else if (count[0] < 6) {
                         if (is_move.get(player)) {
                             player.sendMessage(Chat.minimessageColored("<red>Warp Cancelled"));
