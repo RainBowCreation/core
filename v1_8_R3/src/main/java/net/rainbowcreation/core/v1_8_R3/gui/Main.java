@@ -78,29 +78,32 @@ public class Main implements IGui {
                     break;
                 }
                 case (2) : {
-                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_11.zip";
+                    url = "v1_11";
                     break;
                 }
                 case (3) : {
-                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_15.zip";
+                    url = "v1_15";
                     break;
                 }
                 case (4) : {
-                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_18.zip";
+                    url = "v1_18";
                     break;
                 }
                 case (5) : {
-                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_19.zip";
+                    url = "v1_19";
                     break;
                 }
                 case (6) : {
-                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_20.zip";
+                    url = "v1_20";
                     break;
                 }
             }
             Action.closePlayerInventory(core.getPlugin(), player);
             if (url == null)
                 return;
+            if (core.getDefaultConfig().getString("bungeecord.this").equals("lobby"))
+                url+="_l";
+            url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_" + url + ".zip";
             final int[] count = {0};
             String finalUrl = url;
             new BukkitRunnable() {
@@ -122,7 +125,7 @@ public class Main implements IGui {
             Action.closePlayerInventory(core.getPlugin(), player);
         }
         else if (slot >= 27 && slot <= 31) {
-            String server = null;
+            String server = "";
             switch (slot) {
                 case (27) : {
                     server = "lobby";
@@ -145,8 +148,12 @@ public class Main implements IGui {
                     break;
                 }
             }
-            if (server == null)
+            if (server.isEmpty())
                 return;
+            if (server.equals(core.getDefaultConfig().getString("bungeecord.this"))) {
+                Chat.sendPlayerMessage(player, "<red>You already in this server.");
+                return;
+            }
             String finalServer = server;
             final int[] count = {0};
             Action.closePlayerInventory(core.getPlugin(), player);

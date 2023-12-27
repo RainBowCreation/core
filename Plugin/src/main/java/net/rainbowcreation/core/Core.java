@@ -13,6 +13,7 @@ import net.rainbowcreation.core.recipe.Shaped;
 import net.rainbowcreation.core.recipe.Unshaped;
 import net.rainbowcreation.core.utils.Reference;
 import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -121,7 +122,10 @@ public class Core extends JavaPlugin implements ICore {
     public Config getConfig(String name) {
         return null;
     }
-
+    @Override
+    public FileConfiguration getDefaultConfig() {
+        return getPlugin().getConfig();
+    }
     @Override
     public GuiHolder getGuiHolder() {
         return Gui.gui_holder;
