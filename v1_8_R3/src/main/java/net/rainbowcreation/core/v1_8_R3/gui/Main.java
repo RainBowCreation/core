@@ -5,6 +5,7 @@ import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.IGui;
 import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.Chat;
+import net.rainbowcreation.core.api.utils.Str;
 import net.rainbowcreation.core.v1_8_R3.Core;
 import net.rainbowcreation.core.v1_8_R3.utils.Item;
 import org.bukkit.Bukkit;
@@ -65,6 +66,7 @@ public class Main implements IGui {
         final int slot = event.getSlot();
         final Player player = (Player) event.getWhoClicked();
         if (slot >= 0 & slot <= 6) {
+            String url = null;
             switch (slot) {
                 case (0) : {
                     player.sendMessage(Chat.minimessageColored("<red>Sorry this option is not available"));
@@ -76,27 +78,45 @@ public class Main implements IGui {
                     break;
                 }
                 case (2) : {
-                    player.setResourcePack("https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_11.zip");
+                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_11.zip";
                     break;
                 }
                 case (3) : {
-                    player.setResourcePack("https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_15.zip");
+                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_15.zip";
                     break;
                 }
                 case (4) : {
-                    player.setResourcePack("https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_18.zip");
+                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_18.zip";
                     break;
                 }
                 case (5) : {
-                    player.setResourcePack("https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_19.zip");
+                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_19.zip";
                     break;
                 }
                 case (6) : {
-                    player.setResourcePack("https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_20.zip");
+                    url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_v1_20.zip";
                     break;
                 }
             }
             Action.closePlayerInventory(core.getPlugin(), player);
+            if (url == null)
+                return;
+            final int[] count = {0};
+            String finalUrl = url;
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    if (count[0] == 0) {
+                        player.sendTitle(Chat.minimessageColored("<green>Downloading resourcepack..."), Chat.minimessageColored("You can download manually at our github."));
+                        count[0]++;
+                    } else if (count[0] >= 1) {
+                        player.setResourcePack(finalUrl + "?timestamp=" + System.currentTimeMillis());
+                        cancel();
+                    } else {
+                        cancel();
+                    }
+                }
+            }.runTaskTimer(core.getPlugin(), 1L, 20L);
         }
         else if (slot == 44) {
             Action.closePlayerInventory(core.getPlugin(), player);
