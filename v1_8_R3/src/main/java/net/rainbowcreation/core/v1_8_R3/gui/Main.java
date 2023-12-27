@@ -72,20 +72,23 @@ public class Main implements IGui {
         if (server != null) {
             String finalServer = server;
             final int[] count = {0};
-            is_move.put(player, false);
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    if (count[0] == 0)
+                    if (count[0] == 0) {
                         player.closeInventory();
-                    if (count[0] < 5) {
-                        player.sendTitle(Chat.minimessageColored("<white>Preparing teleport <red>" + (5 - count[0])), Chat.minimessageColored("<red>Do not move"));
-                        count[0]++;
+                        player.sendTitle(Chat.minimessageColored("<white>Preparing teleport.."), Chat.minimessageColored("<red>Do not move"));
+                    } else if (count[0] == 1) {
+                        is_move.put(player, false);
+                        player.sendTitle(Chat.minimessageColored("<white>Preparing teleport..."), Chat.minimessageColored("<red>Do not move"));
+                    } else if (count[0] < 6) {
                         if (is_move.get(player)) {
                             player.sendMessage(Chat.minimessageColored("<red>Warp Cancelled"));
                             is_move.remove(player);
                             cancel();
                         }
+                        player.sendTitle(Chat.minimessageColored("<white>Preparing teleport <red>" + (6 - count[0])), Chat.minimessageColored("<red>Do not move"));
+                        count[0]++;
                     }
                     else {
                         core.getBungee().sendPlayerToServer(player, finalServer);

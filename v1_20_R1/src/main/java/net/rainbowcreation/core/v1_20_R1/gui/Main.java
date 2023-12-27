@@ -73,21 +73,26 @@ public class Main implements IGui {
         if (server != null){
             String finalServer = server;
             final int[] count = {0};
-            is_move.put(player, false);
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    if (count[0] == 0)
+                    if (count[0] == 0) {
                         player.closeInventory();
-                    if (count[0] < 5) {
-                        Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport <red>" + (5 - count[0])), Chat.minimessageComponent("<red>Do not move"));
+                        Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport.."), Chat.minimessageComponent("<red>Do not move"));
                         player.showTitle(title);
-                        count[0]++;
+                    } else if (count[0] == 1) {
+                        is_move.put(player, false);
+                        Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport..."), Chat.minimessageComponent("<red>Do not move"));
+                        player.showTitle(title);
+                    }else if (count[0] < 6) {
                         if (is_move.get(player)) {
                             player.sendMessage(Chat.minimessageColored("<red>Warp Cancelled"));
                             is_move.remove(player);
                             cancel();
                         }
+                        Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport <red>" + (6 - count[0])), Chat.minimessageComponent("<red>Do not move"));
+                        player.showTitle(title);
+                        count[0]++;
                     }
                     else {
                         core.getBungee().sendPlayerToServer(player, finalServer);
