@@ -11,6 +11,7 @@ import net.rainbowcreation.core.v1_20_R1.Core;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -36,11 +37,11 @@ public class Main implements IGui {
         // resourcepack zone
         gui.setItem(0, new Item().material(Material.RED_STAINED_GLASS_PANE).displayName("Graphic").lore("Left-Click <white>to auto detect versions").lore("<red>Currently under development").get());
         gui.setItem(1, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("other versions").lore("<gray>visit our github at <white>rainbowcreation.net/git").get());
-        gui.setItem(2, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.11-1.12.2").lore("Left-Click <white>to use").lore("<green>RLCraft <white>Support!").get());
-        gui.setItem(3, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.15-1.16.5").lore("Left-Click <white>to use").get());
-        gui.setItem(4, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.18").lore("Left-Click <white>to use").lore("<green>StoneBlock3 <white>Support!").get());
-        gui.setItem(5, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.19").lore("Left-Click <white>to use").get());
-        gui.setItem(6, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.20").lore("Left-Click <white>to use").get());
+        gui.setItem(2, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.11-1.12.2").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").lore("<green>RLCraft <white>Support!").get());
+        gui.setItem(3, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.15-1.16.5").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").get());
+        gui.setItem(4, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.18").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").lore("<green>StoneBlock3 <white>Support!").get());
+        gui.setItem(5, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.19").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").get());
+        gui.setItem(6, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.20").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").get());
 
 
         // warp
@@ -63,6 +64,9 @@ public class Main implements IGui {
     @Override
     public void onClick(InventoryClickEvent event) {
         event.setCancelled(true);
+        final ClickType clickType = event.getClick();
+        if (!(clickType == ClickType.LEFT || clickType == ClickType.RIGHT))
+            return;
         final int slot = event.getSlot();
         final Player player = (Player) event.getWhoClicked();
         if (slot >= 0 & slot <= 6) {
@@ -101,11 +105,8 @@ public class Main implements IGui {
             Action.closePlayerInventory(core.getPlugin(), player);
             if (url == null)
                 return;
-            /*
-            if (core.getDefaultConfig().getString("bungeecord.this").equals("lobby"))
-                url+="_l";
-
-             */
+            if (clickType == ClickType.RIGHT)
+                url+="_lite";
             url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_" + url + ".zip";
             final int[] count = {0};
             String finalUrl = url;
@@ -123,8 +124,11 @@ public class Main implements IGui {
                     }
                 }
             }.runTaskTimer(core.getPlugin(), 1L, 20L);
+            return;
         }
-        else if (slot == 44) {
+        if (clickType != ClickType.LEFT)
+            return;
+        if (slot == 44) {
             Action.closePlayerInventory(core.getPlugin(), player);
         }
         else if (slot >= 27 && slot <= 31) {
