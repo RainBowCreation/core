@@ -31,7 +31,7 @@ public class Main implements IGui {
         if (gui != null)
             return gui;
         gui = Bukkit.createInventory(core.getGuiHolder(), 54, "Main");
-        gui.setItem(44, new Item().material(Material.BARRIER).customModelData(3).displayName("<red>Close").get());
+        gui.setItem(44, new Item().material(Material.BARRIER).customModelData(3).displayName(" ").get());
 
         // resourcepack zone
         gui.setItem(0, new Item().material(Material.RED_STAINED_GLASS_PANE).displayName("Graphic").lore("Left-Click <white>to auto detect versions").lore("<red>Currently under development").get());
