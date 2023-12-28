@@ -2,6 +2,7 @@ package net.rainbowcreation.core.v1_20_R1.event.inventory;
 
 import com.github.puregero.multilib.MultiLib;
 import net.rainbowcreation.core.api.ICore;
+import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.GuiHolder;
 import net.rainbowcreation.core.v1_20_R1.Core;
 import net.rainbowcreation.core.v1_20_R1.gui.Gui;
@@ -29,35 +30,33 @@ public class Click implements Listener {
             if (!MultiLib.isLocalPlayer(player))
                 return;
         }
-        final ClickType clicktype = event.getClick();
-        if (clicktype != ClickType.LEFT)
-            return;
-        if (event.getCursor().getType() != Material.AIR)
-            return;
         final Inventory clickedInventory = event.getInventory();
         final int clickedSlot = event.getRawSlot();
         if (clickedSlot == -999) {
+            final ClickType clicktype = event.getClick();
+            if (clicktype != ClickType.LEFT)
+                return;
+            if (event.getCursor().getType() != Material.AIR)
+                return;
             event.setCancelled(true);
             if (clickedInventory.getHolder() instanceof GuiHolder) {
-                new BukkitRunnable() {
-                    @Override
-                    public void run() {
-                        player.closeInventory();
-                    }
-                }.runTaskLater(core.getPlugin(), 1L);
+                Action.closePlayerInventory(core.getPlugin(), player);
             }
             else {
                 player.openInventory(Gui.MAIN.getDynamic(player));
             }
             return;
         }
-        if (clickedSlot < clickedInventory.getSize()) {
-            // Click happened in the top inventory
-            // Additional logic based on the clicked inventory and slot
+        else {
             if (clickedInventory.getHolder() instanceof GuiHolder) {
                 Gui.MAIN.onClick(event);
                 return;
             }
+        }
+        if (clickedSlot < clickedInventory.getSize()) {
+            // Click happened in the top inventory
+            // Additional logic based on the clicked inventory and slot
+
         } else {
             if (clickedSlot == 45) {
                 if (player.getInventory().getItemInOffHand().isEmpty() && player.getItemOnCursor().isEmpty()) {
