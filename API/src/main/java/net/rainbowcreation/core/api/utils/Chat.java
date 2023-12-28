@@ -57,6 +57,6 @@ public class Chat {
         return legacyColored(minimessageLegacy(minimessage));
     }
     public static void sendPlayerMessage(Player player, String minimessage) {
-        player.sendMessage(legacyColored(legacyMinimessage(minimessage)));
+        player.sendMessage(minimessageColored(minimessage));
     }
 }
