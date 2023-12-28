@@ -43,15 +43,12 @@ public class Click implements Listener {
             }
             return;
         }
-        else {
-            if (clickedInventory.getHolder() instanceof GuiHolder) {
-                Gui.MAIN.onClick(event);
-            }
-        }
         if (clickedSlot < clickedInventory.getSize()) {
             // Click happened in the top inventory
             // Additional logic based on the clicked inventory and slot
-
+            if (clickedInventory.getHolder() instanceof GuiHolder) {
+                Gui.MAIN.onClick(event);
+            }
         } else {
             // Click happened in the player's inventory or a bottom inventory
         }

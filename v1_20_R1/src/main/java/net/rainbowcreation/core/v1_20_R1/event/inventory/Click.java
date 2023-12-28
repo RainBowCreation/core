@@ -47,16 +47,13 @@ public class Click implements Listener {
             }
             return;
         }
-        else {
+        if (clickedSlot < clickedInventory.getSize()) {
+            // Click happened in the top inventory
+            // Additional logic based on the clicked inventory and slot
             if (clickedInventory.getHolder() instanceof GuiHolder) {
                 Gui.MAIN.onClick(event);
                 return;
             }
-        }
-        if (clickedSlot < clickedInventory.getSize()) {
-            // Click happened in the top inventory
-            // Additional logic based on the clicked inventory and slot
-
         } else {
             if (clickedSlot == 45) {
                 if (player.getInventory().getItemInOffHand().isEmpty() && player.getItemOnCursor().isEmpty()) {
