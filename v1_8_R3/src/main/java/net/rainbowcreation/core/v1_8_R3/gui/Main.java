@@ -39,7 +39,7 @@ public class Main implements IGui {
         gui.setItem(1, new Item().material(Material.STAINED_GLASS_PANE).displayName("other versions").lore("<gray>visit our github at <white>rainbowcreation.net/git").get());
         gui.setItem(2, new Item().material(Material.STAINED_GLASS_PANE).displayName("1.11-1.12.2").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").lore("<green>RLCraft <white>Support!").get());
         gui.setItem(3, new Item().material(Material.STAINED_GLASS_PANE).displayName("1.15-1.16.5").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").get());
-        gui.setItem(4, new Item().material(Material.STAINED_GLASS_PANE).displayName("1.18").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").lore("Right-Click <white>to use lite version").lore("<green>StoneBlock3 <white>Support!").get());
+        gui.setItem(4, new Item().material(Material.STAINED_GLASS_PANE).displayName("1.18").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").lore("<green>StoneBlock3 <white>Support!").get());
         gui.setItem(5, new Item().material(Material.STAINED_GLASS_PANE).displayName("1.19").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").get());
         gui.setItem(6, new Item().material(Material.STAINED_GLASS_PANE).displayName("1.20").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").get());
 
