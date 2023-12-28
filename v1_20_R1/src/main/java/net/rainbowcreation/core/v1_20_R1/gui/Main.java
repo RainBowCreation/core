@@ -31,7 +31,7 @@ public class Main implements IGui {
         if (gui != null)
             return gui;
         gui = Bukkit.createInventory(core.getGuiHolder(), 54, "Main");
-        gui.setItem(44, new Item().material(Material.BARRIER).customModelData(1).displayName("<red>Close").get());
+        gui.setItem(44, new Item().material(Material.BARRIER).customModelData(3).displayName("<red>Close").get());
 
         // resourcepack zone
         gui.setItem(0, new Item().material(Material.RED_STAINED_GLASS_PANE).displayName("Graphic").lore("Left-Click <white>to auto detect versions").lore("<red>Currently under development").get());
@@ -101,8 +101,11 @@ public class Main implements IGui {
             Action.closePlayerInventory(core.getPlugin(), player);
             if (url == null)
                 return;
+            /*
             if (core.getDefaultConfig().getString("bungeecord.this").equals("lobby"))
                 url+="_l";
+
+             */
             url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_" + url + ".zip";
             final int[] count = {0};
             String finalUrl = url;
@@ -151,7 +154,7 @@ public class Main implements IGui {
             if (server.isEmpty())
                 return;
             if (server.equals(core.getDefaultConfig().getString("bungeecord.this"))) {
-                Chat.sendPlayerMessage(player, "<red>You already in this server.");
+                Chat.sendPlayerMessage(player, "<red>You already in " + server + " server.");
                 return;
             }
             String finalServer = server;

@@ -5,14 +5,12 @@ import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.IGui;
 import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.Chat;
-import net.rainbowcreation.core.api.utils.Str;
 import net.rainbowcreation.core.v1_8_R3.Core;
 import net.rainbowcreation.core.v1_8_R3.utils.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -32,7 +30,7 @@ public class Main implements IGui {
         if (gui != null)
             return gui;
         gui = Bukkit.createInventory(core.getGuiHolder(), 54, "Main");
-        gui.setItem(44, new Item().material(Material.BARRIER).displayName("<red>Close").get());
+        gui.setItem(44, new Item().material(Material.BARRIER).customModelData(3).displayName("<red>Close").get());
 
         // resourcepack zone
         gui.setItem(0, new Item().material(Material.STAINED_GLASS_PANE).color(6).displayName("Download resourcepack ->").lore("Left-Click <white>to auto detect versions").lore("<red>Currently under development").get());
@@ -101,8 +99,11 @@ public class Main implements IGui {
             Action.closePlayerInventory(core.getPlugin(), player);
             if (url == null)
                 return;
+            /*
             if (core.getDefaultConfig().getString("bungeecord.this").equals("lobby"))
                 url+="_l";
+
+             */
             url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_" + url + ".zip";
             final int[] count = {0};
             String finalUrl = url;
@@ -151,7 +152,7 @@ public class Main implements IGui {
             if (server.isEmpty())
                 return;
             if (server.equals(core.getDefaultConfig().getString("bungeecord.this"))) {
-                Chat.sendPlayerMessage(player, "<red>You already in this server.");
+                Chat.sendPlayerMessage(player, "<red>You already in " + server + " server.");
                 return;
             }
             String finalServer = server;
