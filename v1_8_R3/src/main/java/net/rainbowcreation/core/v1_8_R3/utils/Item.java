@@ -5,6 +5,7 @@ import net.rainbowcreation.core.api.IItem;
 import net.rainbowcreation.core.api.utils.Chat;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
+import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -107,6 +108,11 @@ public class Item implements IItem {
         if (lore != null)
             itemMeta.setLore(lore);
         itemStack.setItemMeta(itemMeta);
+        if (i != 0) {
+            net.minecraft.server.v1_8_R3.ItemStack data = CraftItemStack.asNMSCopy(itemStack);
+            data.getTag().setInt("CustomModelData", i);
+            itemStack = CraftItemStack.asBukkitCopy(data);
+        }
         return itemStack;
     }
 
