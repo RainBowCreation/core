@@ -21,8 +21,8 @@
   <dependencies>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
-      <artifactId>core-api</artifactId> <!-- Depend on the API! -->
-      <version>API-SNAPSHOT</version>
+      <artifactId>api</artifactId> <!-- Depend on the API! -->
+      <version>1.0.1-SNAPSHOT</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>

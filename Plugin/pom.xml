@@ -44,8 +44,8 @@
     </dependency>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
-      <artifactId>core-api-SNAPSHOT</artifactId>
-      <version>API</version>
+      <artifactId>api</artifactId>
+      <version>1.0.1-SNAPSHOT</version>
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
