@@ -4,7 +4,7 @@
   <artifactId>core-v1_15_R1</artifactId>
   <packaging>jar</packaging>
   <name>RainBowCreationCore v1_15_R1</name>
-  <version>v1_15_R1</version>
+  <version>v1_15_R1-SNAPSHOT</version>
 
   <properties>
     <v>1.15.2-R0.1-SNAPSHOT</v>
@@ -14,7 +14,7 @@
 
   <parent>
     <groupId>net.rainbowcreation</groupId>
-    <artifactId>core-parent</artifactId>
+    <artifactId>core-parent-SNAPSHOT</artifactId>
     <version>parent</version>
   </parent>
 
@@ -22,7 +22,7 @@
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>core-api</artifactId> <!-- Depend on the API! -->
-      <version>API</version>
+      <version>API-SNAPSHOT</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
