@@ -5,7 +5,7 @@
   <artifactId>core-velocity</artifactId>
   <packaging>jar</packaging>
   <name>RainBowCreationCore Velocity</name>
-  <version>VELOCITY</version>
+  <version>VELOCITY-SNAPSHOT</version>
 
   <properties>
     <maven.deploy.skip>true</maven.deploy.skip>
@@ -21,7 +21,7 @@
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>core-api</artifactId> <!-- Depend on the API! -->
-      <version>API</version>
+      <version>API-SNAPSHOT</version>
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
