@@ -7,6 +7,10 @@
   <name>RainBowCreationCore Velocity</name>
   <version>VELOCITY</version>
 
+  <properties>
+    <maven.deploy.skip>true</maven.deploy.skip>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>com.velocitypowered</groupId>

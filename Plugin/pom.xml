@@ -7,6 +7,10 @@
   <name>RainBowCreationCore</name>
   <version>7.0-DEV</version> <!-- This is where I track the version -->
 
+  <properties>
+    <maven.deploy.skip>true</maven.deploy.skip>
+  </properties>
+
   <parent>
     <groupId>net.rainbowcreation</groupId>
     <artifactId>core-parent</artifactId>
