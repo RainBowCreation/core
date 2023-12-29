@@ -1,0 +1,4 @@
+[submodule "API"]
+	path = API
+	url = https://github.com/RainBowCreation/api.git
+	branch = dev
