@@ -23,7 +23,7 @@ public class Click implements Listener {
     public void onCLick(InventoryClickEvent event) {
         if (!(event.getWhoClicked() instanceof Player))
             return;
-        Player player = (Player) event.getWhoClicked();
+        final Player player = (Player) event.getWhoClicked();
         final Inventory clickedInventory = event.getInventory();
         final int clickedSlot = event.getRawSlot();
         if (clickedSlot == -999) {

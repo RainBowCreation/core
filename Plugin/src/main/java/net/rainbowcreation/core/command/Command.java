@@ -10,7 +10,6 @@ public class Command implements IRegistry {
         // global command
         Core.getInstance().getCommand("rbc").setExecutor(new Rbc());
 
-
         // other version register
         final IRegistry command = (IRegistry) Remap.castInterface(IRegistry.class, Core.getInstance().version, "command.Command");
         if (command == null)

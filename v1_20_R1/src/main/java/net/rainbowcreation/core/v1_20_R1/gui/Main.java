@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main implements IGui {
-    private ICore core;
+    private final ICore core;
     private static Inventory gui = null;
     public static Map<Player, Boolean> is_move = new HashMap<>();
 
@@ -42,7 +42,6 @@ public class Main implements IGui {
         gui.setItem(4, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.18").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").lore("<green>StoneBlock3 <white>Support!").get());
         gui.setItem(5, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.19").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").get());
         gui.setItem(6, new Item().material(Material.WHITE_STAINED_GLASS_PANE).displayName("1.20").lore("Left-Click <white>to use").lore("Right-Click <white>to use lite version").get());
-
 
         // warp
         gui.setItem(27, new Item().material(Material.LIME_STAINED_GLASS_PANE).displayName("Warps").lore("Left-Click <white>to warp to <green>Lobby").get());
@@ -73,11 +72,11 @@ public class Main implements IGui {
             String url = null;
             switch (slot) {
                 case (0) : {
-                    player.sendMessage(Chat.minimessageColored("<red>Sorry this option is not available"));
+                    Action.sendPlayerMessage(player, "<red>Sorry this option is not available");
                     break;
                 }
                 case (1) : {
-                    player.sendMessage(Chat.minimessageColored("Check and download your resourcepack here"));
+                    Action.sendPlayerMessage(player, "Check and download your resourcepack here");
                     player.spigot().sendMessage(new TextComponent("https://github.com/RainBowCreation/resourcepack/releases/latest"));
                     break;
                 }
@@ -109,7 +108,7 @@ public class Main implements IGui {
                 url+="_lite";
             url = "https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_" + url + ".zip";
             final int[] count = {0};
-            String finalUrl = url;
+            final String finalUrl = url;
             new BukkitRunnable() {
                 @Override
                 public void run() {
@@ -158,10 +157,10 @@ public class Main implements IGui {
             if (server.isEmpty())
                 return;
             if (server.equals(core.getDefaultConfig().getString("bungeecord.this"))) {
-                Chat.sendPlayerMessage(player, "<red>You already in " + server + " server.");
+                Action.sendPlayerMessage(player, "<red>You already in " + server + " server.");
                 return;
             }
-            String finalServer = server;
+            final String finalServer = server;
             final int[] count = {0};
             Action.closePlayerInventory(core.getPlugin(), player);
             new BukkitRunnable() {
@@ -169,16 +168,16 @@ public class Main implements IGui {
                 public void run() {
                     if (count[0] == 0) {
                         is_move.put(player, false);
-                        Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport..."), Chat.minimessageComponent("<red>Do not move"));
+                        final Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport..."), Chat.minimessageComponent("<red>Do not move"));
                         player.showTitle(title);
                         count[0]++;
                     } else if (count[0] < 6) {
                         if (is_move.get(player)) {
-                            player.sendMessage(Chat.minimessageColored("<red>Warp Cancelled"));
+                            Action.sendPlayerMessage(player, "<red>Warp Cancelled");
                             is_move.remove(player);
                             cancel();
                         }
-                        Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport <red>" + (6 - count[0])), Chat.minimessageComponent("<red>Do not move"));
+                        final Title title = Title.title(Chat.minimessageComponent("<white>Preparing teleport <red>" + (6 - count[0])), Chat.minimessageComponent("<red>Do not move"));
                         player.showTitle(title);
                         count[0]++;
                     } else {

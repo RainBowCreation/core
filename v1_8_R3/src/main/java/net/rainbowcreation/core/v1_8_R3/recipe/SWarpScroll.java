@@ -1,6 +1,7 @@
 package net.rainbowcreation.core.v1_8_R3.recipe;
 
 import net.rainbowcreation.core.api.ICore;
+import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.Chat;
 import net.rainbowcreation.core.v1_8_R3.Core;
 import net.rainbowcreation.core.v1_8_R3.utils.Item;
@@ -31,7 +32,7 @@ public class SWarpScroll {
     public static void onUse(PlayerInteractEvent event) {
         event.setCancelled(true);
         final Player player = event.getPlayer();
-        player.sendMessage(Chat.minimessageColored("<red>Sorry this item is under development TT"));
+        Action.sendPlayerMessage(player, "<red>Sorry this item is under development TT");
         return;
         /*
         ItemStack item = event.getItem();

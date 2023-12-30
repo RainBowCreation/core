@@ -1,6 +1,5 @@
 package net.rainbowcreation.core.v1_20_R1;
 
-import com.earth2me.essentials.Essentials;
 import com.github.puregero.multilib.MultiLib;
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Bungee;

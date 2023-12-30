@@ -18,7 +18,7 @@ public class Interact implements Listener {
 
         final Player player = event.getPlayer();
         if (event.getAction().name().contains("RIGHT")) {
-            List<String> lorelist = itemStack.getItemMeta().getLore();
+           final List<String> lorelist = itemStack.getItemMeta().getLore();
             if (lorelist == null)
                 return;
             if (lorelist.get(lorelist.size() - 1).contains("wiki.rainbowcreation.net/item/warp_scroll")) {

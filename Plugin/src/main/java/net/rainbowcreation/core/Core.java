@@ -1,6 +1,7 @@
 package net.rainbowcreation.core;
 
 import com.earth2me.essentials.Essentials;
+import net.rainbowcreation.core.api.ApiProvider;
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Bungee;
 import net.rainbowcreation.core.api.utils.Config;
@@ -70,13 +71,15 @@ public class Core extends JavaPlugin implements ICore {
         listener = new BungeeListener();
         bungee = new Bungee(instance);
 
-        register(instance);
+        register(instance); // register instance for multiversion support
 
         new Event().register();
         new Gui().register();
         new Command().register();
         new Shaped().register();
         new Unshaped().register();
+
+        new ApiProvider().register(instance); // register instance for api
     }
 
     @Override

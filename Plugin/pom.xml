@@ -20,6 +20,13 @@
   <dependencies>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
+      <artifactId>api</artifactId>
+      <version>1.0.1-SNAPSHOT</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.rainbowcreation</groupId>
       <artifactId>core-v1_8_R3</artifactId>
       <version>v1_8_R3-SNAPSHOT</version>
       <type>jar</type>
@@ -41,13 +48,6 @@
       <type>jar</type>
       <scope>compile</scope>
       <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>net.rainbowcreation</groupId>
-      <artifactId>api</artifactId>
-      <version>1.0.1-SNAPSHOT</version>
-      <type>jar</type>
-      <scope>compile</scope>
     </dependency>
   </dependencies>
   <build>
