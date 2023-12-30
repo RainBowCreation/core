@@ -1,7 +1,6 @@
 package net.rainbowcreation.core.command;
 
 import net.rainbowcreation.core.Core;
-import net.rainbowcreation.core.api.IEvent;
 import net.rainbowcreation.core.api.IRegistry;
 import net.rainbowcreation.core.api.utils.Remap;
 

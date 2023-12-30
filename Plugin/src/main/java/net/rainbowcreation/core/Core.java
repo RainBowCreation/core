@@ -91,16 +91,6 @@ public class Core extends JavaPlugin implements ICore {
     }
 
     @Override
-    public Essentials getEss() {
-        return ess;
-    }
-
-    @Override
-    public boolean isEssEnabled() {
-        return ess_enabled;
-    }
-
-    @Override
     public void register(ICore plugin) {
         final ICore core = (ICore) Remap.castInterface(ICore.class, version, "Core");
         if (core == null)

@@ -1,6 +1,5 @@
 package net.rainbowcreation.core.v1_8_R3.event.player;
 
-import net.rainbowcreation.core.api.utils.Str;
 import net.rainbowcreation.core.v1_8_R3.recipe.SWarpScroll;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

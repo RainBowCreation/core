@@ -6,7 +6,6 @@ import net.rainbowcreation.core.api.IGui;
 import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.Chat;
 import net.rainbowcreation.core.v1_8_R3.Core;
-import net.rainbowcreation.core.v1_8_R3.event.inventory.Click;
 import net.rainbowcreation.core.v1_8_R3.utils.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;

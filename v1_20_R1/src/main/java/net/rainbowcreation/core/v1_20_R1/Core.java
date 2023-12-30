@@ -51,16 +51,6 @@ public class Core implements ICore {
     }
 
     @Override
-    public Essentials getEss() {
-        return instance.getEss();
-    }
-
-    @Override
-    public boolean isEssEnabled() {
-        return instance.isEssEnabled();
-    }
-
-    @Override
     public GuiHolder getGuiHolder() {
         return instance.getGuiHolder();
     }
