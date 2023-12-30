@@ -49,6 +49,16 @@
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
+<<<<<<< HEAD
+=======
+    <dependency>
+      <groupId>net.rainbowcreation</groupId>
+      <artifactId>api</artifactId>
+      <version>LATEST</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+>>>>>>> main
   </dependencies>
   <build>
     <directory>../target</directory> <!-- Build it one level up, because it is the one we care about -->
