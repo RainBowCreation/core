@@ -7,7 +7,6 @@ public class Command implements IRegistry {
     public void register() {
         // void
     }
-
     @Override
     public Object get(String key) {
         return null;

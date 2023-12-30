@@ -22,7 +22,11 @@
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>api</artifactId> <!-- Depend on the API! -->
+<<<<<<< HEAD
+      <version>1.0.1-SNAPSHOT</version>
+=======
       <version>LATEST</version>
+>>>>>>> main
       <type>jar</type>
       <scope>provided</scope>
     </dependency>

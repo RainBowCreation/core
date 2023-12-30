@@ -6,7 +6,6 @@ import net.rainbowcreation.core.api.IGui;
 import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.Chat;
 import net.rainbowcreation.core.v1_8_R3.Core;
-import net.rainbowcreation.core.v1_8_R3.event.inventory.Click;
 import net.rainbowcreation.core.v1_8_R3.utils.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -63,7 +62,7 @@ public class Main implements IGui {
     @Override
     public void onClick(InventoryClickEvent event) {
         event.setCancelled(true);
-        ClickType clickType = event.getClick();
+        final ClickType clickType = event.getClick();
         if (!(clickType == ClickType.LEFT || clickType == ClickType.RIGHT))
             return;
         final int slot = event.getSlot();
@@ -72,11 +71,11 @@ public class Main implements IGui {
             String url = null;
             switch (slot) {
                 case (0) : {
-                    player.sendMessage(Chat.minimessageColored("<red>Sorry this option is not available"));
+                    Action.sendPlayerMessage(player, "<red>Sorry this option is not available");
                     break;
                 }
                 case (1) : {
-                    player.sendMessage(Chat.minimessageColored("Check and download your resourcepack here"));
+                    Action.sendPlayerMessage(player, "Check and download your resourcepack here");
                     player.spigot().sendMessage(new TextComponent("https://github.com/RainBowCreation/resourcepack/releases/latest"));
                     break;
                 }
@@ -157,10 +156,10 @@ public class Main implements IGui {
             if (server.isEmpty())
                 return;
             if (server.equals(core.getDefaultConfig().getString("bungeecord.this"))) {
-                Chat.sendPlayerMessage(player, "<red>You already in " + server + " server.");
+                Action.sendPlayerMessage(player, "<red>You already in " + server + " server.");
                 return;
             }
-            String finalServer = server;
+            final String finalServer = server;
             final int[] count = {0};
             Action.closePlayerInventory(core.getPlugin(), player);
             new BukkitRunnable() {
@@ -172,7 +171,7 @@ public class Main implements IGui {
                         count[0]++;
                     } else if (count[0] < 6) {
                         if (is_move.get(player)) {
-                            player.sendMessage(Chat.minimessageColored("<red>Warp Cancelled"));
+                            Action.sendPlayerMessage(player, "<red>Warp Cancelled");
                             is_move.remove(player);
                             cancel();
                         }

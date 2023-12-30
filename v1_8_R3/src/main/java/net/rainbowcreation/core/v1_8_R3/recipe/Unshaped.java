@@ -7,7 +7,6 @@ public class Unshaped implements IRegistry {
     public void register() {
 
     }
-
     @Override
     public Object get(String key) {
         return null;

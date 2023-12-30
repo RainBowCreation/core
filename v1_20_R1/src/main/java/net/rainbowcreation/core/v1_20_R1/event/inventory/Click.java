@@ -13,11 +13,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.scheduler.BukkitRunnable;
 
 public class Click implements Listener {
     private ICore core;
-
     public Click() {
         core = Core.instance;
     }
@@ -25,7 +23,7 @@ public class Click implements Listener {
     public void onCLick(InventoryClickEvent event) {
         if (!(event.getWhoClicked() instanceof Player))
             return;
-        Player player = (Player) event.getWhoClicked();
+        final Player player = (Player) event.getWhoClicked();
         if (MultiLib.isMultiPaper()) {
             if (!MultiLib.isLocalPlayer(player))
                 return;

@@ -1,6 +1,6 @@
 package net.rainbowcreation.core;
 
-import com.earth2me.essentials.Essentials;
+import net.rainbowcreation.core.api.ApiProvider;
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Bungee;
 import net.rainbowcreation.core.api.utils.Config;
@@ -30,8 +30,6 @@ public class Core extends JavaPlugin implements ICore {
         return instance;
     }
 
-    public Essentials ess;
-    public Boolean ess_enabled = true;
     public String version;
     public Config config_gui;
     public Console console;
@@ -49,13 +47,6 @@ public class Core extends JavaPlugin implements ICore {
         Str.header(Reference.NAME+":"+Reference.VERSION,console);
         final PluginManager manager = Bukkit.getPluginManager();
 
-        // check for essential
-        ess = (Essentials) instance.getServer().getPluginManager().getPlugin("Essentials");
-        if (ess == null) {
-            console.info("Please install Essentials for better performance"); //checker
-            ess_enabled = false;
-        }
-
         // get server version
         version = Str.getVersion(instance);
         console.info("Loading support for " + version);
@@ -70,13 +61,15 @@ public class Core extends JavaPlugin implements ICore {
         listener = new BungeeListener();
         bungee = new Bungee(instance);
 
-        register(instance);
+        register(instance); // register instance for multiversion support
 
         new Event().register();
         new Gui().register();
         new Command().register();
         new Shaped().register();
         new Unshaped().register();
+
+        new ApiProvider().register(instance); // register instance for api
     }
 
     @Override
@@ -88,16 +81,6 @@ public class Core extends JavaPlugin implements ICore {
     @Override
     public Bungee getBungee() {
         return bungee;
-    }
-
-    @Override
-    public Essentials getEss() {
-        return ess;
-    }
-
-    @Override
-    public boolean isEssEnabled() {
-        return ess_enabled;
     }
 
     @Override

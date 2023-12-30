@@ -119,18 +119,18 @@ public class Item implements IItem {
     @Override
     public ItemStack getrandomFirework() {
         material = Material.FIREWORK;
-        final FireworkMeta F_itemMeta = (FireworkMeta)itemStack.getItemMeta();
-        assert F_itemMeta != null;
-        F_itemMeta.setPower((int)(Math.random() * 2.0D + 3.0D));
+        final FireworkMeta itemMeta = (FireworkMeta)itemStack.getItemMeta();
+        assert itemMeta != null;
+        itemMeta.setPower((int)(Math.random() * 2.0D + 3.0D));
         int rand = (int)(Math.random() * COLOR_LIST.length);
         int rand2 = (int)(Math.random() * COLOR_LIST.length);
-        final FireworkEffect.Builder F_effect = FireworkEffect.builder();
-        F_effect.flicker(((int)(Math.random() * 2.0D) == 1)).withColor((Iterable<?>) COLOR_LIST[rand]);
-        F_effect.withFade((Iterable<?>) COLOR_LIST[rand2]);
-        F_effect.with(((int)(Math.random() * 2.0D) == 1) ? FireworkEffect.Type.BALL : FireworkEffect.Type.BALL_LARGE);
-        F_effect.trail(((int)(Math.random() * 2.0D) == 1));
-        F_itemMeta.addEffect(F_effect.build());
-        itemStack.setItemMeta(F_itemMeta);
+        final FireworkEffect.Builder effect = FireworkEffect.builder();
+        effect.flicker(((int)(Math.random() * 2.0D) == 1)).withColor((Iterable<?>) COLOR_LIST[rand]);
+        effect.withFade((Iterable<?>) COLOR_LIST[rand2]);
+        effect.with(((int)(Math.random() * 2.0D) == 1) ? FireworkEffect.Type.BALL : FireworkEffect.Type.BALL_LARGE);
+        effect.trail(((int)(Math.random() * 2.0D) == 1));
+        itemMeta.addEffect(effect.build());
+        itemStack.setItemMeta(itemMeta);
         return itemStack;
     }
 }

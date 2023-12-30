@@ -1,6 +1,7 @@
 package net.rainbowcreation.core.v1_20_R1.event.player;
 
 import net.rainbowcreation.core.api.ICore;
+import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.v1_20_R1.Core;
 import net.rainbowcreation.core.v1_20_R1.gui.Main;
 import org.bukkit.Location;
@@ -55,10 +56,11 @@ public class Move implements Listener {
 
         final Location player_location = player.getLocation();
 
-        String server = isPlayerNearPortal(player_location);
+        final String server = isPlayerNearPortal(player_location);
         if (!server.equals("none")) {
             core.getBungee().sendPlayerToServer(player, server);
             core.getPlayerLog().put(player, false);
+            Action.sendPlayerMessage(player, "Teleporting to "+server+" ...");
             // F_player.openInventory(Warp.S_get());
             new BukkitRunnable() {
                 @Override
@@ -72,11 +74,11 @@ public class Move implements Listener {
     private String isPlayerNearPortal(Location player_location) {
         // 3.5 42.5 -1.5
         // 5.5 50.5 2.5
-        Set<String> keys = portalMap.keySet();
+        final Set<String> keys = portalMap.keySet();
         for (String portal : keys) {
             String worldstr = null;
-            Map<String, Double> map = portalMap.get(portal);
-            Double v = map.get("world");
+            final Map<String, Double> map = portalMap.get(portal);
+            final Double v = map.get("world");
             if (v == 0d) {
                 worldstr = "world";
             } else if (v == 1d) {

@@ -5,7 +5,7 @@
   <artifactId>core</artifactId>
   <packaging>jar</packaging>
   <name>RainBowCreationCore</name>
-  <version>7.0-DEV</version> <!-- This is where I track the version -->
+  <version>7.0</version> <!-- This is where I track the version -->
 
   <properties>
     <maven.deploy.skip>true</maven.deploy.skip>
@@ -18,6 +18,13 @@
   </parent>
 
   <dependencies>
+    <dependency>
+      <groupId>net.rainbowcreation</groupId>
+      <artifactId>api</artifactId>
+      <version>1.0.1</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>core-v1_8_R3</artifactId>
@@ -42,6 +49,8 @@
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
+<<<<<<< HEAD
+=======
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>api</artifactId>
@@ -49,6 +58,7 @@
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
+>>>>>>> main
   </dependencies>
   <build>
     <directory>../target</directory> <!-- Build it one level up, because it is the one we care about -->

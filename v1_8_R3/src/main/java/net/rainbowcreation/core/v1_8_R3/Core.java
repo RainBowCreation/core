@@ -1,12 +1,10 @@
 package net.rainbowcreation.core.v1_8_R3;
 
-import com.earth2me.essentials.Essentials;
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Bungee;
 import net.rainbowcreation.core.api.utils.Config;
 import net.rainbowcreation.core.api.utils.Console;
 import net.rainbowcreation.core.api.utils.GuiHolder;
-import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -45,16 +43,6 @@ public class Core implements ICore {
     @Override
     public Bungee getBungee() {
         return instance.getBungee();
-    }
-
-    @Override
-    public Essentials getEss() {
-        return instance.getEss();
-    }
-
-    @Override
-    public boolean isEssEnabled() {
-        return instance.isEssEnabled();
     }
 
     @Override

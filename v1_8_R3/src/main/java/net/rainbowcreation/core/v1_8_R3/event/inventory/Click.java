@@ -5,7 +5,6 @@ import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.GuiHolder;
 import net.rainbowcreation.core.v1_8_R3.Core;
 import net.rainbowcreation.core.v1_8_R3.gui.Gui;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,7 +12,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.scheduler.BukkitRunnable;
 
 public class Click implements Listener {
     private ICore core;
@@ -25,7 +23,7 @@ public class Click implements Listener {
     public void onCLick(InventoryClickEvent event) {
         if (!(event.getWhoClicked() instanceof Player))
             return;
-        Player player = (Player) event.getWhoClicked();
+        final Player player = (Player) event.getWhoClicked();
         final Inventory clickedInventory = event.getInventory();
         final int clickedSlot = event.getRawSlot();
         if (clickedSlot == -999) {
