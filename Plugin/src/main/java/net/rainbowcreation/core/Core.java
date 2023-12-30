@@ -1,6 +1,5 @@
 package net.rainbowcreation.core;
 
-import com.earth2me.essentials.Essentials;
 import net.rainbowcreation.core.api.ApiProvider;
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Bungee;
@@ -31,8 +30,6 @@ public class Core extends JavaPlugin implements ICore {
         return instance;
     }
 
-    public Essentials ess;
-    public Boolean ess_enabled = true;
     public String version;
     public Config config_gui;
     public Console console;
@@ -49,13 +46,6 @@ public class Core extends JavaPlugin implements ICore {
         // load header
         Str.header(Reference.NAME+":"+Reference.VERSION,console);
         final PluginManager manager = Bukkit.getPluginManager();
-
-        // check for essential
-        ess = (Essentials) instance.getServer().getPluginManager().getPlugin("Essentials");
-        if (ess == null) {
-            console.info("Please install Essentials for better performance"); //checker
-            ess_enabled = false;
-        }
 
         // get server version
         version = Str.getVersion(instance);
