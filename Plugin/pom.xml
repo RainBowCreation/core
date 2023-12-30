@@ -5,7 +5,7 @@
   <artifactId>core</artifactId>
   <packaging>jar</packaging>
   <name>RainBowCreationCore</name>
-  <version>7.0-SNAPSHOT</version> <!-- This is where I track the version -->
+  <version>7.0</version> <!-- This is where I track the version -->
 
   <properties>
     <maven.deploy.skip>true</maven.deploy.skip>
@@ -13,7 +13,7 @@
 
   <parent>
     <groupId>net.rainbowcreation</groupId>
-    <artifactId>core-parent-SNAPSHOT</artifactId>
+    <artifactId>core-parent</artifactId>
     <version>parent</version>
   </parent>
 
@@ -21,14 +21,14 @@
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>api</artifactId>
-      <version>1.0.1-SNAPSHOT</version>
+      <version>1.0.1</version>
       <type>jar</type>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>core-v1_8_R3</artifactId>
-      <version>v1_8_R3-SNAPSHOT</version>
+      <version>v1_8_R3</version>
       <type>jar</type>
       <scope>compile</scope>
       <optional>true</optional>
@@ -36,7 +36,7 @@
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>core-v1_15_R1</artifactId>
-      <version>v1_15_R1-SNAPSHOT</version>
+      <version>v1_15_R1</version>
       <type>jar</type>
       <scope>compile</scope>
       <optional>true</optional>
@@ -44,7 +44,7 @@
     <dependency>
       <groupId>net.rainbowcreation</groupId>
       <artifactId>core-v1_20_R1</artifactId>
-      <version>v1_20_R1-SNAPSHOT</version>
+      <version>v1_20_R1</version>
       <type>jar</type>
       <scope>compile</scope>
       <optional>true</optional>
