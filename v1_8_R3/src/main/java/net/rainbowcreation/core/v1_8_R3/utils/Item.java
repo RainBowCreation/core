@@ -129,8 +129,8 @@ public class Item implements IItem {
         assert itemMeta != null;
         itemMeta.setPower((int) (Math.random() * 2.0D + 3.0D));
 
-        int rand = (int) (Math.random() * COLOR_LIST.length);
-        int rand2 = (int) (Math.random() * COLOR_LIST.length);
+        int rand = (int) (Math.random() * BUKKIT_COLOR_LIST.length);
+        int rand2 = (int) (Math.random() * BUKKIT_COLOR_LIST.length);
 
         final FireworkEffect.Builder effect = FireworkEffect.builder();
         effect.flicker(((int) (Math.random() * 2.0D) == 1)).withColor(BUKKIT_COLOR_LIST[rand]);
