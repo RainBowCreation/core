@@ -29,6 +29,11 @@ public class Item implements IItem {
             Color.white, Color.yellow
     };
 
+    private static final org.bukkit.Color[] BUKKIT_COLOR_LIST = {
+            org.bukkit.Color.RED, org.bukkit.Color.BLACK, org.bukkit.Color.BLUE, org.bukkit.Color.AQUA, org.bukkit.Color.GRAY, org.bukkit.Color.FUCHSIA, org.bukkit.Color.GREEN, org.bukkit.Color.LIME, org.bukkit.Color.MAROON, org.bukkit.Color.NAVY, org.bukkit.Color.OLIVE,
+            org.bukkit.Color.ORANGE, org.bukkit.Color.PURPLE, org.bukkit.Color.SILVER, org.bukkit.Color.TEAL, org.bukkit.Color.WHITE, org.bukkit.Color.YELLOW
+    };
+
     @Override
     public Item material(Material material) {
         this.material = material;
@@ -119,16 +124,21 @@ public class Item implements IItem {
     @Override
     public ItemStack getrandomFirework() {
         material = Material.FIREWORK;
-        final FireworkMeta itemMeta = (FireworkMeta)itemStack.getItemMeta();
+        itemStack = new ItemStack(material, 4);
+        final FireworkMeta itemMeta = (FireworkMeta) itemStack.getItemMeta();
         assert itemMeta != null;
-        itemMeta.setPower((int)(Math.random() * 2.0D + 3.0D));
-        int rand = (int)(Math.random() * COLOR_LIST.length);
-        int rand2 = (int)(Math.random() * COLOR_LIST.length);
+        itemMeta.setPower((int) (Math.random() * 2.0D + 3.0D));
+
+        int rand = (int) (Math.random() * COLOR_LIST.length);
+        int rand2 = (int) (Math.random() * COLOR_LIST.length);
+
         final FireworkEffect.Builder effect = FireworkEffect.builder();
-        effect.flicker(((int)(Math.random() * 2.0D) == 1)).withColor((Iterable<?>) COLOR_LIST[rand]);
-        effect.withFade((Iterable<?>) COLOR_LIST[rand2]);
-        effect.with(((int)(Math.random() * 2.0D) == 1) ? FireworkEffect.Type.BALL : FireworkEffect.Type.BALL_LARGE);
-        effect.trail(((int)(Math.random() * 2.0D) == 1));
+        effect.flicker(((int) (Math.random() * 2.0D) == 1)).withColor(BUKKIT_COLOR_LIST[rand]);
+        effect.withFade(BUKKIT_COLOR_LIST[rand2]);
+        effect.withFade();
+        effect.with(((int) (Math.random() * 2.0D) == 1) ? FireworkEffect.Type.BALL : FireworkEffect.Type.BALL_LARGE);
+        effect.trail(((int) (Math.random() * 2.0D) == 1));
+
         itemMeta.addEffect(effect.build());
         itemStack.setItemMeta(itemMeta);
         return itemStack;

@@ -16,7 +16,8 @@ public class Event implements IRegistry {
         final ICore core = Core.getInstance();
 
         // global event
-        manager.registerEvents(new Join(), core.getPlugin());
+        if (core.getDefaultConfig().getString("bungeecord.this").equals("lobby"))
+            manager.registerEvents(new Join(), core.getPlugin());
 
         // per version event
         final IEvent event = (IEvent) Remap.castInterface(IEvent.class, core.getVersion(), "event.Event");
