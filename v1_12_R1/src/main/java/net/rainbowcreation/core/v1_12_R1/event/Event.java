@@ -1,11 +1,11 @@
-package net.rainbowcreation.core.v1_8_R3.event;
+package net.rainbowcreation.core.v1_12_R1.event;
 
 import net.rainbowcreation.core.api.IEvent;
-import net.rainbowcreation.core.v1_8_R3.Core;
-import net.rainbowcreation.core.v1_8_R3.event.inventory.Click;
-import net.rainbowcreation.core.v1_8_R3.event.player.Interact;
-import net.rainbowcreation.core.v1_8_R3.event.player.Join;
-import net.rainbowcreation.core.v1_8_R3.event.player.Move;
+import net.rainbowcreation.core.v1_12_R1.Core;
+import net.rainbowcreation.core.v1_12_R1.event.player.Join;
+import net.rainbowcreation.core.v1_12_R1.event.inventory.Click;
+import net.rainbowcreation.core.v1_12_R1.event.player.Interact;
+import net.rainbowcreation.core.v1_12_R1.event.player.Move;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 

@@ -1,9 +1,9 @@
-package net.rainbowcreation.core.v1_20_R1.recipe;
+package net.rainbowcreation.core.v1_12_R1.recipe;
 
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.Item;
-import net.rainbowcreation.core.v1_20_R1.Core;
+import net.rainbowcreation.core.v1_12_R1.Core;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
@@ -24,7 +24,7 @@ public class SWarpScroll {
         recipe = new ShapedRecipe(new NamespacedKey(core.getPlugin(), namespace), result);
         recipe.shape("010", "222", "313");
         recipe.setIngredient('0', Material.ENDER_PEARL);
-        recipe.setIngredient('1', Material.PURPLE_DYE);
+        recipe.setIngredient('1', Material.INK_SACK, 5);
         recipe.setIngredient('2', Material.PAPER);
         recipe.setIngredient('3', Material.GOLD_NUGGET);
     }

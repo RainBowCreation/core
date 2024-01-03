@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>core-v1_15_R1</artifactId>
+  <artifactId>core-v1_12_R1</artifactId>
   <packaging>jar</packaging>
-  <name>RainBowCreationCore v1_15_R1</name>
-  <version>v1_15_R1</version>
+  <name>RainBowCreationCore v1_12_R1</name>
+  <version>v1_12_R1</version>
 
   <properties>
-    <v>1.15.2-R0.1-SNAPSHOT</v>
+    <v>1.12.2-R0.1-SNAPSHOT</v>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.deploy.skip>true</maven.deploy.skip>
   </properties>
@@ -31,6 +31,13 @@
       <artifactId>bukkit</artifactId>
       <version>${v}</version>
       <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>local.spigot.nms</groupId>
+      <artifactId>AllSpigotNMS</artifactId>
+      <version>LATEST</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/../lib/all-spigot-nms.jar</systemPath>
     </dependency>
   </dependencies>
 </project>

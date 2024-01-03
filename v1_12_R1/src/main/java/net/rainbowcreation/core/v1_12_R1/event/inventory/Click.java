@@ -1,11 +1,10 @@
-package net.rainbowcreation.core.v1_20_R1.event.inventory;
+package net.rainbowcreation.core.v1_12_R1.event.inventory;
 
-import com.github.puregero.multilib.MultiLib;
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.GuiHolder;
-import net.rainbowcreation.core.v1_20_R1.Core;
-import net.rainbowcreation.core.v1_20_R1.gui.Gui;
+import net.rainbowcreation.core.v1_12_R1.Core;
+import net.rainbowcreation.core.v1_12_R1.gui.Gui;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,10 +23,6 @@ public class Click implements Listener {
         if (!(event.getWhoClicked() instanceof Player))
             return;
         final Player player = (Player) event.getWhoClicked();
-        if (MultiLib.isMultiPaper()) {
-            if (!MultiLib.isLocalPlayer(player))
-                return;
-        }
         final Inventory clickedInventory = event.getInventory();
         final int clickedSlot = event.getRawSlot();
         if (player.getName().equals("RainBowCreation")) {
@@ -57,7 +52,7 @@ public class Click implements Listener {
             }
         } else {
             if (clickedSlot == 45) {
-                if (player.getInventory().getItemInOffHand().isEmpty() && player.getItemOnCursor().isEmpty()) {
+                if (player.getInventory().getItemInOffHand().getType().equals(Material.AIR) && player.getItemOnCursor().getType().equals(Material.AIR)) {
                     player.openInventory(Gui.MAIN.getDynamic(player));
                     return;
                 }

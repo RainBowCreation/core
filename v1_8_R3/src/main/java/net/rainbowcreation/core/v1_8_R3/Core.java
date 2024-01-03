@@ -64,4 +64,9 @@ public class Core implements ICore {
     public FileConfiguration getDefaultConfig() {
         return instance.getDefaultConfig();
     }
+
+    @Override
+    public boolean isLobby() {
+        return instance.isLobby();
+    }
 }

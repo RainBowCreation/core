@@ -37,6 +37,7 @@ public class Core extends JavaPlugin implements ICore {
 
     public Map<Player, Boolean> playerlog = new HashMap<>();
     private PluginMessageListener listener;
+    private boolean is_lobby = false;
 
     @Override
     public void onEnable() {
@@ -58,6 +59,9 @@ public class Core extends JavaPlugin implements ICore {
         config_gui = new Config(instance, "gui.yml", console);
         config_gui.saveConfig();
 
+        if (getDefaultConfig().getString("bungeecord.this").equals("lobby"))
+            is_lobby = true;
+
         listener = new BungeeListener();
         bungee = new Bungee(instance);
 
@@ -70,6 +74,11 @@ public class Core extends JavaPlugin implements ICore {
         new Unshaped().register();
 
         new ApiProvider().register(instance); // register instance for api
+    }
+
+    @Override
+    public boolean isLobby() {
+        return is_lobby;
     }
 
     @Override

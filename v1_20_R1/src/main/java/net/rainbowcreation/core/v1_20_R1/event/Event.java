@@ -14,7 +14,7 @@ public class Event implements IEvent {
     @Override
     public void register(PluginManager manager, Plugin instance) {
         manager.registerEvents(new Click(), instance);
-        if (Core.instance.getDefaultConfig().getString("bungeecord.this").equals("lobby"))
+        if (Core.instance.isLobby())
             manager.registerEvents(new Move(), instance);
         manager.registerEvents(new Interact(), instance);
         manager.registerEvents(new Join(), instance);

@@ -35,8 +35,8 @@
     </dependency>
     <dependency>
       <groupId>net.rainbowcreation</groupId>
-      <artifactId>core-v1_15_R1</artifactId>
-      <version>v1_15_R1</version>
+      <artifactId>core-v1_12_R1</artifactId>
+      <version>v1_12_R1</version>
       <type>jar</type>
       <scope>compile</scope>
       <optional>true</optional>
