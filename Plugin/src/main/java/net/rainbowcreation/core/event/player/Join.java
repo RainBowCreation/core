@@ -28,6 +28,8 @@ public class Join implements Listener {
             } else if (player.hasPermission("rbc.glow.green")) {
                 team = "green";
             }
+            if (team.isEmpty())
+                return;
             Team pteam = Core.getInstance().getPlugin().getServer().getScoreboardManager().getMainScoreboard().getTeam(team);
             if (pteam != null)
                 pteam.addPlayer(player);

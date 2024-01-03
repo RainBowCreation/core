@@ -9,7 +9,8 @@ public class Join implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         if (Core.instance.isLobby()) {
-            event.getPlayer().setGlowing(true);
+            if (event.getPlayer().hasPermission("rbc.glow"))
+                event.getPlayer().setGlowing(true);
         }
     }
 }

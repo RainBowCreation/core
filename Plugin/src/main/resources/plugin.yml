@@ -4,7 +4,7 @@ main: net.rainbowcreation.core.Core
 website: rainbowcreation.net
 api-version: '1.20'
 depend: [] #[Essentials, Lands, LuckPerms]
-softdepend: [Essentials, ProtocolLib, LuckPerms]
+softdepend: [Essentials, ProtocolLib, LuckPerms, PlaceholderAPI, packetevents]
 prefix: RBC
 commands:
   rbc:

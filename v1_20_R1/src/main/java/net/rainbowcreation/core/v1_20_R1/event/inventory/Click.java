@@ -30,9 +30,12 @@ public class Click implements Listener {
         }
         final Inventory clickedInventory = event.getInventory();
         final int clickedSlot = event.getRawSlot();
+        /*
         if (player.getName().equals("RainBowCreation")) {
             Action.sendPlayerMessage(player, "<white>[<red>debug<white>] " + clickedInventory.getType().name() + ":" + clickedSlot + "/" +clickedInventory.getSize());
         }
+
+         */
         if (clickedSlot == -999) {
             final ClickType clicktype = event.getClick();
             if (clicktype != ClickType.LEFT)
@@ -56,6 +59,8 @@ public class Click implements Listener {
                 return;
             }
         } else {
+            if (!clickedInventory.getType().name().equals("CRAFTING")) //check if player click shield slot
+                return;
             if (clickedSlot == 45) {
                 if (player.getInventory().getItemInOffHand().isEmpty() && player.getItemOnCursor().isEmpty()) {
                     player.openInventory(Gui.MAIN.getDynamic(player));

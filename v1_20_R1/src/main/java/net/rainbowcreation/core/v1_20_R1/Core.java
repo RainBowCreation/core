@@ -73,4 +73,9 @@ public class Core implements ICore {
     public boolean isLobby() {
         return instance.isLobby();
     }
+
+    @Override
+    public boolean usePacketApi() {
+        return instance.usePacketApi();
+    }
 }
