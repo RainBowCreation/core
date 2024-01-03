@@ -2,8 +2,8 @@ package net.rainbowcreation.core.v1_12_R1.recipe;
 
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Action;
-import net.rainbowcreation.core.api.utils.Item;
 import net.rainbowcreation.core.v1_12_R1.Core;
+import net.rainbowcreation.core.v1_12_R1.utils.Item;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
