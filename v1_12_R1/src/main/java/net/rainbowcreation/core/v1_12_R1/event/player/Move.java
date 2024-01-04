@@ -64,7 +64,7 @@ public class Move implements Listener {
                 server = "mainnet";
                 if (Core.instance.usePacketApi()) {
                     String client = ClientDetectorAPI.getPlayerClient(player);
-                    if (client.equals("Forge")) {
+                    if (client.equals("Forge") || ClientDetectorAPI.isForgePlayer(player)) {
                         switch (PlayerUtils.getVersion(player)) {
                             case ("v1_12_2") : {
                                 server = "rlcraft";
