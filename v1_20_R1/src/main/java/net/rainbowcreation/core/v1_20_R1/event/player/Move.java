@@ -1,9 +1,11 @@
 package net.rainbowcreation.core.v1_20_R1.event.player;
 
+import de.sportkanone123.clientdetector.spigot.api.ClientDetectorAPI;
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.v1_20_R1.Core;
 import net.rainbowcreation.core.v1_20_R1.gui.Main;
+import net.rainbowcreation.core.v1_20_R1.utils.PlayerUtils;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -31,7 +33,7 @@ public class Move implements Listener {
         main_portal.put("max_y", 53.5);
         main_portal.put("max_z", 2.5);
 
-        portalMap.put("mainnet", main_portal);
+        portalMap.put("auto", main_portal);
 
         HashMap<String, Double> morph_portal = new HashMap<>();
         morph_portal.put("world", 0d);
@@ -56,8 +58,26 @@ public class Move implements Listener {
 
         final Location player_location = player.getLocation();
 
-        final String server = isPlayerNearPortal(player_location);
+        String server = isPlayerNearPortal(player_location);
         if (!server.equals("none")) {
+            if (server.equals("auto")) {
+                server = "mainnet";
+                if (Core.instance.usePacketApi()) {
+                    String client = ClientDetectorAPI.getPlayerClient(player);
+                    if (client.equals("Forge")) {
+                        switch (PlayerUtils.getVersion(player)) {
+                            case ("v1_12_2") : {
+                                server = "rlcraft";
+                                break;
+                            }
+                            case ("v1_18_2") : {
+                                server = "stoneblock";
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
             core.getBungee().sendPlayerToServer(player, server);
             core.getPlayerLog().put(player, false);
             Action.sendPlayerMessage(player, "Teleporting to "+server+" ...");

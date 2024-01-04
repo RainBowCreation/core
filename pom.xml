@@ -72,10 +72,6 @@
       <url>repo.rainbowcreation.net</url>
     </repository>
     <repository>
-      <id>codemc-releases</id>
-      <url>https://repo.codemc.io/repository/maven-releases/</url>
-    </repository>
-    <repository>
       <id>placeholderapi</id>
       <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
     </repository>

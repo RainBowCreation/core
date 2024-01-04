@@ -1,7 +1,6 @@
 package net.rainbowcreation.core;
 
-import com.github.retrooper.packetevents.PacketEvents;
-import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
+import de.sportkanone123.clientdetector.spigot.forgemod.ModList;
 import net.rainbowcreation.core.api.ApiProvider;
 import net.rainbowcreation.core.api.ICore;
 import net.rainbowcreation.core.api.utils.Bungee;
@@ -9,7 +8,6 @@ import net.rainbowcreation.core.api.utils.Config;
 import net.rainbowcreation.core.api.utils.*;
 import net.rainbowcreation.core.command.Command;
 import net.rainbowcreation.core.event.Event;
-import net.rainbowcreation.core.event.packet.Receive;
 import net.rainbowcreation.core.gui.Gui;
 import net.rainbowcreation.core.message.BungeeListener;
 import net.rainbowcreation.core.recipe.Shaped;
@@ -37,24 +35,11 @@ public class Core extends JavaPlugin implements ICore {
     public Config config_gui;
     public Console console;
     private Bungee bungee;
-
     public Map<Player, Boolean> playerlog = new HashMap<>();
     private PluginMessageListener listener;
     private boolean is_lobby = false;
     private boolean is_packet = false;
 
-    @Override
-    public void onLoad() {
-        try {
-            PacketEvents.setAPI(SpigotPacketEventsBuilder.build(this));
-            //Are all listeners read only?
-            PacketEvents.getAPI().getSettings().reEncodeByDefault(false)
-                    .checkForUpdates(true)
-                    .bStats(true);
-            PacketEvents.getAPI().load();
-            is_packet = true;
-        } catch (Exception ignored) {}
-    }
     @Override
     public void onEnable() {
         instance = this;
@@ -89,12 +74,13 @@ public class Core extends JavaPlugin implements ICore {
         new Shaped().register();
         new Unshaped().register();
 
-        new ApiProvider().register(instance); // register instance for api
 
-        if (usePacketApi()) { // if use packet api register
-            PacketEvents.getAPI().getEventManager().registerListener(new Receive());
-            PacketEvents.getAPI().init();
+        if (Bukkit.getServer().getPluginManager().getPlugin("ClientDetector") != null) {
+            getConsole().info("ClientDetector detected.");
+            is_packet = true; // check if clientdetector installed
         }
+
+        new ApiProvider().register(instance); // register instance for api
     }
 
     @Override
@@ -109,7 +95,6 @@ public class Core extends JavaPlugin implements ICore {
 
     @Override
     public void onDisable() {
-        PacketEvents.getAPI().terminate();
         this.getServer().getMessenger().unregisterOutgoingPluginChannel(this);
         this.getServer().getMessenger().unregisterIncomingPluginChannel(this);
     }

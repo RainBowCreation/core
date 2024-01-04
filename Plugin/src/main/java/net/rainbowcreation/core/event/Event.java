@@ -15,8 +15,8 @@ public class Event implements IRegistry {
         final PluginManager manager = Core.getInstance().getServer().getPluginManager();
         final ICore core = Core.getInstance();
 
-        // global event
-        if (core.getDefaultConfig().getString("bungeecord.this").equals("lobby"))
+        // global lobby event
+        if (Core.getInstance().isLobby())
             manager.registerEvents(new Join(), core.getPlugin());
 
         // per version event

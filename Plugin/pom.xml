@@ -49,6 +49,14 @@
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>local.clientdetector</groupId>
+      <artifactId>spigot</artifactId>
+      <version>LATEST</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/../lib/ClientDetector-2.6.2.jar</systemPath>
+      <optional>true</optional>
+    </dependency>
   </dependencies>
 
   <build>

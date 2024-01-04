@@ -15,7 +15,7 @@ public class Event implements IEvent {
     public void register(PluginManager manager, Plugin instance) {
         manager.registerEvents(new Click(), instance);
         if (Core.instance.isLobby()) {
-            // manager.registerEvents(new Move(), instance); //remove from testing
+            manager.registerEvents(new Move(), instance); //remove from testing
         }
         manager.registerEvents(new Interact(), instance);
         manager.registerEvents(new Join(), instance);
