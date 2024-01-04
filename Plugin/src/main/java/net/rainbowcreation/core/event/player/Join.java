@@ -1,5 +1,6 @@
 package net.rainbowcreation.core.event.player;
 
+import de.sportkanone123.clientdetector.spigot.api.ClientDetectorAPI;
 import net.rainbowcreation.core.Core;
 import net.rainbowcreation.core.api.utils.Action;
 import net.rainbowcreation.core.api.utils.VersionInfo;
@@ -8,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Team;
 
 public class Join implements Listener {
@@ -19,26 +21,6 @@ public class Join implements Listener {
         Core.getInstance().playerlog.put(event.getPlayer(), true);
         Action.spawnFirework(player.getLocation());
 
-        VersionInfo version = VersionInfo.parseVersion(PlayerUtils.getVersion(player));
-        if (version != null) {
-            if (version.getMajor() == 1) {
-                String url = "v1_";
-                int minor = version.getMinor();
-                if (minor < 11) {
-                    // download manually
-                } else {
-                    if (minor <= 12)
-                        url += "11";
-                    else if (minor <= 14)
-                        url += "13";
-                    else if (minor <= 16)
-                        url += "15";
-                    else
-                        url += String.valueOf(minor);
-                    player.setResourcePack("https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_" + url + "_lite.zip");
-                }
-            }
-        }
         if (player.hasPermission("rbc.glow")) {
             String team = "";
             if (player.hasPermission("rbc.glow.red")) {
@@ -56,5 +38,46 @@ public class Join implements Listener {
             if (pteam != null)
                 pteam.addPlayer(player);
         }
+
+        if (Core.getInstance().usePacketApi()) {
+            if (ClientDetectorAPI.getPlayerClient(player).equals("Forge")) {
+                return;
+            }
+            if (ClientDetectorAPI.isBedrockPlayer(player)) {
+                return;
+            }
+            if (ClientDetectorAPI.isForgePlayer(player)) {
+                return;
+            }
+        }
+
+        VersionInfo version = VersionInfo.parseVersion(PlayerUtils.getVersion(player));
+        if (version != null) {
+            if (version.getMajor() == 1) {
+                String url = "v1_";
+                int minor = version.getMinor();
+                if (minor < 11) {
+                    // download manually
+                } else {
+                    if (minor <= 12)
+                        url += "11";
+                    else if (minor <= 14)
+                        url += "13";
+                    else if (minor <= 16)
+                        url += "15";
+                    else
+                        url += String.valueOf(minor);
+
+                    final String finalurl = url;
+                    new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            player.setResourcePack("https://github.com/RainBowCreation/resourcepack/releases/latest/download/RainBowCreation_" + finalurl + "_lite.zip");
+                        }
+                    }.runTaskLater(Core.getInstance().getPlugin(), 10L);
+                }
+            }
+        }
+
     }
 }
