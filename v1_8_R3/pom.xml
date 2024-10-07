@@ -48,5 +48,11 @@
       <systemPath>${project.basedir}/../lib/ClientDetector-2.6.2.jar</systemPath>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>de.simonsator</groupId>
+      <artifactId>Party-and-Friends-MySQL-Edition-Spigot-API</artifactId>
+      <version>1.6.1-RELEASE</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 </project>
