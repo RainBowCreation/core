@@ -1,6 +1,8 @@
 # RainBowCreation core jar for network
 RainBowCreation by [NathanielSong, VocanicZ]
 
+![Alt](https://repobeats.axiom.co/api/embed/1a67cb4d155bd49d2feaf1be497fde62f8488be7.svg "Repobeats analytics image")
+
 ## rainbowcreation.net
 
 !this plugin paper 1.8.8! & multipaper 1.20.1
