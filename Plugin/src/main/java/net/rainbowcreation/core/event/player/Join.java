@@ -15,7 +15,7 @@ import org.bukkit.scoreboard.Team;
 public class Join implements Listener {
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
+    public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
         Core.getInstance().playerlog.put(event.getPlayer(), true);

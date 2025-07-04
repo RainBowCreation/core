@@ -6,6 +6,7 @@ import net.rainbowcreation.core.api.IRegistry;
 import net.rainbowcreation.core.api.IEvent;
 import net.rainbowcreation.core.api.utils.Remap;
 import net.rainbowcreation.core.event.player.Join;
+import net.rainbowcreation.core.event.player.PickupItem;
 import org.bukkit.plugin.PluginManager;
 
 public class Event implements IRegistry {
@@ -18,6 +19,7 @@ public class Event implements IRegistry {
         // global lobby event
         if (Core.getInstance().isLobby())
             manager.registerEvents(new Join(), core.getPlugin());
+        manager.registerEvents(new PickupItem(), core.getPlugin());
 
         // per version event
         final IEvent event = (IEvent) Remap.castInterface(IEvent.class, core.getVersion(), "event.Event");
