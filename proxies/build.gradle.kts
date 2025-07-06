@@ -17,8 +17,8 @@ repositories {
 
 dependencies {
     implementation(project(":api"))
-    compileOnly("com.velocitypowered:velocity-api:3.3.0-SNAPSHOT")
-    compileOnly("net.md-5:bungeecord-api:1.21-R0.1-SNAPSHOT")
+    compileOnly("com.velocitypowered:velocity-api:3.4.0-SNAPSHOT")
+    compileOnly("net.md-5:bungeecord-api:1.21-R0.3-SNAPSHOT")
 }
 
 // Set the Kotlin compiler to target Java 17 to match the toolchain.
