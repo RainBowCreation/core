@@ -2,9 +2,13 @@ package net.rainbowcreation.core.bootstrap
 
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
-import java.io.*
-import java.util.jar.*
-
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
+import java.util.jar.JarEntry
+import java.util.jar.JarInputStream
+import java.util.jar.JarOutputStream
 
 class BootstrapPlugin : JavaPlugin() {
     override fun onLoad() {
@@ -12,11 +16,12 @@ class BootstrapPlugin : JavaPlugin() {
             val version = detectVersion()
             logger.info("Detected version: $version")
 
-            val pluginYmlName = when (version) {
-                "modern" -> "plugin-modern.yml"
-                "legacy" -> "plugin-legacy.yml"
-                else -> throw IllegalStateException("Unknown version type: $version")
-            }
+            val pluginYmlName =
+                when (version) {
+                    "modern" -> "plugin-modern.yml"
+                    "legacy" -> "plugin-legacy.yml"
+                    else -> throw IllegalStateException("Unknown version type: $version")
+                }
 
             val newJar = patchPluginYml(pluginYmlName)
             loadRealPlugin(newJar)
@@ -70,10 +75,10 @@ class BootstrapPlugin : JavaPlugin() {
                     entry = jis.nextJarEntry
                 }
 
-                // Add the new plugin.yml
                 jos.putNextEntry(JarEntry("plugin.yml"))
-                val pluginYmlStream = getResource(pluginYmlName)
-                    ?: throw FileNotFoundException("Could not find resource: $pluginYmlName")
+                val pluginYmlStream =
+                    getResource(pluginYmlName)
+                        ?: throw FileNotFoundException("Could not find resource: $pluginYmlName")
                 pluginYmlStream.copyTo(jos, buffer.size)
                 jos.closeEntry()
             }

@@ -9,14 +9,16 @@ import org.bukkit.entity.Player
  * calling these methods without needing to know the underlying implementation.
  */
 interface VersionAdapter {
-
     /**
      * Sends a message to the player's action bar.
      *
      * @param player The player to send the message to.
      * @param message The text message to send.
      */
-    fun sendActionbar(player: Player, message: String)
+    fun sendActionbar(
+        player: Player,
+        message: String,
+    )
 
     /**
      * Checks if the server is running on the Folia platform.

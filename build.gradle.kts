@@ -3,6 +3,7 @@ plugins {
     // They can be applied in subprojects as needed (in their respective build files).
     id("org.jetbrains.kotlin.jvm") version "2.2.0" apply false
     id("com.gradleup.shadow") version "9.0.0-rc1" apply false
+    id("org.jlleitschuh.gradle.ktlint") version "12.3.0" apply false
 }
 // Configure shared settings for all sub-projects.
 subprojects {
@@ -17,4 +18,5 @@ subprojects {
     }
     apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "java-library")
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }

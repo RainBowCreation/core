@@ -9,7 +9,6 @@ import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.player.PlayerJoinEvent
 
 class PlayerListener(private val plugin: AbstractPlugin) : Listener {
-
     @EventHandler
     fun onPlayerJoin(event: PlayerJoinEvent) {
         val player = event.player

@@ -7,11 +7,11 @@ import net.rainbowcreation.core.core.common.version.VersionAdapter
 import org.bukkit.plugin.java.JavaPlugin
 
 abstract class AbstractPlugin : JavaPlugin() {
-
     lateinit var settings: Settings
         private set
     lateinit var dataSource: DataSource
         private set
+
     // Add this property to hold the version-specific implementation
     lateinit var versionAdapter: VersionAdapter
         protected set

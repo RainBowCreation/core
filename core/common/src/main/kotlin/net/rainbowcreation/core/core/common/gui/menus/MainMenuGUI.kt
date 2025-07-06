@@ -11,7 +11,6 @@ import org.bukkit.inventory.ItemStack
  * A concrete implementation of a main menu GUI.
  */
 class MainMenuGUI(plugin: AbstractPlugin, player: Player) : GUI(plugin, player) {
-
     /**
      * Creates the inventory and adds items to it.
      */

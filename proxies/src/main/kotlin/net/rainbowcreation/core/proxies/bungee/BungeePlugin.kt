@@ -20,7 +20,6 @@ import net.rainbowcreation.core.proxies.messaging.MessageDeserializer
  * @param proxy The instance of the plugin loaded by BungeeCord.
  */
 class BungeePlugin(private val proxy: MainProxy) : Plugin(), Listener {
-
     override fun onEnable() {
         // 1. Register the plugin messaging channel
         proxy.proxy.registerChannel(PluginChannels.BUKKIT_TO_PROXY)

@@ -11,11 +11,13 @@ import org.bukkit.entity.Player
  * messages, avoiding the need for complex and unsafe reflection.
  */
 class LegacyAdapter : VersionAdapter {
-
     /**
      * Sends an action bar message using the ActionBarApi library.
      */
-    override fun sendActionbar(player: Player, message: String) {
+    override fun sendActionbar(
+        player: Player,
+        message: String,
+    ) {
         send(player, message)
     }
 

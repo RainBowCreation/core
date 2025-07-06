@@ -45,14 +45,6 @@ tasks.processResources {
 // Configure the final JAR output.
 tasks.shadowJar {
     relocate("com.github.puregero.multilib", "net.rainbowcreation.multiVersionPluginExample.multilib")
-    /*
-    relocations {
-        relocation {
-            pattern.set("com.github.puregero.multilib")
-            relocatedPattern.set("net.rainbowcreation.multiVersionPluginExample.lib.multilib")
-        }
-    }
-     */
     // Append "-modern" to the final JAR name for clarity.
     archiveClassifier.set("modern")
     doLast {

@@ -1,16 +1,16 @@
-import org.gradle.api.tasks.Copy
 import org.gradle.api.file.DuplicatesStrategy
+import org.gradle.api.tasks.Copy
 
 // Define a task to copy and rename legacy config.yml
 val copyLegacyConfig by tasks.registering(Copy::class) {
-    from("../core/legacy/src/main/resources/config.yml")  // path to legacy config
-    into("${layout.buildDirectory}/generated-resources/configs")         // temp output folder
+    from("../core/legacy/src/main/resources/config.yml") // path to legacy config
+    into("${layout.buildDirectory}/generated-resources/configs") // temp output folder
     rename { "legacy-config.yml" }
 }
 
 // Define a task to copy and rename modern config.yml
 val copyModernConfig by tasks.registering(Copy::class) {
-    from("../core/modern/src/main/resources/config.yml")  // path to modern config
+    from("../core/modern/src/main/resources/config.yml") // path to modern config
     into("${layout.buildDirectory}/generated-resources/configs")
     rename { "modern-config.yml" }
 }

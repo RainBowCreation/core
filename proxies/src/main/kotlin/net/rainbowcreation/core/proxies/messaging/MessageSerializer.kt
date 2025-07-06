@@ -9,7 +9,6 @@ import java.io.Serializable
  * A utility object for serializing message objects into byte arrays.
  */
 object MessageSerializer {
-
     /**
      * Converts a [Serializable] object into a [ByteArray].
      *

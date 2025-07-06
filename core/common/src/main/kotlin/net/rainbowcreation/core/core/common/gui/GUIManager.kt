@@ -10,7 +10,6 @@ import org.bukkit.entity.Player
  * @param plugin The main instance of the plugin.
  */
 class GUIManager(private val plugin: AbstractPlugin) {
-
     /**
      * Creates and opens the main menu GUI for a specific player.
      *

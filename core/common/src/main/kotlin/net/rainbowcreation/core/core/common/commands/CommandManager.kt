@@ -8,7 +8,6 @@ import net.rainbowcreation.core.core.common.AbstractPlugin
  * @param plugin The main instance of the plugin (can be LegacyPlugin or ModernPlugin).
  */
 class CommandManager(private val plugin: AbstractPlugin) {
-
     /**
      * Registers all common plugin commands.
      */

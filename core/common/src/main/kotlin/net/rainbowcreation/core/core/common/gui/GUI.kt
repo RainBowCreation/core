@@ -16,9 +16,8 @@ import org.bukkit.inventory.Inventory
  */
 abstract class GUI(
     protected val plugin: AbstractPlugin,
-    protected val player: Player
+    protected val player: Player,
 ) : Listener {
-
     protected lateinit var inventory: Inventory
 
     init {

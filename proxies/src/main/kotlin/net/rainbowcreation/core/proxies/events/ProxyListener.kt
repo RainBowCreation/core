@@ -1,18 +1,17 @@
 package net.rainbowcreation.core.proxies.events
 
 import com.velocitypowered.api.event.Subscribe
-import com.velocitypowered.api.event.player.ServerConnectedEvent as VelocityServerConnectedEvent
 import net.kyori.adventure.text.Component
 import net.md_5.bungee.api.chat.TextComponent
-import net.md_5.bungee.api.event.ServerSwitchEvent as BungeeServerSwitchEvent
 import net.md_5.bungee.api.plugin.Listener
 import net.md_5.bungee.event.EventHandler
+import com.velocitypowered.api.event.player.ServerConnectedEvent as VelocityServerConnectedEvent
+import net.md_5.bungee.api.event.ServerSwitchEvent as BungeeServerSwitchEvent
 
 /**
  * Listens for proxy-level events for both BungeeCord and Velocity.
  */
 class ProxyListener : Listener {
-
     /**
      * BungeeCord event handler for when a player finishes switching servers.
      */

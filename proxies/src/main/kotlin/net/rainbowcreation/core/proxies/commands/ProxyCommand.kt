@@ -9,11 +9,13 @@ import net.md_5.bungee.api.plugin.Command
 import net.rainbowcreation.core.proxies.ProxyDetector
 
 class ProxyCommand(private val proxy: Any) : Command("proxybroadcast"), SimpleCommand {
-
     /**
      * BungeeCord's command execution method.
      */
-    override fun execute(sender: CommandSender, args: Array<out String>) {
+    override fun execute(
+        sender: CommandSender,
+        args: Array<out String>,
+    ) {
         if (ProxyDetector.detectProxy() != ProxyDetector.ProxyServerType.BUNGEECORD) return
 
         val message = args.joinToString(" ")

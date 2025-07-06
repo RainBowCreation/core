@@ -15,22 +15,22 @@ import java.util.UUID
  * @param settings The loaded plugin configuration.
  */
 class MySqlDataSource(private val settings: Settings) : DataSource {
-
     private lateinit var hikari: HikariDataSource
 
     /**
      * Establishes a connection pool and ensures the database schema is initialized.
      */
     override fun connect() {
-        val config = HikariConfig().apply {
-            jdbcUrl = "jdbc:mysql://${settings.dbHost}:${settings.dbPort}/${settings.dbName}?useSSL=false"
-            username = settings.dbUser
-            password = settings.dbPass
-            addDataSourceProperty("cachePrepStmts", "true")
-            addDataSourceProperty("prepStmtCacheSize", "250")
-            addDataSourceProperty("prepStmtCacheSqlLimit", "2048")
-            maximumPoolSize = 10
-        }
+        val config =
+            HikariConfig().apply {
+                jdbcUrl = "jdbc:mysql://${settings.dbHost}:${settings.dbPort}/${settings.dbName}?useSSL=false"
+                username = settings.dbUser
+                password = settings.dbPass
+                addDataSourceProperty("cachePrepStmts", "true")
+                addDataSourceProperty("prepStmtCacheSize", "250")
+                addDataSourceProperty("prepStmtCacheSqlLimit", "2048")
+                maximumPoolSize = 10
+            }
         hikari = HikariDataSource(config)
 
         // Initialize the database schema
@@ -45,13 +45,14 @@ class MySqlDataSource(private val settings: Settings) : DataSource {
         // `uuid` is the primary key to uniquely identify players.
         // `name` stores the player's last known Minecraft name.
         // `balance` is an example column for storing player data.
-        val createTableSQL = """
+        val createTableSQL =
+            """
             CREATE TABLE IF NOT EXISTS players (
                 uuid VARCHAR(36) NOT NULL PRIMARY KEY,
                 name VARCHAR(16) NOT NULL,
                 balance DOUBLE NOT NULL DEFAULT 0.0
             );
-        """.trimIndent()
+            """.trimIndent()
 
         try {
             getConnection().use { connection ->
@@ -106,7 +107,10 @@ class MySqlDataSource(private val settings: Settings) : DataSource {
     /**
      * Saves player data to the database.
      */
-    override fun savePlayerData(player: Player, playerData: Any) {
+    override fun savePlayerData(
+        player: Player,
+        playerData: Any,
+    ) {
         // This query will insert a new row or update the existing one if the UUID already exists.
         val sql = "INSERT INTO players (uuid, name) VALUES (?, ?) ON DUPLICATE KEY UPDATE name = ?;"
         try {

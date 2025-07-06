@@ -11,7 +11,6 @@ import java.util.UUID
  * implements this interface.
  */
 interface DataSource {
-
     /**
      * Initializes the connection to the data source.
      */
@@ -37,5 +36,4 @@ interface DataSource {
      * @param playerData The data object to save.
      */
     fun savePlayerData(player: Player, playerData: Any) // Replace 'Any' with your specific PlayerData class
-
 }

@@ -52,7 +52,7 @@ tasks.shadowJar {
             relocatedPattern.set("net.rainbowcreation.multiVersionsPluginExample.libs.actionbarapi")
         }
     }
-    */
+     */
     archiveClassifier.set("legacy") // Append "-legacy" to the final JAR name.
     doLast {
         val targetDir = rootProject.layout.projectDirectory.dir("Target").asFile

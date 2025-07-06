@@ -8,7 +8,6 @@ import java.io.ObjectInputStream
  * A utility object for deserializing byte arrays back into message objects.
  */
 object MessageDeserializer {
-
     /**
      * Converts a [ByteArray] back into its original [Any] object form.
      *

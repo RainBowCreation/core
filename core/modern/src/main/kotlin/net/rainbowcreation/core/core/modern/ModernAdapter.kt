@@ -9,7 +9,6 @@ import org.bukkit.entity.Player
  * Version adapter for modern Minecraft servers (1.17+).
  */
 class ModernAdapter : VersionAdapter {
-
     /**
      * A private, lazy-initialized property to perform the Folia check only once.
      * The name is changed to avoid any conflicts.
@@ -26,7 +25,10 @@ class ModernAdapter : VersionAdapter {
     /**
      * Sends an action bar message using the modern Adventure components API.
      */
-    override fun sendActionbar(player: Player, message: String) {
+    override fun sendActionbar(
+        player: Player,
+        message: String,
+    ) {
         player.sendActionBar(Component.text(message))
     }
 
@@ -38,7 +40,7 @@ class ModernAdapter : VersionAdapter {
         return isFoliaServer
     }
 
-   override fun isMultipaper(): Boolean {
-       return MultiLib.isMultiPaper();
-   }
+    override fun isMultipaper(): Boolean {
+        return MultiLib.isMultiPaper()
+    }
 }

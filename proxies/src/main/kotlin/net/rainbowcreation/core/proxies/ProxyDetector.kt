@@ -4,14 +4,13 @@ package net.rainbowcreation.core.proxies
  * A utility to detect the current proxy server environment.
  */
 object ProxyDetector {
-
     /**
      * An enum representing the possible proxy server types.
      */
     enum class ProxyServerType {
         BUNGEECORD,
         VELOCITY,
-        UNKNOWN
+        UNKNOWN,
     }
 
     /**
