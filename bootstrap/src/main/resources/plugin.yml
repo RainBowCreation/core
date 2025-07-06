@@ -1,0 +1,11 @@
+# must use suffix '-bootstrap'
+name: RainBowCreation-bootstrap
+version: 1.0.0
+main: net.rainbowcreation.core.bootstrap.BootstrapPlugin
+api-version: 1.13
+folia-supported: true
+authors: [
+  RainBowCreation,
+  NathanielSong,
+  VocanicZ
+]

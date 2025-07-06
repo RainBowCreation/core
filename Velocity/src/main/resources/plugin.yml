@@ -1,7 +1,0 @@
-name: RainBowCreationv
-version: '${version}'
-main: net.rainbowcreation.core.velocity.Velocity
-website: rainbowcreation.net
-api-version: '1.20'
-depend: [] #[Essentials, Lands, LuckPerms]
-prefix: RBCv

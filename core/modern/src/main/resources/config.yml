@@ -1,0 +1,11 @@
+# -------------------------------------------------- #
+#      multiVersionsPluginExample Configuration      #
+# -------------------------------------------------- #
+
+# Database settings for MySQL
+database:
+  host: "127.0.0.1"
+  port: 3306
+  name: "minecraft"
+  user: "root"
+  password: "password"

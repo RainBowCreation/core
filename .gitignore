@@ -190,3 +190,8 @@ lib/
 */target/
 .idea/
 *.iml
+
+.idea
+.kotlin
+*/property 'buildDir'/
+*/build/

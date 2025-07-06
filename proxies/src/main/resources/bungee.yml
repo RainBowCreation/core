@@ -1,0 +1,12 @@
+# The name of your plugin.
+name: RainBowCreation-Bungee
+
+# The version of your plugin.
+version: 1.0.0-SNAPSHOT
+
+# The main class that BungeeCord will load.
+# This points to our proxy detector entry point.
+main: net.rainbowcreation.core.proxies.MainProxy
+
+# The author's name.
+authors: [ RainBowCreation, NathanielSong, VocanicZ ]

@@ -1,0 +1,24 @@
+# The main class for the legacy version of the plugin.
+main: net.rainbowcreation.core.core.legacy.LegacyPlugin
+
+name: RainBowCreation
+
+version: ${project.version}
+
+# The API version helps modern servers load the plugin more efficiently.
+# This does not prevent it from loading on older versions like 1.8.
+api-version: 1.13
+
+folia-supported: false
+
+authors: [
+  RainBowCreation,
+  NathanielSong,
+  VocanicZ
+]
+
+# Defines the commands for the plugin.
+commands:
+  rbc:
+    description: The main command for the plugin.
+    usage: /<command>

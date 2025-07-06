@@ -1,0 +1,23 @@
+# The main class for the modern version of the plugin.
+main: net.rainbowcreation.core.core.modern.ModernPlugin
+
+name: RainBowCreation
+
+version: ${project.version}
+
+# Set the API version to a modern version.
+api-version: 1.21
+
+folia-supported: true
+
+authors: [
+  RainBowCreation,
+  NathanielSong,
+  VocanicZ
+]
+
+# Defines the commands for the plugin.
+commands:
+  rbc:
+    description: The main command for the plugin.
+    usage: /<command>

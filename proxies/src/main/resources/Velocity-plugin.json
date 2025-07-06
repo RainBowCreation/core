@@ -1,0 +1,12 @@
+{
+  "id": "rainbowcreation-velocity",
+  "name": "RainBowCreation-Velocity",
+  "version": "1.0.0-SNAPSHOT",
+  "description": "A multi-platform plugin example.",
+  "authors":  [
+    "RainBowCreation",
+    "NathanielSong",
+    "VocanicZ"
+  ],
+  "main": "net.rainbowcreation.multiVersionsPluginExample.proxies.velocity.VelocityPlugin"
+}
