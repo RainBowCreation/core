@@ -93,4 +93,18 @@ tasks.shadowJar {
     from("${layout.buildDirectory}/generated-resources/plugin-ymls") {
         include("plugin-modern.yml", "plugin-legacy.yml")
     }
+
+    doLast {
+        val targetDir = rootProject.layout.projectDirectory.dir("Target").asFile
+        targetDir.mkdirs()
+
+        val outputFile = archiveFile.get().asFile
+        val version = project.version
+        val renamedJarName = "RainBowCreation-$version.jar"
+
+        val targetFile = File(targetDir, renamedJarName)
+
+        println("Copying ${outputFile.name} to ${targetFile.absolutePath}")
+        outputFile.copyTo(targetFile, overwrite = true)
+    }
 }

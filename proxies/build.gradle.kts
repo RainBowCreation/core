@@ -31,4 +31,17 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 
 tasks.shadowJar {
     archiveClassifier.set("proxies")
+    doLast {
+        val targetDir = rootProject.layout.projectDirectory.dir("Target").asFile
+        targetDir.mkdirs()
+
+        val outputFile = archiveFile.get().asFile
+        val version = project.version
+        val renamedJarName = "RainBowCreation-$version-proxies.jar"
+
+        val targetFile = File(targetDir, renamedJarName)
+
+        println("Copying ${outputFile.name} to ${targetFile.absolutePath}")
+        outputFile.copyTo(targetFile, overwrite = true)
+    }
 }

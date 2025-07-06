@@ -55,4 +55,17 @@ tasks.shadowJar {
      */
     // Append "-modern" to the final JAR name for clarity.
     archiveClassifier.set("modern")
+    doLast {
+        val targetDir = rootProject.layout.projectDirectory.dir("Target").asFile
+        targetDir.mkdirs()
+
+        val outputFile = archiveFile.get().asFile
+        val version = project.version
+        val renamedJarName = "RainBowCreation-$version-modern.jar"
+
+        val targetFile = File(targetDir, renamedJarName)
+
+        println("Copying ${outputFile.name} to ${targetFile.absolutePath}")
+        outputFile.copyTo(targetFile, overwrite = true)
+    }
 }
