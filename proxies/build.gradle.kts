@@ -43,5 +43,12 @@ tasks.shadowJar {
 
         println("Copying ${outputFile.name} to ${targetFile.absolutePath}")
         outputFile.copyTo(targetFile, overwrite = true)
+
+        val renamedLatestJarName = "RainBowCreation-proxies.jar"
+
+        val targetLatestFile = File(targetDir, renamedLatestJarName)
+
+        println("Copying ${outputFile.name} to ${targetLatestFile.absolutePath}")
+        outputFile.copyTo(targetLatestFile, overwrite = true)
     }
 }

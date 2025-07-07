@@ -195,4 +195,6 @@ lib/
 .kotlin
 */property 'buildDir'/
 */build/
-Target/
+Target/*
+!Target/RainBowCreation.jar
+!Target/RainBowCreation-proxies.jar
