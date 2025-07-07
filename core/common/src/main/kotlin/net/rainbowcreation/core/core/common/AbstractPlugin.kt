@@ -22,6 +22,13 @@ abstract class AbstractPlugin : JavaPlugin() {
         dataSource = MySqlDataSource(settings)
         dataSource.connect()
         logger.info("Common plugin components loaded successfully.")
+        dataSource.appendTestResult(
+            description.version + "-common",
+            isFolia = false,
+            isMultipaper = false,
+            commonStatus = true,
+            finalStatus = false,
+        )
     }
 
     fun unloadPlugin() {

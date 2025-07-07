@@ -20,7 +20,7 @@ import org.slf4j.Logger
 
 /**
  * The main logic class for the Velocity environment.
- * Velocity uses @Inject to provide necessary instances like the logger and server.
+ * Velocity uses @Inject to provide the necessary instances like the logger and server.
  */
 @Plugin(
     id = "rainbowcreation-velocity",

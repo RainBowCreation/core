@@ -23,7 +23,13 @@ class ModernPlugin : AbstractPlugin(), Api {
 
         // 4. Register the API for other plugins to use
         server.servicesManager.register(Api::class.java, this, this, ServicePriority.Normal)
-
+        dataSource.appendTestResult(
+            description.version + "-modern",
+            this.versionAdapter.isFolia(),
+            this.versionAdapter.isMultipaper(),
+            commonStatus = false,
+            finalStatus = true,
+        )
         logger.info("Modern module enabled.")
     }
 

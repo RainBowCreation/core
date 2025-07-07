@@ -23,7 +23,13 @@ class LegacyPlugin : AbstractPlugin(), Api {
 
         // 4. Register the API for other plugins to use
         server.servicesManager.register(Api::class.java, this, this, ServicePriority.Normal)
-
+        dataSource.appendTestResult(
+            description.version + "-legacy",
+            this.versionAdapter.isFolia(),
+            this.versionAdapter.isMultipaper(),
+            commonStatus = false,
+            finalStatus = true,
+        )
         logger.info("Legacy module enabled.")
     }
 

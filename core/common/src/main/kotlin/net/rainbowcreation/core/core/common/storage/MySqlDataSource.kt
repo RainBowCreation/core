@@ -3,6 +3,7 @@ package net.rainbowcreation.core.core.common.storage
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import net.rainbowcreation.core.core.common.config.Settings
+import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.sql.Connection
 import java.sql.SQLException
@@ -37,6 +38,42 @@ class MySqlDataSource(private val settings: Settings) : DataSource {
         initializeTables()
     }
 
+    override fun appendTestResult(
+        pluginversion: String,
+        isFolia: Boolean,
+        isMultipaper: Boolean,
+        commonStatus: Boolean,
+        finalStatus: Boolean,
+    ) {
+        // This query will insert a new row or update the existing one if the UUID already exists.
+        val sql =
+            """
+            INSERT INTO serverVersionCheck (
+                serverVersion,
+                isFolia,
+                isMultipaper,
+                pluginVersion,
+                common,
+                final
+            ) VALUES (?, ?, ?, ?, ?, ?);
+            """.trimIndent()
+        try {
+            getConnection().use { conn ->
+                conn.prepareStatement(sql).use { stmt ->
+                    stmt.setString(1, Bukkit.getBukkitVersion())
+                    stmt.setBoolean(2, isFolia)
+                    stmt.setBoolean(3, isMultipaper)
+                    stmt.setString(4, pluginversion)
+                    stmt.setBoolean(5, commonStatus)
+                    stmt.setBoolean(6, finalStatus)
+                    stmt.executeUpdate()
+                }
+            }
+        } catch (e: SQLException) {
+            e.printStackTrace()
+        }
+    }
+
     /**
      * Creates the necessary database tables if they do not already exist.
      */
@@ -45,7 +82,7 @@ class MySqlDataSource(private val settings: Settings) : DataSource {
         // `uuid` is the primary key to uniquely identify players.
         // `name` stores the player's last known Minecraft name.
         // `balance` is an example column for storing player data.
-        val createTableSQL =
+        val createPlayersTableSQL =
             """
             CREATE TABLE IF NOT EXISTS players (
                 uuid VARCHAR(36) NOT NULL PRIMARY KEY,
@@ -57,7 +94,38 @@ class MySqlDataSource(private val settings: Settings) : DataSource {
         try {
             getConnection().use { connection ->
                 connection.createStatement().use { statement ->
-                    statement.execute(createTableSQL)
+                    statement.execute(createPlayersTableSQL)
+                }
+            }
+        } catch (e: SQLException) {
+            System.err.println("Database table initialization failed!")
+            e.printStackTrace()
+        }
+
+        // This SQL statement creates a 'serverVersionCheck' table if one doesn't exist.
+        // `id` is the primary key to numbers of test operations or run.
+        // `timestamp` stores the timestamp when operation or run occur
+        // `serverversion` stores plain text of the server version.
+        // `pluginversion` stores plain text of a plugin version
+        // `status` show that all test operations success or not
+        val createServerVersionCheckTableSQL =
+            """
+            CREATE TABLE IF NOT EXISTS serverVersionCheck (
+                 id INT AUTO_INCREMENT PRIMARY KEY,
+                 timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                 serverVersion VARCHAR(50) NOT NULL,
+                 isFolia BOOLEAN NOT NULL,
+                 isMultipaper BOOLEAN NOT NULL,
+                 pluginVersion VARCHAR(50) NOT NULL,
+                 common BOOLEAN NOT NULL,
+                 final BOOLEAN NOT NULL
+             ); 
+            """.trimIndent()
+
+        try {
+            getConnection().use { connection ->
+                connection.createStatement().use { statement ->
+                    statement.execute(createServerVersionCheckTableSQL)
                 }
             }
         } catch (e: SQLException) {

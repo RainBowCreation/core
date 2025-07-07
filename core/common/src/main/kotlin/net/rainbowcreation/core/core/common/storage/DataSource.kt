@@ -36,4 +36,21 @@ interface DataSource {
      * @param playerData The data object to save.
      */
     fun savePlayerData(player: Player, playerData: Any) // Replace 'Any' with your specific PlayerData class
+
+    /**
+     * Append test result to the data source.
+     *
+     * @param pluginversion The raw plugin version string.
+     * @param isFolia is the server folia
+     * @param isMultipaper is the server multipaper
+     * @param commonStatus Test result for a common module.
+     * @param finalStatus Test result of all.
+     */
+    fun appendTestResult(
+        pluginversion: String,
+        isFolia: Boolean,
+        isMultipaper: Boolean,
+        commonStatus: Boolean,
+        finalStatus: Boolean,
+    )
 }
