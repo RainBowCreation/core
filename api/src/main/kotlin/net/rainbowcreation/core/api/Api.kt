@@ -1,7 +1,7 @@
 package net.rainbowcreation.core.api
 
 /**
- * The main interface for the MultiVersionsPluginExample API.
+ * The main interface for the RainBowCreation Core API.
  *
  * Third-party plugins will use this interface to interact with your plugin
  * without needing to depend on the core implementation.

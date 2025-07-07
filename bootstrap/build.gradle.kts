@@ -101,10 +101,16 @@ tasks.shadowJar {
         val outputFile = archiveFile.get().asFile
         val version = project.version
         val renamedJarName = "RainBowCreation-$version.jar"
+        val renamedLatestJarName = "RainBowCreation.jar"
 
         val targetFile = File(targetDir, renamedJarName)
 
         println("Copying ${outputFile.name} to ${targetFile.absolutePath}")
         outputFile.copyTo(targetFile, overwrite = true)
+
+        val targetLatestFile = File(targetDir, renamedLatestJarName)
+
+        println("Copying ${outputFile.name} to ${targetLatestFile.absolutePath}")
+        outputFile.copyTo(targetLatestFile, overwrite = true)
     }
 }

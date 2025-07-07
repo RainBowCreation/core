@@ -34,6 +34,10 @@ additional projects from this network
 - java 21, 17, 8 installed
 ### build
 ```./gradlew shadowJar```
+### test requirements
+- gh act
+- docker
+```gh act -j test```
 
 ### server requirement
 - ``bukkit``/``spigot``/``paper``/``multipaper``/``folia`` version ``1.8+`` please use ``bootstrap``jar
