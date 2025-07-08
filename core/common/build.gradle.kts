@@ -4,6 +4,7 @@ plugins {
     // This is a standard library module, not a runnable plugin,
     // so it doesn't need the shadow plugin.
     `java-library`
+    id("org.jetbrains.kotlin.jvm")
 }
 
 // All code in this module will be compatible with Java 8.

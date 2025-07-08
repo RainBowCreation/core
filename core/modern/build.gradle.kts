@@ -1,7 +1,11 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import com.xpdustry.ksr.kotlinRelocate
 
 plugins {
     id("com.gradleup.shadow")
+    //id("com.github.johnrengelman.shadow")
+    id("com.xpdustry.kotlin-shadow-relocator")
+    id("org.jetbrains.kotlin.jvm")
 }
 
 // This module must be compiled with a Java 21 toolchain for the modern API.
@@ -42,11 +46,17 @@ tasks.processResources {
     }
 }
 
+tasks.jar {
+    enabled = false
+}
+
+
 // Configure the final JAR output.
 tasks.shadowJar {
-    relocate("com.github.puregero.multilib", "net.rainbowcreation.multiVersionPluginExample.multilib")
+    kotlinRelocate("com.github.puregero.multilib", "net.rainbowcreation.libs.multilib")
+    //archiveClassifier.set("")  // no classifier; overwrite default jar
     // Append "-modern" to the final JAR name for clarity.
-    archiveClassifier.set("modern")
+    archiveClassifier.set("compile")
     doLast {
         val targetDir = rootProject.layout.projectDirectory.dir("Target").asFile
         targetDir.mkdirs()
@@ -60,4 +70,13 @@ tasks.shadowJar {
         println("Copying ${outputFile.name} to ${targetFile.absolutePath}")
         outputFile.copyTo(targetFile, overwrite = true)
     }
+}
+
+// Create a shareable "bucket" for our shadow jar
+val shadowJarOutput by configurations.creating
+
+// Attach the output of the shadowJar task to this bucket
+artifacts {
+    // The correct syntax is: add("configurationName", task)
+    add("shadowJarOutput", tasks.shadowJar)
 }

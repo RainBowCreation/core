@@ -1,6 +1,13 @@
 import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.api.tasks.Copy
 
+plugins {
+    `java-library`
+    id("com.gradleup.shadow")
+    id("com.xpdustry.kotlin-shadow-relocator")
+    id("org.jetbrains.kotlin.jvm")
+}
+
 // Define a task to copy and rename legacy config.yml
 val copyLegacyConfig by tasks.registering(Copy::class) {
     from("../core/legacy/src/main/resources/config.yml") // path to legacy config
@@ -25,20 +32,25 @@ val copyPluginYmls by tasks.registering(Copy::class) {
     into("${layout.buildDirectory}/generated-resources/plugin-ymls")
 }
 
-plugins {
-    `java-library`
-    id("com.gradleup.shadow")
+val jarsToCopy by configurations.creating {
+    isCanBeResolved = true
 }
 
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(21))
     }
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.release.set(8)
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
     }
 }
 
@@ -49,11 +61,10 @@ repositories {
 
 dependencies {
     api(project(":api"))
-    implementation(project(":core:common"))
-    implementation(project(":core:legacy"))
-    implementation(project(":core:modern"))
-
     compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
+
+    jarsToCopy(project(path = ":core:legacy", configuration = "shadowJarOutput"))
+    jarsToCopy(project(path = ":core:modern", configuration = "shadowJarOutput"))
 }
 
 tasks.processResources {
@@ -72,43 +83,41 @@ tasks.processResources {
     from("${layout.buildDirectory}/generated-resources/plugin-ymls") {
         into("")
     }
+
+    from(jarsToCopy) {
+        include("*legacy*-compile.jar")
+        rename { "legacy.jar" }
+        into("net/rainbowcreation/core/modules/legacy")
+    }
+
+    from(jarsToCopy) {
+        include("*modern*-compile.jar")
+        rename { "modern.jar" }
+        into("net/rainbowcreation/core/modules/modern")
+    }
 }
 
 tasks.shadowJar {
+    // Avoid errors if duplicates occur
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    archiveClassifier.set("") // no "-all" suffix, it's the main jar
 
-    relocate("io.github.invvk.actionbar.api", "net.rainbowcreation.libs.actionbarapi")
-    relocate("com.github.puregero.multilib", "net.rainbowcreation.libs.multilib")
+    // Configure output jar name
+    archiveBaseName.set("RainBowCreation-bootstrap")
+    archiveVersion.set(project.version.toString())
+    archiveClassifier.set("") // no classifier or set if you want
 
-    // ✅ include plugin.yml manually just to be safe
-    from("src/main/resources") {
-        include("plugin.yml")
-    }
-
-    from("${layout.buildDirectory}/generated-resources/configs") {
-        include("legacy-config.yml", "modern-config.yml")
-    }
-
-    from("${layout.buildDirectory}/generated-resources/plugin-ymls") {
-        include("plugin-modern.yml", "plugin-legacy.yml")
-    }
-
+    // After building, copy jar to Target folder with nice name
     doLast {
         val targetDir = rootProject.layout.projectDirectory.dir("Target").asFile
         targetDir.mkdirs()
 
         val outputFile = archiveFile.get().asFile
-        val version = project.version
-        val renamedJarName = "RainBowCreation-$version.jar"
-        val renamedLatestJarName = "RainBowCreation.jar"
-
-        val targetFile = File(targetDir, renamedJarName)
+        val targetFile = File(targetDir, "RainBowCreation-${project.version}-bootstrap.jar")
 
         println("Copying ${outputFile.name} to ${targetFile.absolutePath}")
         outputFile.copyTo(targetFile, overwrite = true)
 
-        val targetLatestFile = File(targetDir, renamedLatestJarName)
+        val targetLatestFile = File(targetDir, "RainBowCreation.jar")
 
         println("Copying ${outputFile.name} to ${targetLatestFile.absolutePath}")
         outputFile.copyTo(targetLatestFile, overwrite = true)

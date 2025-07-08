@@ -1,37 +1,123 @@
+
+name: MC Test Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_config:
+        description: 'Test configuration input'
+        required: true
+        default: 'test paper 1.19 1.19.4'
+
 jobs:
-  test:
+  prepare-matrix:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      max_java: ${{ steps.set-matrix.outputs.max_java }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '21'
-      - uses: gmitch215/TestMC@v2
-        with:
-          # Runs Latest Version
-          path: '../../Target/RainBowCreation.jar'
-          runtime: 'paper'
-          time: 120
-          commands: |
-            rbc
-  test-all:
+      - id: set-matrix
+        run: |
+          input="${{ github.event.inputs.test_config }}"
+          echo "Input: $input"
+          # Parse input: e.g. "test paper 1.19 1.19.4"
+          read -r _ raw_runtimes major version <<< "$input"
+
+          if [[ "$raw_runtimes" == "all" ]]; then
+            runtimes=("craftbukkit" "spigot" "paper" "bukkit")
+          elif [[ "$raw_runtimes" =~ ^\[.*\]$ ]]; then
+            raw="${raw_runtimes:1:-1}"
+            IFS=',' read -ra runtimes <<< "$raw"
+          else
+            runtimes=("$raw_runtimes")
+          fi
+
+          all_versions=(
+            "1.8.8" 
+            "1.9.4"
+            "1.11.2"
+            "1.12" "1.12.1" "1.12.2"
+            "1.13" "1.13.1" "1.13.2"
+            "1.14" "1.14.1" "1.14.2" "1.14.3" "1.14.4"
+            "1.15" "1.15.1" "1.15.2"
+            "1.16.1" "1.16.2" "1.16.3" "1.16.4" "1.16.5"
+            "1.18.1" "1.18.2"
+            "1.19" "1.19.1" "1.19.2" "1.19.3" "1.19.4"
+            "1.20.1" "1.20.2" "1.20.4" "1.20.6"
+            "1.21.1" "1.21.3" "1.21.4"
+          )
+
+          filtered_versions=()
+          for v in "${all_versions[@]}"; do
+            if [[ "$major" == "all" || "$v" == "$major" || "$v" == $major.* ]]; then
+              if [[ "$version" == "all" || "$v" == "$version" ]]; then
+                filtered_versions+=("$v")
+              fi
+            fi
+          done
+
+          if [[ ${#filtered_versions[@]} -eq 0 ]]; then
+            echo "No matching versions found"
+            exit 1
+          fi
+
+          max_java=8
+          matrix_json="{\"include\":["
+          first=true
+
+          for rt in "${runtimes[@]}"; do
+            for ver in "${filtered_versions[@]}"; do
+              if [[ "$ver" == 1.21.* || "$ver" == "1.20.6" ]]; then
+                java_version=21
+              elif [[ "$ver" == 1.20.* || "$ver" == 1.19.* || "$ver" == 1.18.* ]]; then
+                java_version=17
+              else
+                java_version=8
+              fi
+
+              if (( java_version > max_java )); then
+                max_java=$java_version
+              fi
+
+              if [ "$first" = true ]; then
+                first=false
+              else
+                matrix_json+=","
+              fi
+
+              matrix_json+="{\"runtime\":\"$rt\",\"version\":\"$ver\"}"
+            done
+          done
+          matrix_json+="]}"
+
+          echo "Matrix JSON: $matrix_json"
+          echo "Max Java version: $max_java"
+
+          echo "::set-output name=matrix::$matrix_json"
+          echo "::set-output name=max_java::$max_java"
+
+  test-runner:
+    needs: prepare-matrix
     runs-on: ubuntu-latest
+    container: node:18-bullseye-slim
     strategy:
-      matrix:
-        runtime: ['craftbukkit', 'spigot', 'paper']
-        version: ['1.20.1', '1.20.2', '1.20.4', '1.20.6']
+      matrix: ${{ fromJson(needs.prepare-matrix.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
-      - uses: gmitch215/TestMC@v2
+          distribution: temurin
+          java-version: ${{ needs.prepare-matrix.outputs.max_java }}
+
+      - name: Run TestMC Action
+        uses: gmitch215/TestMC@v2
         with:
-          path: '../../Target/RainBowCreation.jar'
+          path: 'Target/RainBowCreation.jar'
           runtime: ${{ matrix.runtime }}
           version: ${{ matrix.version }}
           time: 120
           commands: |
+            plugins
             rbc

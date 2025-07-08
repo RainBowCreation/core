@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("com.gradleup.shadow")
+    //id("com.github.johnrengelman.shadow")
 }
 
 // Set the toolchain to Java 17, as required by the Velocity API.

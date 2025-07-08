@@ -2,36 +2,30 @@ package net.rainbowcreation.core.bootstrap
 
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileNotFoundException
-import java.io.FileOutputStream
-import java.util.jar.JarEntry
-import java.util.jar.JarInputStream
-import java.util.jar.JarOutputStream
+import java.io.*
+import java.util.jar.*
 
 class BootstrapPlugin : JavaPlugin() {
+
     override fun onLoad() {
         try {
             val version = detectVersion()
             logger.info("Detected version: $version")
 
-            val pluginYmlName =
-                when (version) {
-                    "modern" -> "plugin-modern.yml"
-                    "legacy" -> "plugin-legacy.yml"
-                    else -> throw IllegalStateException("Unknown version type: $version")
-                }
+            val pluginYmlName = when (version) {
+                "modern" -> "plugin-modern.yml"
+                "legacy" -> "plugin-legacy.yml"
+                else -> throw IllegalStateException("Unknown version: $version")
+            }
 
-            val newJar = patchPluginYml(pluginYmlName)
-            loadRealPlugin(newJar)
+            val patchedPlugin = extractEmbeddedPlugin(version, pluginYmlName)
+            loadRealPlugin(patchedPlugin)
 
-            // disable the bootstrap plugin after the main plugin loaded
             logger.info("Disabling bootstrap plugin.")
             Bukkit.getPluginManager().disablePlugin(this)
-        } catch (ex: Exception) {
-            logger.severe("Failed to bootstrap plugin: ${ex.message}")
-            ex.printStackTrace()
+        } catch (e: Exception) {
+            logger.severe("Failed to bootstrap plugin: ${e.message}")
+            e.printStackTrace()
         }
     }
 
@@ -39,59 +33,78 @@ class BootstrapPlugin : JavaPlugin() {
         val version = Bukkit.getBukkitVersion()
         logger.info("Checking Bukkit version: $version")
 
-        val numericVersion = version.substringBefore('-')
-        val parts = numericVersion.split('.')
+        val numeric = version.substringBefore('-')
+        val parts = numeric.split('.')
+        val minor = parts.getOrNull(1)?.toIntOrNull() ?: return "legacy"
 
-        if (parts.size >= 2) {
-            val minor = parts[1].toIntOrNull() ?: return "legacy"
-            logger.info("Detected Bukkit minor version: $minor")
-            return if (minor >= 17) "modern" else "legacy"
-        }
-
-        return "legacy"
+        logger.info("Detected Bukkit minor version: $minor")
+        return if (minor >= 17) "modern" else "legacy"
     }
 
-    private fun patchPluginYml(pluginYmlName: String): File {
+    private fun extractEmbeddedPlugin(version: String, pluginYmlName: String): File {
         val sourceJar = File(javaClass.protectionDomain.codeSource.location.toURI())
-        val sharedFolder: File = File(dataFolder.getParentFile(), description.name.replace("-bootstrap", ""))
-        val tempJar = File(sharedFolder, "patched-plugin.jar")
+        val outputDir = sourceJar.parentFile
+        val outputJar = File(outputDir, "patched-plugin.jar")
 
-        if (!sharedFolder.exists()) sharedFolder.mkdirs()
+        logger.info("Extracting embedded $version plugin to $outputJar")
 
-        JarInputStream(FileInputStream(sourceJar)).use { jis ->
-            JarOutputStream(FileOutputStream(tempJar)).use { jos ->
-                val buffer = ByteArray(4096)
+        JarInputStream(FileInputStream(sourceJar)).use { inputJar ->
+            var embeddedJarEntry: JarEntry? = null
+            val embeddedPrefix = "net/rainbowcreation/core/modules/$version/"
 
-                var entry = jis.nextJarEntry
-                while (entry != null) {
-                    if (entry.name == "plugin.yml") {
-                        entry = jis.nextJarEntry
-                        continue
+            var entry: JarEntry? = inputJar.nextJarEntry
+            while (entry != null) {
+                if (entry.name.startsWith(embeddedPrefix) && entry.name.endsWith(".jar")) {
+                    embeddedJarEntry = JarEntry(entry.name)
+                    break
+                }
+                entry = inputJar.nextJarEntry
+            }
+
+            if (embeddedJarEntry == null) {
+                throw FileNotFoundException("Could not find embedded jar under $embeddedPrefix")
+            }
+
+            // Extract the embedded jar into memory
+            val embeddedJarBytes = ByteArrayOutputStream()
+            inputJar.copyTo(embeddedJarBytes)
+
+            // Inject plugin.yml into the embedded jar
+            val finalJarBytes = ByteArrayOutputStream()
+            JarInputStream(ByteArrayInputStream(embeddedJarBytes.toByteArray())).use { embeddedInput ->
+                JarOutputStream(finalJarBytes).use { output ->
+                    val buffer = ByteArray(4096)
+                    var subEntry = embeddedInput.nextJarEntry
+                    while (subEntry != null) {
+                        if (subEntry.name != "plugin.yml") {
+                            output.putNextEntry(JarEntry(subEntry.name))
+                            embeddedInput.copyTo(output, buffer.size)
+                            output.closeEntry()
+                        }
+                        subEntry = embeddedInput.nextJarEntry
                     }
 
-                    jos.putNextEntry(JarEntry(entry.name))
-                    jis.copyTo(jos, buffer.size)
-                    jos.closeEntry()
-                    entry = jis.nextJarEntry
+                    // Inject correct plugin.yml
+                    output.putNextEntry(JarEntry("plugin.yml"))
+                    getResource(pluginYmlName)?.copyTo(output) ?: throw FileNotFoundException("Could not find $pluginYmlName")
+                    output.closeEntry()
                 }
+            }
 
-                jos.putNextEntry(JarEntry("plugin.yml"))
-                val pluginYmlStream =
-                    getResource(pluginYmlName)
-                        ?: throw FileNotFoundException("Could not find resource: $pluginYmlName")
-                pluginYmlStream.copyTo(jos, buffer.size)
-                jos.closeEntry()
+            // Write the patched jar to file
+            FileOutputStream(outputJar).use { fileOut ->
+                fileOut.write(finalJarBytes.toByteArray())
             }
         }
 
-        return tempJar
+        return outputJar
     }
 
     private fun loadRealPlugin(jar: File) {
         val pluginManager = Bukkit.getPluginManager()
         val loadPluginMethod = pluginManager.javaClass.getMethod("loadPlugin", File::class.java)
 
-        val plugin = loadPluginMethod.invoke(pluginManager, jar) as JavaPlugin
-        pluginManager.enablePlugin(plugin)
+        val realPlugin = loadPluginMethod.invoke(pluginManager, jar) as JavaPlugin
+        pluginManager.enablePlugin(realPlugin)
     }
 }

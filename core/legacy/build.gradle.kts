@@ -1,7 +1,11 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import com.xpdustry.ksr.kotlinRelocate
 
 plugins {
     id("com.gradleup.shadow")
+    //id("com.github.johnrengelman.shadow")
+    id("com.xpdustry.kotlin-shadow-relocator")
+    id("org.jetbrains.kotlin.jvm")
 }
 
 // This module must be compiled with a Java 8 toolchain.
@@ -42,18 +46,16 @@ tasks.processResources {
     }
 }
 
+tasks.jar {
+    enabled = false
+}
+
+
 // Package the actionbar library into our plugin JAR and relocate it to prevent conflicts.
 tasks.shadowJar {
-    relocate("io.github.invvk.actionbar.api", "net.rainbowcreation.multiVersionsPluginExample.libs.actionbarapi")
-    /*
-    relocations {
-        relocation {
-            pattern.set("io.github.invvk.actionbar.api")
-            relocatedPattern.set("net.rainbowcreation.multiVersionsPluginExample.libs.actionbarapi")
-        }
-    }
-     */
-    archiveClassifier.set("legacy") // Append "-legacy" to the final JAR name.
+    kotlinRelocate("io.github.invvk.actionbar.api", "net.rainbowcreation.core.libs.actionbarapi")
+    //archiveClassifier.set("")  // no classifier; overwrite default jar
+    archiveClassifier.set("compile") // Append "-legacy" to the final JAR name.
     doLast {
         val targetDir = rootProject.layout.projectDirectory.dir("Target").asFile
         targetDir.mkdirs()
@@ -67,4 +69,12 @@ tasks.shadowJar {
         println("Copying ${outputFile.name} to ${targetFile.absolutePath}")
         outputFile.copyTo(targetFile, overwrite = true)
     }
+}
+
+// Create a shareable "bucket" for our shadow jar
+val shadowJarOutput by configurations.creating
+
+artifacts {
+    // The correct syntax is: add("configurationName", task)
+    add("shadowJarOutput", tasks.shadowJar)
 }
