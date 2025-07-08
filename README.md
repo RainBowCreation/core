@@ -37,7 +37,7 @@ additional projects from this network
 ### test requirements
 - gh act
 - docker
-```gh act -j test```
+```gh act --input test_config="test paper 1.21 1.21.1"```
 
 ### server requirement
 - ``bukkit``/``spigot``/``paper``/``multipaper``/``folia`` version ``1.8+`` please use ``bootstrap``jar
