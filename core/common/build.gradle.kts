@@ -31,7 +31,8 @@ dependencies {
     compileOnly("net.kyori:adventure-api:4.17.0")
 
     // Add the HikariCP dependency for our data source.
-    implementation("com.zaxxer:HikariCP:5.1.0")
+    implementation("com.zaxxer:HikariCP:3.4.5")
+    implementation("mysql:mysql-connector-java:8.0.33")
 }
 
 // Ensure the Kotlin compiler also targets Java 8 bytecode.

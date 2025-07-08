@@ -36,6 +36,14 @@ class BootstrapPlugin : JavaPlugin() {
         val numeric = version.substringBefore('-')
         val parts = numeric.split('.')
         val minor = parts.getOrNull(1)?.toIntOrNull() ?: return "legacy"
+        /*
+        if [[ "$ver" == 1.21.* || "$ver" == "1.20.6" ]]; then
+        java_version=21
+        elif [[ "$ver" == 1.20.* || "$ver" == 1.19.* || "$ver" == 1.18.* ]]; then
+        java_version=17
+        else
+        java_version=8
+         */
 
         logger.info("Detected Bukkit minor version: $minor")
         return if (minor >= 17) "modern" else "legacy"

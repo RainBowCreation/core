@@ -22,16 +22,20 @@ class MySqlDataSource(private val settings: Settings) : DataSource {
      * Establishes a connection pool and ensures the database schema is initialized.
      */
     override fun connect() {
-        val config =
-            HikariConfig().apply {
-                jdbcUrl = "jdbc:mysql://${settings.dbHost}:${settings.dbPort}/${settings.dbName}?useSSL=false"
-                username = settings.dbUser
-                password = settings.dbPass
-                addDataSourceProperty("cachePrepStmts", "true")
-                addDataSourceProperty("prepStmtCacheSize", "250")
-                addDataSourceProperty("prepStmtCacheSqlLimit", "2048")
-                maximumPoolSize = 10
-            }
+        val config = HikariConfig().apply {
+            driverClassName = "com.mysql.cj.jdbc.Driver"
+            jdbcUrl = "jdbc:mysql://${settings.dbHost}:${settings.dbPort}/${settings.dbName}?" +
+                    "useSSL=false&characterEncoding=utf8&serverTimezone=UTC"
+
+            username = settings.dbUser
+            password = settings.dbPass
+
+            addDataSourceProperty("cachePrepStmts", "true")
+            addDataSourceProperty("prepStmtCacheSize", "250")
+            addDataSourceProperty("prepStmtCacheSqlLimit", "2048")
+
+            maximumPoolSize = 10
+        }
         hikari = HikariDataSource(config)
 
         // Initialize the database schema
